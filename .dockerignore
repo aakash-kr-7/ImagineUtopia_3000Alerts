@@ -1,0 +1,12 @@
+node_modules
+dist
+.git
+.venv
+runtime
+artifacts
+__pycache__
+.env
+
+test-results
+playwright-report
+.sites-runtime

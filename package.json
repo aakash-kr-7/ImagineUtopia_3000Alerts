@@ -1,0 +1,48 @@
+{
+  "name": "utopia-soc",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server/local.ts",
+    "build": "vite build && node scripts/build-worker.mjs",
+    "test": "tsx --test tests/*.test.ts",
+    "check": "tsc --noEmit",
+    "benchmark": "tsx scripts/benchmark.ts",
+    "cli": "tsx scripts/cli.ts",
+    "db:generate": "drizzle-kit generate",
+    "format": "prettier --write \"{app,core,server,scripts,tests,db}/**/*.{ts,tsx,mjs}\" \"*.ts\" \"app/*.css\"",
+    "format:check": "prettier --check \"{app,core,server,scripts,tests,db}/**/*.{ts,tsx,mjs}\" \"*.ts\" \"app/*.css\"",
+    "validate:simulation": "tsx scripts/validate-simulation.ts",
+    "benchmark:external": "tsx scripts/external-check.ts",
+    "benchmark:replay": "tsx scripts/replay-benchmark.ts",
+    "test:e2e": "playwright test",
+    "test:bundle": "tsx tests/bundle-check.ts"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.44.5",
+    "fflate": "^0.8.2",
+    "lucide-react": "^0.468.0",
+    "papaparse": "^5.5.3",
+    "pdfjs-dist": "^5.4.296",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "recharts": "^3.2.1",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250917.0",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^24.3.0",
+    "@types/papaparse": "^5.3.16",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.3",
+    "drizzle-kit": "^0.31.4",
+    "esbuild": "^0.25.9",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5"
+  }
+}

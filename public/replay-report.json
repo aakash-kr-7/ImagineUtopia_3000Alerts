@@ -1,0 +1,5453 @@
+{
+  "version": "2.0",
+  "provenance": {
+    "source_fingerprint_sha256": "6d095bf34c1c1b47a709f7ec37f6d2bc2ec027f3b8d6218451823bf85d2e694a",
+    "source_files": {
+      "core/brief.ts": "3262f7682077d6183b3a57ee042cc422735c70c1c0c7adac63d74b3a3c982228",
+      "core/comparison.ts": "d3d5d17f7298da75933b8da8047b4aba45ca5dc9588f7b89becbf7b71c43ecca",
+      "core/contracts.ts": "728a10317d9160efa8d1a2c92769992d96585d8be532dac7ecdadb54f0aa6d7b",
+      "core/engine.ts": "4a95f267f8d4edcb46912c4ff164c5f735807d6054444891d57fae9fe29af528",
+      "core/evaluation.ts": "257e7ebd9bceb63f30223ae71273257e39a59e439a6dc9bc8cc00445d70a5643",
+      "core/ingestion/assessment.ts": "f86e6f69dfabdab528ede6eb1266e04a391591fb5244ec3f6c3a9a1c02c9d4ad",
+      "core/ingestion/normalize.ts": "bc5101f99932dada27405260a77f3ca909c3e5222c1a1fd86623011a9148f4cb",
+      "core/ingestion/report-contract.ts": "31ae954161c4b045622b27ad34edfbf004e6e2355f69b97a34998ac7ac1cd79a",
+      "core/mapping.ts": "eb8d5c35b5e22d5d96945501a21fee2ccf26fd6517b6de9fa73f4c57ff4e5bb8",
+      "core/simulation/detectors.ts": "99423a73ea56cb0a167a0fc8a597e39af54cbf270cd4aebce1c690b4ebb7cfef",
+      "core/simulation/model.ts": "1bda0f7219a32193f3b8f31c77f378f21325c2f775f120f2c109eb08aa922526",
+      "core/simulation/scenarios.ts": "4021c78b4367106e53ae296c4e2dbdc8eebe92d99a8888d875ba7f09743e8a8d",
+      "core/simulation/validation.ts": "a5422bc1d41f356ce501248e86e8a222f7411e7992753412d00e58445793e671",
+      "core/simulator.ts": "5b6ff853ed19650cc50fbe495e1e73142888e161f9a0a5a8cbe4a90cf9b884cb"
+    },
+    "lockfile_sha256": "170b0ea70d9e9f7838f15dffd12be42feb19598da6dc7edb8a9e1a859f9af208",
+    "runtime": {
+      "node": "v24.19.0",
+      "platform": "linux",
+      "arch": "x64"
+    },
+    "generated_at": "2026-10-07T02:41:08.834Z"
+  },
+  "checkpoint_minutes": 30,
+  "budget": 25,
+  "samples": [
+    {
+      "seed": 901,
+      "input_sha256": "3687f3f23de4d9642c8f626507c7b42b7709d0fb83f0e258c1e41124d6c72d03",
+      "observable": 12,
+      "surfaced": 12,
+      "median_delay_minutes": 22.0016,
+      "episodes": [
+        {
+          "id": "ATTACK-001",
+          "first_observable": "2026-09-28T01:47:33.614Z",
+          "first_top25_visibility": "2026-09-28T02:00:08.022Z",
+          "delay_minutes": 12.573466666666667
+        },
+        {
+          "id": "ATTACK-002",
+          "first_observable": "2026-09-28T07:43:54.952Z",
+          "first_top25_visibility": "2026-09-28T08:00:08.022Z",
+          "delay_minutes": 16.217833333333335
+        },
+        {
+          "id": "ATTACK-003",
+          "first_observable": "2026-09-28T13:28:49.450Z",
+          "first_top25_visibility": "2026-09-28T14:00:08.022Z",
+          "delay_minutes": 31.309533333333334
+        },
+        {
+          "id": "ATTACK-004",
+          "first_observable": "2026-09-28T19:23:06.573Z",
+          "first_top25_visibility": "2026-09-28T20:00:08.022Z",
+          "delay_minutes": 37.02415
+        },
+        {
+          "id": "ATTACK-005",
+          "first_observable": "2026-09-29T01:12:04.105Z",
+          "first_top25_visibility": "2026-09-29T01:30:08.022Z",
+          "delay_minutes": 18.065283333333333
+        },
+        {
+          "id": "ATTACK-006",
+          "first_observable": "2026-09-29T07:04:06.637Z",
+          "first_top25_visibility": "2026-09-29T07:30:08.022Z",
+          "delay_minutes": 26.023083333333332
+        },
+        {
+          "id": "ATTACK-007",
+          "first_observable": "2026-09-29T13:02:07.194Z",
+          "first_top25_visibility": "2026-09-29T13:30:08.022Z",
+          "delay_minutes": 28.0138
+        },
+        {
+          "id": "ATTACK-008",
+          "first_observable": "2026-09-29T18:25:09.052Z",
+          "first_top25_visibility": "2026-09-29T19:00:08.022Z",
+          "delay_minutes": 34.98283333333333
+        },
+        {
+          "id": "ATTACK-009",
+          "first_observable": "2026-09-30T00:40:20.369Z",
+          "first_top25_visibility": "2026-09-30T01:00:08.022Z",
+          "delay_minutes": 19.794216666666667
+        },
+        {
+          "id": "ATTACK-010",
+          "first_observable": "2026-09-30T06:06:05.018Z",
+          "first_top25_visibility": "2026-09-30T06:30:08.022Z",
+          "delay_minutes": 24.050066666666666
+        },
+        {
+          "id": "ATTACK-011",
+          "first_observable": "2026-09-30T12:10:10.834Z",
+          "first_top25_visibility": "2026-09-30T12:30:08.022Z",
+          "delay_minutes": 19.953133333333334
+        },
+        {
+          "id": "ATTACK-012",
+          "first_observable": "2026-09-30T18:17:03.248Z",
+          "first_top25_visibility": "2026-09-30T18:30:08.022Z",
+          "delay_minutes": 13.079566666666667
+        }
+      ],
+      "checkpoints": [
+        {
+          "timestamp": "2026-09-28T00:30:08.022Z",
+          "alerts": 6,
+          "incidents": 1,
+          "surfaced_episodes": 0,
+          "runtime_ms": 1.07
+        },
+        {
+          "timestamp": "2026-09-28T01:00:08.022Z",
+          "alerts": 6,
+          "incidents": 1,
+          "surfaced_episodes": 0,
+          "runtime_ms": 0.35
+        },
+        {
+          "timestamp": "2026-09-28T01:30:08.022Z",
+          "alerts": 18,
+          "incidents": 4,
+          "surfaced_episodes": 0,
+          "runtime_ms": 0.69
+        },
+        {
+          "timestamp": "2026-09-28T02:00:08.022Z",
+          "alerts": 34,
+          "incidents": 6,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.57
+        },
+        {
+          "timestamp": "2026-09-28T02:30:08.022Z",
+          "alerts": 49,
+          "incidents": 8,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.59
+        },
+        {
+          "timestamp": "2026-09-28T03:00:08.022Z",
+          "alerts": 53,
+          "incidents": 9,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.65
+        },
+        {
+          "timestamp": "2026-09-28T03:30:08.022Z",
+          "alerts": 58,
+          "incidents": 10,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.66
+        },
+        {
+          "timestamp": "2026-09-28T04:00:08.022Z",
+          "alerts": 58,
+          "incidents": 10,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.72
+        },
+        {
+          "timestamp": "2026-09-28T04:30:08.022Z",
+          "alerts": 62,
+          "incidents": 11,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.76
+        },
+        {
+          "timestamp": "2026-09-28T05:00:08.022Z",
+          "alerts": 66,
+          "incidents": 12,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.81
+        },
+        {
+          "timestamp": "2026-09-28T05:30:08.022Z",
+          "alerts": 80,
+          "incidents": 15,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.91
+        },
+        {
+          "timestamp": "2026-09-28T06:00:08.022Z",
+          "alerts": 92,
+          "incidents": 18,
+          "surfaced_episodes": 1,
+          "runtime_ms": 2.25
+        },
+        {
+          "timestamp": "2026-09-28T06:30:08.022Z",
+          "alerts": 92,
+          "incidents": 18,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.97
+        },
+        {
+          "timestamp": "2026-09-28T07:00:08.022Z",
+          "alerts": 101,
+          "incidents": 20,
+          "surfaced_episodes": 1,
+          "runtime_ms": 1.01
+        },
+        {
+          "timestamp": "2026-09-28T07:30:08.022Z",
+          "alerts": 105,
+          "incidents": 21,
+          "surfaced_episodes": 1,
+          "runtime_ms": 1.3
+        },
+        {
+          "timestamp": "2026-09-28T08:00:08.022Z",
+          "alerts": 123,
+          "incidents": 23,
+          "surfaced_episodes": 2,
+          "runtime_ms": 4.04
+        },
+        {
+          "timestamp": "2026-09-28T08:30:08.022Z",
+          "alerts": 163,
+          "incidents": 30,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.86
+        },
+        {
+          "timestamp": "2026-09-28T09:00:08.022Z",
+          "alerts": 203,
+          "incidents": 39,
+          "surfaced_episodes": 2,
+          "runtime_ms": 2.7
+        },
+        {
+          "timestamp": "2026-09-28T09:30:08.022Z",
+          "alerts": 243,
+          "incidents": 47,
+          "surfaced_episodes": 2,
+          "runtime_ms": 2.64
+        },
+        {
+          "timestamp": "2026-09-28T10:00:08.022Z",
+          "alerts": 286,
+          "incidents": 58,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.73
+        },
+        {
+          "timestamp": "2026-09-28T10:30:08.022Z",
+          "alerts": 332,
+          "incidents": 68,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.24
+        },
+        {
+          "timestamp": "2026-09-28T11:00:08.022Z",
+          "alerts": 379,
+          "incidents": 77,
+          "surfaced_episodes": 2,
+          "runtime_ms": 4.19
+        },
+        {
+          "timestamp": "2026-09-28T11:30:08.022Z",
+          "alerts": 420,
+          "incidents": 86,
+          "surfaced_episodes": 2,
+          "runtime_ms": 4.17
+        },
+        {
+          "timestamp": "2026-09-28T12:00:08.022Z",
+          "alerts": 464,
+          "incidents": 94,
+          "surfaced_episodes": 2,
+          "runtime_ms": 5.28
+        },
+        {
+          "timestamp": "2026-09-28T12:30:08.022Z",
+          "alerts": 502,
+          "incidents": 101,
+          "surfaced_episodes": 2,
+          "runtime_ms": 6.02
+        },
+        {
+          "timestamp": "2026-09-28T13:00:08.022Z",
+          "alerts": 539,
+          "incidents": 110,
+          "surfaced_episodes": 2,
+          "runtime_ms": 7.12
+        },
+        {
+          "timestamp": "2026-09-28T13:30:08.022Z",
+          "alerts": 566,
+          "incidents": 116,
+          "surfaced_episodes": 2,
+          "runtime_ms": 6.83
+        },
+        {
+          "timestamp": "2026-09-28T14:00:08.022Z",
+          "alerts": 610,
+          "incidents": 124,
+          "surfaced_episodes": 3,
+          "runtime_ms": 8.03
+        },
+        {
+          "timestamp": "2026-09-28T14:30:08.022Z",
+          "alerts": 624,
+          "incidents": 128,
+          "surfaced_episodes": 3,
+          "runtime_ms": 8.65
+        },
+        {
+          "timestamp": "2026-09-28T15:00:08.022Z",
+          "alerts": 675,
+          "incidents": 139,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.63
+        },
+        {
+          "timestamp": "2026-09-28T15:30:08.022Z",
+          "alerts": 726,
+          "incidents": 147,
+          "surfaced_episodes": 3,
+          "runtime_ms": 7
+        },
+        {
+          "timestamp": "2026-09-28T16:00:08.022Z",
+          "alerts": 759,
+          "incidents": 154,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.18
+        },
+        {
+          "timestamp": "2026-09-28T16:30:08.022Z",
+          "alerts": 802,
+          "incidents": 163,
+          "surfaced_episodes": 3,
+          "runtime_ms": 7.3
+        },
+        {
+          "timestamp": "2026-09-28T17:00:08.022Z",
+          "alerts": 840,
+          "incidents": 173,
+          "surfaced_episodes": 3,
+          "runtime_ms": 7.45
+        },
+        {
+          "timestamp": "2026-09-28T17:30:08.022Z",
+          "alerts": 895,
+          "incidents": 183,
+          "surfaced_episodes": 3,
+          "runtime_ms": 10.88
+        },
+        {
+          "timestamp": "2026-09-28T18:00:08.022Z",
+          "alerts": 931,
+          "incidents": 191,
+          "surfaced_episodes": 3,
+          "runtime_ms": 9.33
+        },
+        {
+          "timestamp": "2026-09-28T18:30:08.022Z",
+          "alerts": 935,
+          "incidents": 192,
+          "surfaced_episodes": 3,
+          "runtime_ms": 8.43
+        },
+        {
+          "timestamp": "2026-09-28T19:00:08.022Z",
+          "alerts": 948,
+          "incidents": 195,
+          "surfaced_episodes": 3,
+          "runtime_ms": 9.36
+        },
+        {
+          "timestamp": "2026-09-28T19:30:08.022Z",
+          "alerts": 963,
+          "incidents": 198,
+          "surfaced_episodes": 3,
+          "runtime_ms": 9.24
+        },
+        {
+          "timestamp": "2026-09-28T20:00:08.022Z",
+          "alerts": 972,
+          "incidents": 200,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.48
+        },
+        {
+          "timestamp": "2026-09-28T20:30:08.022Z",
+          "alerts": 983,
+          "incidents": 202,
+          "surfaced_episodes": 4,
+          "runtime_ms": 9.4
+        },
+        {
+          "timestamp": "2026-09-28T21:00:08.022Z",
+          "alerts": 987,
+          "incidents": 203,
+          "surfaced_episodes": 4,
+          "runtime_ms": 9.75
+        },
+        {
+          "timestamp": "2026-09-28T21:30:08.022Z",
+          "alerts": 995,
+          "incidents": 205,
+          "surfaced_episodes": 4,
+          "runtime_ms": 9.8
+        },
+        {
+          "timestamp": "2026-09-28T22:00:08.022Z",
+          "alerts": 999,
+          "incidents": 206,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.64
+        },
+        {
+          "timestamp": "2026-09-28T22:30:08.022Z",
+          "alerts": 1003,
+          "incidents": 207,
+          "surfaced_episodes": 4,
+          "runtime_ms": 12.42
+        },
+        {
+          "timestamp": "2026-09-28T23:00:08.022Z",
+          "alerts": 1003,
+          "incidents": 207,
+          "surfaced_episodes": 4,
+          "runtime_ms": 11.28
+        },
+        {
+          "timestamp": "2026-09-28T23:30:08.022Z",
+          "alerts": 1003,
+          "incidents": 207,
+          "surfaced_episodes": 4,
+          "runtime_ms": 12.77
+        },
+        {
+          "timestamp": "2026-09-29T00:00:08.022Z",
+          "alerts": 1008,
+          "incidents": 208,
+          "surfaced_episodes": 4,
+          "runtime_ms": 11.51
+        },
+        {
+          "timestamp": "2026-09-29T00:30:08.022Z",
+          "alerts": 1008,
+          "incidents": 208,
+          "surfaced_episodes": 4,
+          "runtime_ms": 10.34
+        },
+        {
+          "timestamp": "2026-09-29T01:00:08.022Z",
+          "alerts": 1012,
+          "incidents": 209,
+          "surfaced_episodes": 4,
+          "runtime_ms": 11.96
+        },
+        {
+          "timestamp": "2026-09-29T01:30:08.022Z",
+          "alerts": 1038,
+          "incidents": 212,
+          "surfaced_episodes": 5,
+          "runtime_ms": 10.27
+        },
+        {
+          "timestamp": "2026-09-29T02:00:08.022Z",
+          "alerts": 1042,
+          "incidents": 213,
+          "surfaced_episodes": 5,
+          "runtime_ms": 9.17
+        },
+        {
+          "timestamp": "2026-09-29T02:30:08.022Z",
+          "alerts": 1042,
+          "incidents": 213,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.94
+        },
+        {
+          "timestamp": "2026-09-29T03:00:08.022Z",
+          "alerts": 1047,
+          "incidents": 214,
+          "surfaced_episodes": 5,
+          "runtime_ms": 10.13
+        },
+        {
+          "timestamp": "2026-09-29T03:30:08.022Z",
+          "alerts": 1059,
+          "incidents": 217,
+          "surfaced_episodes": 5,
+          "runtime_ms": 17.13
+        },
+        {
+          "timestamp": "2026-09-29T04:00:08.022Z",
+          "alerts": 1072,
+          "incidents": 220,
+          "surfaced_episodes": 5,
+          "runtime_ms": 14.29
+        },
+        {
+          "timestamp": "2026-09-29T04:30:08.022Z",
+          "alerts": 1090,
+          "incidents": 224,
+          "surfaced_episodes": 5,
+          "runtime_ms": 9.3
+        },
+        {
+          "timestamp": "2026-09-29T05:00:08.022Z",
+          "alerts": 1094,
+          "incidents": 225,
+          "surfaced_episodes": 5,
+          "runtime_ms": 9.02
+        },
+        {
+          "timestamp": "2026-09-29T05:30:08.022Z",
+          "alerts": 1094,
+          "incidents": 225,
+          "surfaced_episodes": 5,
+          "runtime_ms": 12.79
+        },
+        {
+          "timestamp": "2026-09-29T06:00:08.022Z",
+          "alerts": 1094,
+          "incidents": 225,
+          "surfaced_episodes": 5,
+          "runtime_ms": 10.71
+        },
+        {
+          "timestamp": "2026-09-29T06:30:08.022Z",
+          "alerts": 1098,
+          "incidents": 226,
+          "surfaced_episodes": 5,
+          "runtime_ms": 9.82
+        },
+        {
+          "timestamp": "2026-09-29T07:00:08.022Z",
+          "alerts": 1103,
+          "incidents": 227,
+          "surfaced_episodes": 5,
+          "runtime_ms": 17.01
+        },
+        {
+          "timestamp": "2026-09-29T07:30:08.022Z",
+          "alerts": 1138,
+          "incidents": 231,
+          "surfaced_episodes": 6,
+          "runtime_ms": 13.08
+        },
+        {
+          "timestamp": "2026-09-29T08:00:08.022Z",
+          "alerts": 1142,
+          "incidents": 232,
+          "surfaced_episodes": 6,
+          "runtime_ms": 13.05
+        },
+        {
+          "timestamp": "2026-09-29T08:30:08.022Z",
+          "alerts": 1165,
+          "incidents": 238,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.05
+        },
+        {
+          "timestamp": "2026-09-29T09:00:08.022Z",
+          "alerts": 1193,
+          "incidents": 244,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.24
+        },
+        {
+          "timestamp": "2026-09-29T09:30:08.022Z",
+          "alerts": 1249,
+          "incidents": 256,
+          "surfaced_episodes": 6,
+          "runtime_ms": 11.77
+        },
+        {
+          "timestamp": "2026-09-29T10:00:08.022Z",
+          "alerts": 1279,
+          "incidents": 263,
+          "surfaced_episodes": 6,
+          "runtime_ms": 11.3
+        },
+        {
+          "timestamp": "2026-09-29T10:30:08.022Z",
+          "alerts": 1349,
+          "incidents": 276,
+          "surfaced_episodes": 6,
+          "runtime_ms": 12.62
+        },
+        {
+          "timestamp": "2026-09-29T11:00:08.022Z",
+          "alerts": 1413,
+          "incidents": 291,
+          "surfaced_episodes": 6,
+          "runtime_ms": 12.32
+        },
+        {
+          "timestamp": "2026-09-29T11:30:08.022Z",
+          "alerts": 1450,
+          "incidents": 300,
+          "surfaced_episodes": 6,
+          "runtime_ms": 14.28
+        },
+        {
+          "timestamp": "2026-09-29T12:00:08.022Z",
+          "alerts": 1492,
+          "incidents": 309,
+          "surfaced_episodes": 6,
+          "runtime_ms": 12.41
+        },
+        {
+          "timestamp": "2026-09-29T12:30:08.022Z",
+          "alerts": 1528,
+          "incidents": 317,
+          "surfaced_episodes": 6,
+          "runtime_ms": 14.5
+        },
+        {
+          "timestamp": "2026-09-29T13:00:08.022Z",
+          "alerts": 1560,
+          "incidents": 326,
+          "surfaced_episodes": 6,
+          "runtime_ms": 12.95
+        },
+        {
+          "timestamp": "2026-09-29T13:30:08.022Z",
+          "alerts": 1607,
+          "incidents": 334,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.75
+        },
+        {
+          "timestamp": "2026-09-29T14:00:08.022Z",
+          "alerts": 1640,
+          "incidents": 344,
+          "surfaced_episodes": 7,
+          "runtime_ms": 29.3
+        },
+        {
+          "timestamp": "2026-09-29T14:30:08.022Z",
+          "alerts": 1665,
+          "incidents": 348,
+          "surfaced_episodes": 7,
+          "runtime_ms": 30.09
+        },
+        {
+          "timestamp": "2026-09-29T15:00:08.022Z",
+          "alerts": 1698,
+          "incidents": 355,
+          "surfaced_episodes": 7,
+          "runtime_ms": 23.8
+        },
+        {
+          "timestamp": "2026-09-29T15:30:08.022Z",
+          "alerts": 1733,
+          "incidents": 363,
+          "surfaced_episodes": 7,
+          "runtime_ms": 18.38
+        },
+        {
+          "timestamp": "2026-09-29T16:00:08.022Z",
+          "alerts": 1792,
+          "incidents": 376,
+          "surfaced_episodes": 7,
+          "runtime_ms": 21.28
+        },
+        {
+          "timestamp": "2026-09-29T16:30:08.022Z",
+          "alerts": 1822,
+          "incidents": 383,
+          "surfaced_episodes": 7,
+          "runtime_ms": 18.46
+        },
+        {
+          "timestamp": "2026-09-29T17:00:08.022Z",
+          "alerts": 1864,
+          "incidents": 393,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.66
+        },
+        {
+          "timestamp": "2026-09-29T17:30:08.022Z",
+          "alerts": 1894,
+          "incidents": 399,
+          "surfaced_episodes": 7,
+          "runtime_ms": 24.44
+        },
+        {
+          "timestamp": "2026-09-29T18:00:08.022Z",
+          "alerts": 1930,
+          "incidents": 407,
+          "surfaced_episodes": 7,
+          "runtime_ms": 22.1
+        },
+        {
+          "timestamp": "2026-09-29T18:30:08.022Z",
+          "alerts": 1941,
+          "incidents": 409,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.7
+        },
+        {
+          "timestamp": "2026-09-29T19:00:08.022Z",
+          "alerts": 1948,
+          "incidents": 410,
+          "surfaced_episodes": 8,
+          "runtime_ms": 19.38
+        },
+        {
+          "timestamp": "2026-09-29T19:30:08.022Z",
+          "alerts": 1952,
+          "incidents": 411,
+          "surfaced_episodes": 8,
+          "runtime_ms": 18.49
+        },
+        {
+          "timestamp": "2026-09-29T20:00:08.022Z",
+          "alerts": 1955,
+          "incidents": 412,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.79
+        },
+        {
+          "timestamp": "2026-09-29T20:30:08.022Z",
+          "alerts": 1957,
+          "incidents": 412,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.7
+        },
+        {
+          "timestamp": "2026-09-29T21:00:08.022Z",
+          "alerts": 1965,
+          "incidents": 414,
+          "surfaced_episodes": 8,
+          "runtime_ms": 19.66
+        },
+        {
+          "timestamp": "2026-09-29T21:30:08.022Z",
+          "alerts": 1970,
+          "incidents": 415,
+          "surfaced_episodes": 8,
+          "runtime_ms": 18.47
+        },
+        {
+          "timestamp": "2026-09-29T22:00:08.022Z",
+          "alerts": 1970,
+          "incidents": 415,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.75
+        },
+        {
+          "timestamp": "2026-09-29T22:30:08.022Z",
+          "alerts": 1970,
+          "incidents": 415,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.97
+        },
+        {
+          "timestamp": "2026-09-29T23:00:08.022Z",
+          "alerts": 1970,
+          "incidents": 415,
+          "surfaced_episodes": 8,
+          "runtime_ms": 21.93
+        },
+        {
+          "timestamp": "2026-09-29T23:30:08.022Z",
+          "alerts": 1982,
+          "incidents": 418,
+          "surfaced_episodes": 8,
+          "runtime_ms": 17.96
+        },
+        {
+          "timestamp": "2026-09-30T00:00:08.022Z",
+          "alerts": 1990,
+          "incidents": 420,
+          "surfaced_episodes": 8,
+          "runtime_ms": 17.84
+        },
+        {
+          "timestamp": "2026-09-30T00:30:08.022Z",
+          "alerts": 1990,
+          "incidents": 420,
+          "surfaced_episodes": 8,
+          "runtime_ms": 29.83
+        },
+        {
+          "timestamp": "2026-09-30T01:00:08.022Z",
+          "alerts": 2010,
+          "incidents": 422,
+          "surfaced_episodes": 9,
+          "runtime_ms": 26.58
+        },
+        {
+          "timestamp": "2026-09-30T01:30:08.022Z",
+          "alerts": 2010,
+          "incidents": 422,
+          "surfaced_episodes": 9,
+          "runtime_ms": 15.51
+        },
+        {
+          "timestamp": "2026-09-30T02:00:08.022Z",
+          "alerts": 2010,
+          "incidents": 422,
+          "surfaced_episodes": 9,
+          "runtime_ms": 17.73
+        },
+        {
+          "timestamp": "2026-09-30T02:30:08.022Z",
+          "alerts": 2014,
+          "incidents": 423,
+          "surfaced_episodes": 9,
+          "runtime_ms": 15.43
+        },
+        {
+          "timestamp": "2026-09-30T03:00:08.022Z",
+          "alerts": 2018,
+          "incidents": 424,
+          "surfaced_episodes": 9,
+          "runtime_ms": 15.39
+        },
+        {
+          "timestamp": "2026-09-30T03:30:08.022Z",
+          "alerts": 2018,
+          "incidents": 424,
+          "surfaced_episodes": 9,
+          "runtime_ms": 25.16
+        },
+        {
+          "timestamp": "2026-09-30T04:00:08.022Z",
+          "alerts": 2022,
+          "incidents": 425,
+          "surfaced_episodes": 9,
+          "runtime_ms": 15.38
+        },
+        {
+          "timestamp": "2026-09-30T04:30:08.022Z",
+          "alerts": 2022,
+          "incidents": 425,
+          "surfaced_episodes": 9,
+          "runtime_ms": 16.22
+        },
+        {
+          "timestamp": "2026-09-30T05:00:08.022Z",
+          "alerts": 2022,
+          "incidents": 425,
+          "surfaced_episodes": 9,
+          "runtime_ms": 21.08
+        },
+        {
+          "timestamp": "2026-09-30T05:30:08.022Z",
+          "alerts": 2033,
+          "incidents": 427,
+          "surfaced_episodes": 9,
+          "runtime_ms": 17.1
+        },
+        {
+          "timestamp": "2026-09-30T06:00:08.022Z",
+          "alerts": 2038,
+          "incidents": 429,
+          "surfaced_episodes": 9,
+          "runtime_ms": 16.84
+        },
+        {
+          "timestamp": "2026-09-30T06:30:08.022Z",
+          "alerts": 2077,
+          "incidents": 433,
+          "surfaced_episodes": 10,
+          "runtime_ms": 19.45
+        },
+        {
+          "timestamp": "2026-09-30T07:00:08.022Z",
+          "alerts": 2081,
+          "incidents": 434,
+          "surfaced_episodes": 10,
+          "runtime_ms": 17.17
+        },
+        {
+          "timestamp": "2026-09-30T07:30:08.022Z",
+          "alerts": 2081,
+          "incidents": 434,
+          "surfaced_episodes": 10,
+          "runtime_ms": 19.02
+        },
+        {
+          "timestamp": "2026-09-30T08:00:08.022Z",
+          "alerts": 2085,
+          "incidents": 435,
+          "surfaced_episodes": 10,
+          "runtime_ms": 19.06
+        },
+        {
+          "timestamp": "2026-09-30T08:30:08.022Z",
+          "alerts": 2093,
+          "incidents": 437,
+          "surfaced_episodes": 10,
+          "runtime_ms": 17.23
+        },
+        {
+          "timestamp": "2026-09-30T09:00:08.022Z",
+          "alerts": 2124,
+          "incidents": 444,
+          "surfaced_episodes": 10,
+          "runtime_ms": 17.2
+        },
+        {
+          "timestamp": "2026-09-30T09:30:08.022Z",
+          "alerts": 2171,
+          "incidents": 455,
+          "surfaced_episodes": 10,
+          "runtime_ms": 20.53
+        },
+        {
+          "timestamp": "2026-09-30T10:00:08.022Z",
+          "alerts": 2216,
+          "incidents": 465,
+          "surfaced_episodes": 10,
+          "runtime_ms": 18.65
+        },
+        {
+          "timestamp": "2026-09-30T10:30:08.022Z",
+          "alerts": 2250,
+          "incidents": 474,
+          "surfaced_episodes": 10,
+          "runtime_ms": 18.35
+        },
+        {
+          "timestamp": "2026-09-30T11:00:08.022Z",
+          "alerts": 2308,
+          "incidents": 487,
+          "surfaced_episodes": 10,
+          "runtime_ms": 21.6
+        },
+        {
+          "timestamp": "2026-09-30T11:30:08.022Z",
+          "alerts": 2344,
+          "incidents": 494,
+          "surfaced_episodes": 10,
+          "runtime_ms": 19.32
+        },
+        {
+          "timestamp": "2026-09-30T12:00:08.022Z",
+          "alerts": 2402,
+          "incidents": 506,
+          "surfaced_episodes": 10,
+          "runtime_ms": 19.59
+        },
+        {
+          "timestamp": "2026-09-30T12:30:08.022Z",
+          "alerts": 2463,
+          "incidents": 517,
+          "surfaced_episodes": 11,
+          "runtime_ms": 23.36
+        },
+        {
+          "timestamp": "2026-09-30T13:00:08.022Z",
+          "alerts": 2496,
+          "incidents": 523,
+          "surfaced_episodes": 11,
+          "runtime_ms": 20.56
+        },
+        {
+          "timestamp": "2026-09-30T13:30:08.022Z",
+          "alerts": 2540,
+          "incidents": 533,
+          "surfaced_episodes": 11,
+          "runtime_ms": 26.64
+        },
+        {
+          "timestamp": "2026-09-30T14:00:08.022Z",
+          "alerts": 2580,
+          "incidents": 541,
+          "surfaced_episodes": 11,
+          "runtime_ms": 21.16
+        },
+        {
+          "timestamp": "2026-09-30T14:30:08.022Z",
+          "alerts": 2651,
+          "incidents": 558,
+          "surfaced_episodes": 11,
+          "runtime_ms": 26.06
+        },
+        {
+          "timestamp": "2026-09-30T15:00:08.022Z",
+          "alerts": 2681,
+          "incidents": 565,
+          "surfaced_episodes": 11,
+          "runtime_ms": 25.82
+        },
+        {
+          "timestamp": "2026-09-30T15:30:08.022Z",
+          "alerts": 2709,
+          "incidents": 571,
+          "surfaced_episodes": 11,
+          "runtime_ms": 21.92
+        },
+        {
+          "timestamp": "2026-09-30T16:00:08.022Z",
+          "alerts": 2730,
+          "incidents": 575,
+          "surfaced_episodes": 11,
+          "runtime_ms": 26.15
+        },
+        {
+          "timestamp": "2026-09-30T16:30:08.022Z",
+          "alerts": 2776,
+          "incidents": 585,
+          "surfaced_episodes": 11,
+          "runtime_ms": 23.16
+        },
+        {
+          "timestamp": "2026-09-30T17:00:08.022Z",
+          "alerts": 2806,
+          "incidents": 592,
+          "surfaced_episodes": 11,
+          "runtime_ms": 26.3
+        },
+        {
+          "timestamp": "2026-09-30T17:30:08.022Z",
+          "alerts": 2861,
+          "incidents": 603,
+          "surfaced_episodes": 11,
+          "runtime_ms": 39.06
+        },
+        {
+          "timestamp": "2026-09-30T18:00:08.022Z",
+          "alerts": 2916,
+          "incidents": 616,
+          "surfaced_episodes": 11,
+          "runtime_ms": 27.32
+        },
+        {
+          "timestamp": "2026-09-30T18:30:08.022Z",
+          "alerts": 2934,
+          "incidents": 619,
+          "surfaced_episodes": 12,
+          "runtime_ms": 25.14
+        },
+        {
+          "timestamp": "2026-09-30T19:00:08.022Z",
+          "alerts": 2941,
+          "incidents": 620,
+          "surfaced_episodes": 12,
+          "runtime_ms": 27.35
+        },
+        {
+          "timestamp": "2026-09-30T19:30:08.022Z",
+          "alerts": 2945,
+          "incidents": 621,
+          "surfaced_episodes": 12,
+          "runtime_ms": 26.13
+        },
+        {
+          "timestamp": "2026-09-30T20:00:08.022Z",
+          "alerts": 2949,
+          "incidents": 622,
+          "surfaced_episodes": 12,
+          "runtime_ms": 31.96
+        },
+        {
+          "timestamp": "2026-09-30T20:30:08.022Z",
+          "alerts": 2949,
+          "incidents": 622,
+          "surfaced_episodes": 12,
+          "runtime_ms": 25.58
+        },
+        {
+          "timestamp": "2026-09-30T21:00:08.022Z",
+          "alerts": 2949,
+          "incidents": 622,
+          "surfaced_episodes": 12,
+          "runtime_ms": 29.52
+        },
+        {
+          "timestamp": "2026-09-30T21:30:08.022Z",
+          "alerts": 2949,
+          "incidents": 622,
+          "surfaced_episodes": 12,
+          "runtime_ms": 41.57
+        },
+        {
+          "timestamp": "2026-09-30T22:00:08.022Z",
+          "alerts": 2953,
+          "incidents": 623,
+          "surfaced_episodes": 12,
+          "runtime_ms": 25.39
+        },
+        {
+          "timestamp": "2026-09-30T22:30:08.022Z",
+          "alerts": 2965,
+          "incidents": 626,
+          "surfaced_episodes": 12,
+          "runtime_ms": 27.81
+        },
+        {
+          "timestamp": "2026-09-30T23:00:08.022Z",
+          "alerts": 2979,
+          "incidents": 629,
+          "surfaced_episodes": 12,
+          "runtime_ms": 27.37
+        },
+        {
+          "timestamp": "2026-09-30T23:30:08.022Z",
+          "alerts": 2983,
+          "incidents": 630,
+          "surfaced_episodes": 12,
+          "runtime_ms": 27.94
+        },
+        {
+          "timestamp": "2026-10-01T00:00:08.022Z",
+          "alerts": 3000,
+          "incidents": 634,
+          "surfaced_episodes": 12,
+          "runtime_ms": 26.38
+        }
+      ]
+    },
+    {
+      "seed": 902,
+      "input_sha256": "e3b3d4d7e178014d77b0ffcb824236454b05af6cf640c5dc98a6a6444650cc32",
+      "observable": 12,
+      "surfaced": 11,
+      "median_delay_minutes": 24.852166666666665,
+      "episodes": [
+        {
+          "id": "ATTACK-001",
+          "first_observable": "2026-09-28T01:47:39.754Z",
+          "first_top25_visibility": "2026-09-28T02:12:15.271Z",
+          "delay_minutes": 24.59195
+        },
+        {
+          "id": "ATTACK-002",
+          "first_observable": "2026-09-28T07:26:34.467Z",
+          "first_top25_visibility": "2026-09-28T07:42:15.271Z",
+          "delay_minutes": 15.680066666666667
+        },
+        {
+          "id": "ATTACK-003",
+          "first_observable": "2026-09-28T13:12:39.904Z",
+          "first_top25_visibility": "2026-09-28T13:42:15.271Z",
+          "delay_minutes": 29.58945
+        },
+        {
+          "id": "ATTACK-004",
+          "first_observable": "2026-09-28T19:31:52.679Z",
+          "first_top25_visibility": "2026-09-28T19:42:15.271Z",
+          "delay_minutes": 10.376533333333333
+        },
+        {
+          "id": "ATTACK-005",
+          "first_observable": "2026-09-29T01:05:10.393Z",
+          "first_top25_visibility": "2026-09-29T01:42:15.271Z",
+          "delay_minutes": 37.0813
+        },
+        {
+          "id": "ATTACK-006",
+          "first_observable": "2026-09-29T06:45:33.017Z",
+          "first_top25_visibility": "2026-09-29T07:12:15.271Z",
+          "delay_minutes": 26.704233333333335
+        },
+        {
+          "id": "ATTACK-007",
+          "first_observable": "2026-09-29T12:53:05.254Z",
+          "first_top25_visibility": "2026-09-29T13:12:15.271Z",
+          "delay_minutes": 19.16695
+        },
+        {
+          "id": "ATTACK-008",
+          "first_observable": "2026-09-29T18:44:15.094Z",
+          "first_top25_visibility": "2026-09-29T19:12:15.271Z",
+          "delay_minutes": 28.00295
+        },
+        {
+          "id": "ATTACK-009",
+          "first_observable": "2026-09-30T00:17:24.141Z",
+          "first_top25_visibility": "2026-09-30T00:42:15.271Z",
+          "delay_minutes": 24.852166666666665
+        },
+        {
+          "id": "ATTACK-010",
+          "first_observable": "2026-09-30T06:16:27.157Z",
+          "first_top25_visibility": "2026-09-30T06:42:15.271Z",
+          "delay_minutes": 25.8019
+        },
+        {
+          "id": "ATTACK-011",
+          "first_observable": "2026-09-30T11:54:07.733Z",
+          "first_top25_visibility": "2026-09-30T12:12:15.271Z",
+          "delay_minutes": 18.125633333333333
+        },
+        {
+          "id": "ATTACK-012",
+          "first_observable": "2026-09-30T17:53:14.284Z",
+          "first_top25_visibility": null,
+          "delay_minutes": null
+        }
+      ],
+      "checkpoints": [
+        {
+          "timestamp": "2026-09-28T01:42:15.271Z",
+          "alerts": 4,
+          "incidents": 1,
+          "surfaced_episodes": 0,
+          "runtime_ms": 0.2
+        },
+        {
+          "timestamp": "2026-09-28T02:12:15.271Z",
+          "alerts": 21,
+          "incidents": 2,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.24
+        },
+        {
+          "timestamp": "2026-09-28T02:42:15.271Z",
+          "alerts": 21,
+          "incidents": 2,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.26
+        },
+        {
+          "timestamp": "2026-09-28T03:12:15.271Z",
+          "alerts": 21,
+          "incidents": 2,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.33
+        },
+        {
+          "timestamp": "2026-09-28T03:42:15.271Z",
+          "alerts": 26,
+          "incidents": 3,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.29
+        },
+        {
+          "timestamp": "2026-09-28T04:12:15.271Z",
+          "alerts": 30,
+          "incidents": 4,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.27
+        },
+        {
+          "timestamp": "2026-09-28T04:42:15.271Z",
+          "alerts": 38,
+          "incidents": 6,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.34
+        },
+        {
+          "timestamp": "2026-09-28T05:12:15.271Z",
+          "alerts": 42,
+          "incidents": 7,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.37
+        },
+        {
+          "timestamp": "2026-09-28T05:42:15.271Z",
+          "alerts": 51,
+          "incidents": 9,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.45
+        },
+        {
+          "timestamp": "2026-09-28T06:12:15.271Z",
+          "alerts": 51,
+          "incidents": 9,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.44
+        },
+        {
+          "timestamp": "2026-09-28T06:42:15.271Z",
+          "alerts": 55,
+          "incidents": 10,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.51
+        },
+        {
+          "timestamp": "2026-09-28T07:12:15.271Z",
+          "alerts": 59,
+          "incidents": 11,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.53
+        },
+        {
+          "timestamp": "2026-09-28T07:42:15.271Z",
+          "alerts": 83,
+          "incidents": 15,
+          "surfaced_episodes": 2,
+          "runtime_ms": 0.77
+        },
+        {
+          "timestamp": "2026-09-28T08:12:15.271Z",
+          "alerts": 98,
+          "incidents": 17,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.01
+        },
+        {
+          "timestamp": "2026-09-28T08:42:15.271Z",
+          "alerts": 130,
+          "incidents": 25,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.18
+        },
+        {
+          "timestamp": "2026-09-28T09:12:15.271Z",
+          "alerts": 174,
+          "incidents": 36,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.54
+        },
+        {
+          "timestamp": "2026-09-28T09:42:15.271Z",
+          "alerts": 206,
+          "incidents": 44,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.69
+        },
+        {
+          "timestamp": "2026-09-28T10:12:15.271Z",
+          "alerts": 238,
+          "incidents": 51,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.91
+        },
+        {
+          "timestamp": "2026-09-28T10:42:15.271Z",
+          "alerts": 278,
+          "incidents": 61,
+          "surfaced_episodes": 2,
+          "runtime_ms": 2.2
+        },
+        {
+          "timestamp": "2026-09-28T11:12:15.271Z",
+          "alerts": 327,
+          "incidents": 72,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.17
+        },
+        {
+          "timestamp": "2026-09-28T11:42:15.271Z",
+          "alerts": 374,
+          "incidents": 80,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.4
+        },
+        {
+          "timestamp": "2026-09-28T12:12:15.271Z",
+          "alerts": 403,
+          "incidents": 85,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.26
+        },
+        {
+          "timestamp": "2026-09-28T12:42:15.271Z",
+          "alerts": 431,
+          "incidents": 91,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.47
+        },
+        {
+          "timestamp": "2026-09-28T13:12:15.271Z",
+          "alerts": 484,
+          "incidents": 102,
+          "surfaced_episodes": 2,
+          "runtime_ms": 7.65
+        },
+        {
+          "timestamp": "2026-09-28T13:42:15.271Z",
+          "alerts": 533,
+          "incidents": 110,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.4
+        },
+        {
+          "timestamp": "2026-09-28T14:12:15.271Z",
+          "alerts": 575,
+          "incidents": 120,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.15
+        },
+        {
+          "timestamp": "2026-09-28T14:42:15.271Z",
+          "alerts": 622,
+          "incidents": 129,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.14
+        },
+        {
+          "timestamp": "2026-09-28T15:12:15.271Z",
+          "alerts": 666,
+          "incidents": 139,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.86
+        },
+        {
+          "timestamp": "2026-09-28T15:42:15.271Z",
+          "alerts": 705,
+          "incidents": 148,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.51
+        },
+        {
+          "timestamp": "2026-09-28T16:12:15.271Z",
+          "alerts": 757,
+          "incidents": 159,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.3
+        },
+        {
+          "timestamp": "2026-09-28T16:42:15.271Z",
+          "alerts": 780,
+          "incidents": 165,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.37
+        },
+        {
+          "timestamp": "2026-09-28T17:12:15.271Z",
+          "alerts": 826,
+          "incidents": 173,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.69
+        },
+        {
+          "timestamp": "2026-09-28T17:42:15.271Z",
+          "alerts": 882,
+          "incidents": 184,
+          "surfaced_episodes": 3,
+          "runtime_ms": 11
+        },
+        {
+          "timestamp": "2026-09-28T18:12:15.271Z",
+          "alerts": 905,
+          "incidents": 189,
+          "surfaced_episodes": 3,
+          "runtime_ms": 8.28
+        },
+        {
+          "timestamp": "2026-09-28T18:42:15.271Z",
+          "alerts": 918,
+          "incidents": 192,
+          "surfaced_episodes": 3,
+          "runtime_ms": 7.6
+        },
+        {
+          "timestamp": "2026-09-28T19:12:15.271Z",
+          "alerts": 931,
+          "incidents": 195,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.98
+        },
+        {
+          "timestamp": "2026-09-28T19:42:15.271Z",
+          "alerts": 939,
+          "incidents": 196,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.62
+        },
+        {
+          "timestamp": "2026-09-28T20:12:15.271Z",
+          "alerts": 944,
+          "incidents": 197,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.51
+        },
+        {
+          "timestamp": "2026-09-28T20:42:15.271Z",
+          "alerts": 953,
+          "incidents": 199,
+          "surfaced_episodes": 4,
+          "runtime_ms": 9.71
+        },
+        {
+          "timestamp": "2026-09-28T21:12:15.271Z",
+          "alerts": 965,
+          "incidents": 202,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.17
+        },
+        {
+          "timestamp": "2026-09-28T21:42:15.271Z",
+          "alerts": 969,
+          "incidents": 203,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.02
+        },
+        {
+          "timestamp": "2026-09-28T22:12:15.271Z",
+          "alerts": 969,
+          "incidents": 203,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.53
+        },
+        {
+          "timestamp": "2026-09-28T22:42:15.271Z",
+          "alerts": 973,
+          "incidents": 204,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.02
+        },
+        {
+          "timestamp": "2026-09-28T23:12:15.271Z",
+          "alerts": 977,
+          "incidents": 205,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.57
+        },
+        {
+          "timestamp": "2026-09-28T23:42:15.271Z",
+          "alerts": 977,
+          "incidents": 205,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.67
+        },
+        {
+          "timestamp": "2026-09-29T00:12:15.271Z",
+          "alerts": 985,
+          "incidents": 207,
+          "surfaced_episodes": 4,
+          "runtime_ms": 9.92
+        },
+        {
+          "timestamp": "2026-09-29T00:42:15.271Z",
+          "alerts": 990,
+          "incidents": 208,
+          "surfaced_episodes": 4,
+          "runtime_ms": 9.13
+        },
+        {
+          "timestamp": "2026-09-29T01:12:15.271Z",
+          "alerts": 1009,
+          "incidents": 211,
+          "surfaced_episodes": 4,
+          "runtime_ms": 9.17
+        },
+        {
+          "timestamp": "2026-09-29T01:42:15.271Z",
+          "alerts": 1030,
+          "incidents": 213,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.31
+        },
+        {
+          "timestamp": "2026-09-29T02:12:15.271Z",
+          "alerts": 1030,
+          "incidents": 213,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.24
+        },
+        {
+          "timestamp": "2026-09-29T02:42:15.271Z",
+          "alerts": 1030,
+          "incidents": 213,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.32
+        },
+        {
+          "timestamp": "2026-09-29T03:12:15.271Z",
+          "alerts": 1035,
+          "incidents": 214,
+          "surfaced_episodes": 5,
+          "runtime_ms": 9.86
+        },
+        {
+          "timestamp": "2026-09-29T03:42:15.271Z",
+          "alerts": 1048,
+          "incidents": 217,
+          "surfaced_episodes": 5,
+          "runtime_ms": 14.04
+        },
+        {
+          "timestamp": "2026-09-29T04:12:15.271Z",
+          "alerts": 1048,
+          "incidents": 217,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.64
+        },
+        {
+          "timestamp": "2026-09-29T04:42:15.271Z",
+          "alerts": 1048,
+          "incidents": 217,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.38
+        },
+        {
+          "timestamp": "2026-09-29T05:12:15.271Z",
+          "alerts": 1053,
+          "incidents": 218,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.73
+        },
+        {
+          "timestamp": "2026-09-29T05:42:15.271Z",
+          "alerts": 1053,
+          "incidents": 218,
+          "surfaced_episodes": 5,
+          "runtime_ms": 9.76
+        },
+        {
+          "timestamp": "2026-09-29T06:12:15.271Z",
+          "alerts": 1055,
+          "incidents": 219,
+          "surfaced_episodes": 5,
+          "runtime_ms": 10.84
+        },
+        {
+          "timestamp": "2026-09-29T06:42:15.271Z",
+          "alerts": 1065,
+          "incidents": 221,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.18
+        },
+        {
+          "timestamp": "2026-09-29T07:12:15.271Z",
+          "alerts": 1086,
+          "incidents": 223,
+          "surfaced_episodes": 6,
+          "runtime_ms": 9.32
+        },
+        {
+          "timestamp": "2026-09-29T07:42:15.271Z",
+          "alerts": 1098,
+          "incidents": 226,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.6
+        },
+        {
+          "timestamp": "2026-09-29T08:12:15.271Z",
+          "alerts": 1116,
+          "incidents": 230,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.01
+        },
+        {
+          "timestamp": "2026-09-29T08:42:15.271Z",
+          "alerts": 1152,
+          "incidents": 238,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.65
+        },
+        {
+          "timestamp": "2026-09-29T09:12:15.271Z",
+          "alerts": 1173,
+          "incidents": 243,
+          "surfaced_episodes": 6,
+          "runtime_ms": 12.14
+        },
+        {
+          "timestamp": "2026-09-29T09:42:15.271Z",
+          "alerts": 1195,
+          "incidents": 249,
+          "surfaced_episodes": 6,
+          "runtime_ms": 9.78
+        },
+        {
+          "timestamp": "2026-09-29T10:12:15.271Z",
+          "alerts": 1270,
+          "incidents": 266,
+          "surfaced_episodes": 6,
+          "runtime_ms": 9.87
+        },
+        {
+          "timestamp": "2026-09-29T10:42:15.271Z",
+          "alerts": 1333,
+          "incidents": 280,
+          "surfaced_episodes": 6,
+          "runtime_ms": 12.13
+        },
+        {
+          "timestamp": "2026-09-29T11:12:15.271Z",
+          "alerts": 1374,
+          "incidents": 288,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.83
+        },
+        {
+          "timestamp": "2026-09-29T11:42:15.271Z",
+          "alerts": 1408,
+          "incidents": 296,
+          "surfaced_episodes": 6,
+          "runtime_ms": 13.65
+        },
+        {
+          "timestamp": "2026-09-29T12:12:15.271Z",
+          "alerts": 1456,
+          "incidents": 304,
+          "surfaced_episodes": 6,
+          "runtime_ms": 13.41
+        },
+        {
+          "timestamp": "2026-09-29T12:42:15.271Z",
+          "alerts": 1484,
+          "incidents": 311,
+          "surfaced_episodes": 6,
+          "runtime_ms": 12.54
+        },
+        {
+          "timestamp": "2026-09-29T13:12:15.271Z",
+          "alerts": 1520,
+          "incidents": 318,
+          "surfaced_episodes": 7,
+          "runtime_ms": 12.59
+        },
+        {
+          "timestamp": "2026-09-29T13:42:15.271Z",
+          "alerts": 1589,
+          "incidents": 333,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.71
+        },
+        {
+          "timestamp": "2026-09-29T14:12:15.271Z",
+          "alerts": 1635,
+          "incidents": 344,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.37
+        },
+        {
+          "timestamp": "2026-09-29T14:42:15.271Z",
+          "alerts": 1642,
+          "incidents": 345,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.87
+        },
+        {
+          "timestamp": "2026-09-29T15:12:15.271Z",
+          "alerts": 1700,
+          "incidents": 358,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.8
+        },
+        {
+          "timestamp": "2026-09-29T15:42:15.271Z",
+          "alerts": 1744,
+          "incidents": 368,
+          "surfaced_episodes": 7,
+          "runtime_ms": 17.68
+        },
+        {
+          "timestamp": "2026-09-29T16:12:15.271Z",
+          "alerts": 1782,
+          "incidents": 376,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.21
+        },
+        {
+          "timestamp": "2026-09-29T16:42:15.271Z",
+          "alerts": 1823,
+          "incidents": 385,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.58
+        },
+        {
+          "timestamp": "2026-09-29T17:12:15.271Z",
+          "alerts": 1869,
+          "incidents": 396,
+          "surfaced_episodes": 7,
+          "runtime_ms": 17.51
+        },
+        {
+          "timestamp": "2026-09-29T17:42:15.271Z",
+          "alerts": 1893,
+          "incidents": 401,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.64
+        },
+        {
+          "timestamp": "2026-09-29T18:12:15.271Z",
+          "alerts": 1910,
+          "incidents": 405,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.76
+        },
+        {
+          "timestamp": "2026-09-29T18:42:15.271Z",
+          "alerts": 1914,
+          "incidents": 406,
+          "surfaced_episodes": 7,
+          "runtime_ms": 19.31
+        },
+        {
+          "timestamp": "2026-09-29T19:12:15.271Z",
+          "alerts": 1933,
+          "incidents": 409,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.43
+        },
+        {
+          "timestamp": "2026-09-29T19:42:15.271Z",
+          "alerts": 1941,
+          "incidents": 411,
+          "surfaced_episodes": 8,
+          "runtime_ms": 15.04
+        },
+        {
+          "timestamp": "2026-09-29T20:12:15.271Z",
+          "alerts": 1945,
+          "incidents": 412,
+          "surfaced_episodes": 8,
+          "runtime_ms": 15.19
+        },
+        {
+          "timestamp": "2026-09-29T20:42:15.271Z",
+          "alerts": 1949,
+          "incidents": 413,
+          "surfaced_episodes": 8,
+          "runtime_ms": 17.7
+        },
+        {
+          "timestamp": "2026-09-29T21:12:15.271Z",
+          "alerts": 1949,
+          "incidents": 413,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.81
+        },
+        {
+          "timestamp": "2026-09-29T21:42:15.271Z",
+          "alerts": 1949,
+          "incidents": 413,
+          "surfaced_episodes": 8,
+          "runtime_ms": 17.59
+        },
+        {
+          "timestamp": "2026-09-29T22:12:15.271Z",
+          "alerts": 1949,
+          "incidents": 413,
+          "surfaced_episodes": 8,
+          "runtime_ms": 18.71
+        },
+        {
+          "timestamp": "2026-09-29T22:42:15.271Z",
+          "alerts": 1949,
+          "incidents": 413,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.2
+        },
+        {
+          "timestamp": "2026-09-29T23:12:15.271Z",
+          "alerts": 1949,
+          "incidents": 413,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.93
+        },
+        {
+          "timestamp": "2026-09-29T23:42:15.271Z",
+          "alerts": 1953,
+          "incidents": 414,
+          "surfaced_episodes": 8,
+          "runtime_ms": 18.32
+        },
+        {
+          "timestamp": "2026-09-30T00:12:15.271Z",
+          "alerts": 1953,
+          "incidents": 414,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.16
+        },
+        {
+          "timestamp": "2026-09-30T00:42:15.271Z",
+          "alerts": 1972,
+          "incidents": 416,
+          "surfaced_episodes": 9,
+          "runtime_ms": 17.83
+        },
+        {
+          "timestamp": "2026-09-30T01:12:15.271Z",
+          "alerts": 1972,
+          "incidents": 416,
+          "surfaced_episodes": 9,
+          "runtime_ms": 19.82
+        },
+        {
+          "timestamp": "2026-09-30T01:42:15.271Z",
+          "alerts": 1972,
+          "incidents": 416,
+          "surfaced_episodes": 9,
+          "runtime_ms": 16.34
+        },
+        {
+          "timestamp": "2026-09-30T02:12:15.271Z",
+          "alerts": 1981,
+          "incidents": 418,
+          "surfaced_episodes": 9,
+          "runtime_ms": 17.12
+        },
+        {
+          "timestamp": "2026-09-30T02:42:15.271Z",
+          "alerts": 1993,
+          "incidents": 421,
+          "surfaced_episodes": 9,
+          "runtime_ms": 19.53
+        },
+        {
+          "timestamp": "2026-09-30T03:12:15.271Z",
+          "alerts": 1997,
+          "incidents": 422,
+          "surfaced_episodes": 9,
+          "runtime_ms": 17.82
+        },
+        {
+          "timestamp": "2026-09-30T03:42:15.271Z",
+          "alerts": 2001,
+          "incidents": 422,
+          "surfaced_episodes": 9,
+          "runtime_ms": 17.42
+        },
+        {
+          "timestamp": "2026-09-30T04:12:15.271Z",
+          "alerts": 2009,
+          "incidents": 424,
+          "surfaced_episodes": 9,
+          "runtime_ms": 17.9
+        },
+        {
+          "timestamp": "2026-09-30T04:42:15.271Z",
+          "alerts": 2017,
+          "incidents": 426,
+          "surfaced_episodes": 9,
+          "runtime_ms": 16.72
+        },
+        {
+          "timestamp": "2026-09-30T05:12:15.271Z",
+          "alerts": 2021,
+          "incidents": 427,
+          "surfaced_episodes": 9,
+          "runtime_ms": 16.34
+        },
+        {
+          "timestamp": "2026-09-30T05:42:15.271Z",
+          "alerts": 2021,
+          "incidents": 427,
+          "surfaced_episodes": 9,
+          "runtime_ms": 16.4
+        },
+        {
+          "timestamp": "2026-09-30T06:12:15.271Z",
+          "alerts": 2026,
+          "incidents": 428,
+          "surfaced_episodes": 9,
+          "runtime_ms": 21.93
+        },
+        {
+          "timestamp": "2026-09-30T06:42:15.271Z",
+          "alerts": 2045,
+          "incidents": 430,
+          "surfaced_episodes": 10,
+          "runtime_ms": 16.3
+        },
+        {
+          "timestamp": "2026-09-30T07:12:15.271Z",
+          "alerts": 2045,
+          "incidents": 430,
+          "surfaced_episodes": 10,
+          "runtime_ms": 15.76
+        },
+        {
+          "timestamp": "2026-09-30T07:42:15.271Z",
+          "alerts": 2045,
+          "incidents": 430,
+          "surfaced_episodes": 10,
+          "runtime_ms": 18.18
+        },
+        {
+          "timestamp": "2026-09-30T08:12:15.271Z",
+          "alerts": 2061,
+          "incidents": 434,
+          "surfaced_episodes": 10,
+          "runtime_ms": 16
+        },
+        {
+          "timestamp": "2026-09-30T08:42:15.271Z",
+          "alerts": 2094,
+          "incidents": 442,
+          "surfaced_episodes": 10,
+          "runtime_ms": 16.55
+        },
+        {
+          "timestamp": "2026-09-30T09:12:15.271Z",
+          "alerts": 2143,
+          "incidents": 453,
+          "surfaced_episodes": 10,
+          "runtime_ms": 18.46
+        },
+        {
+          "timestamp": "2026-09-30T09:42:15.271Z",
+          "alerts": 2174,
+          "incidents": 458,
+          "surfaced_episodes": 10,
+          "runtime_ms": 19.35
+        },
+        {
+          "timestamp": "2026-09-30T10:12:15.271Z",
+          "alerts": 2216,
+          "incidents": 468,
+          "surfaced_episodes": 10,
+          "runtime_ms": 19.53
+        },
+        {
+          "timestamp": "2026-09-30T10:42:15.271Z",
+          "alerts": 2269,
+          "incidents": 478,
+          "surfaced_episodes": 10,
+          "runtime_ms": 20.85
+        },
+        {
+          "timestamp": "2026-09-30T11:12:15.271Z",
+          "alerts": 2306,
+          "incidents": 486,
+          "surfaced_episodes": 10,
+          "runtime_ms": 18.3
+        },
+        {
+          "timestamp": "2026-09-30T11:42:15.271Z",
+          "alerts": 2352,
+          "incidents": 493,
+          "surfaced_episodes": 10,
+          "runtime_ms": 23.21
+        },
+        {
+          "timestamp": "2026-09-30T12:12:15.271Z",
+          "alerts": 2412,
+          "incidents": 505,
+          "surfaced_episodes": 11,
+          "runtime_ms": 20
+        },
+        {
+          "timestamp": "2026-09-30T12:42:15.271Z",
+          "alerts": 2439,
+          "incidents": 511,
+          "surfaced_episodes": 11,
+          "runtime_ms": 21.61
+        },
+        {
+          "timestamp": "2026-09-30T13:12:15.271Z",
+          "alerts": 2484,
+          "incidents": 522,
+          "surfaced_episodes": 11,
+          "runtime_ms": 23.82
+        },
+        {
+          "timestamp": "2026-09-30T13:42:15.271Z",
+          "alerts": 2528,
+          "incidents": 531,
+          "surfaced_episodes": 11,
+          "runtime_ms": 20.87
+        },
+        {
+          "timestamp": "2026-09-30T14:12:15.271Z",
+          "alerts": 2558,
+          "incidents": 538,
+          "surfaced_episodes": 11,
+          "runtime_ms": 25.98
+        },
+        {
+          "timestamp": "2026-09-30T14:42:15.271Z",
+          "alerts": 2608,
+          "incidents": 548,
+          "surfaced_episodes": 11,
+          "runtime_ms": 20.78
+        },
+        {
+          "timestamp": "2026-09-30T15:12:15.271Z",
+          "alerts": 2655,
+          "incidents": 559,
+          "surfaced_episodes": 11,
+          "runtime_ms": 21.92
+        },
+        {
+          "timestamp": "2026-09-30T15:42:15.271Z",
+          "alerts": 2715,
+          "incidents": 572,
+          "surfaced_episodes": 11,
+          "runtime_ms": 25.35
+        },
+        {
+          "timestamp": "2026-09-30T16:12:15.271Z",
+          "alerts": 2758,
+          "incidents": 582,
+          "surfaced_episodes": 11,
+          "runtime_ms": 22.41
+        },
+        {
+          "timestamp": "2026-09-30T16:42:15.271Z",
+          "alerts": 2788,
+          "incidents": 587,
+          "surfaced_episodes": 11,
+          "runtime_ms": 27.55
+        },
+        {
+          "timestamp": "2026-09-30T17:12:15.271Z",
+          "alerts": 2835,
+          "incidents": 598,
+          "surfaced_episodes": 11,
+          "runtime_ms": 23.71
+        },
+        {
+          "timestamp": "2026-09-30T17:42:15.271Z",
+          "alerts": 2880,
+          "incidents": 609,
+          "surfaced_episodes": 11,
+          "runtime_ms": 27.1
+        },
+        {
+          "timestamp": "2026-09-30T18:12:15.271Z",
+          "alerts": 2954,
+          "incidents": 623,
+          "surfaced_episodes": 11,
+          "runtime_ms": 24.95
+        },
+        {
+          "timestamp": "2026-09-30T18:42:15.271Z",
+          "alerts": 2958,
+          "incidents": 624,
+          "surfaced_episodes": 11,
+          "runtime_ms": 30.25
+        },
+        {
+          "timestamp": "2026-09-30T19:12:15.271Z",
+          "alerts": 2962,
+          "incidents": 625,
+          "surfaced_episodes": 11,
+          "runtime_ms": 26.87
+        },
+        {
+          "timestamp": "2026-09-30T19:42:15.271Z",
+          "alerts": 2962,
+          "incidents": 625,
+          "surfaced_episodes": 11,
+          "runtime_ms": 27.45
+        },
+        {
+          "timestamp": "2026-09-30T20:12:15.271Z",
+          "alerts": 2970,
+          "incidents": 627,
+          "surfaced_episodes": 11,
+          "runtime_ms": 25.52
+        },
+        {
+          "timestamp": "2026-09-30T20:42:15.271Z",
+          "alerts": 2979,
+          "incidents": 628,
+          "surfaced_episodes": 11,
+          "runtime_ms": 28.56
+        },
+        {
+          "timestamp": "2026-09-30T21:12:15.271Z",
+          "alerts": 2983,
+          "incidents": 629,
+          "surfaced_episodes": 11,
+          "runtime_ms": 26.43
+        },
+        {
+          "timestamp": "2026-09-30T21:42:15.271Z",
+          "alerts": 2983,
+          "incidents": 629,
+          "surfaced_episodes": 11,
+          "runtime_ms": 25.15
+        },
+        {
+          "timestamp": "2026-09-30T22:12:15.271Z",
+          "alerts": 2987,
+          "incidents": 630,
+          "surfaced_episodes": 11,
+          "runtime_ms": 27.87
+        },
+        {
+          "timestamp": "2026-09-30T22:42:15.271Z",
+          "alerts": 2987,
+          "incidents": 630,
+          "surfaced_episodes": 11,
+          "runtime_ms": 23.93
+        },
+        {
+          "timestamp": "2026-09-30T23:12:15.271Z",
+          "alerts": 2991,
+          "incidents": 631,
+          "surfaced_episodes": 11,
+          "runtime_ms": 26.99
+        },
+        {
+          "timestamp": "2026-09-30T23:42:15.271Z",
+          "alerts": 2995,
+          "incidents": 632,
+          "surfaced_episodes": 11,
+          "runtime_ms": 27.66
+        },
+        {
+          "timestamp": "2026-10-01T00:12:15.271Z",
+          "alerts": 3000,
+          "incidents": 633,
+          "surfaced_episodes": 11,
+          "runtime_ms": 30.91
+        }
+      ]
+    },
+    {
+      "seed": 903,
+      "input_sha256": "cb31f0378a76afacb69014ff66dbbccdd0175708e1979fb1834a5f6fc022bcce",
+      "observable": 12,
+      "surfaced": 11,
+      "median_delay_minutes": 27.4981,
+      "episodes": [
+        {
+          "id": "ATTACK-001",
+          "first_observable": "2026-09-28T01:47:45.894Z",
+          "first_top25_visibility": "2026-09-28T02:08:35.640Z",
+          "delay_minutes": 20.8291
+        },
+        {
+          "id": "ATTACK-002",
+          "first_observable": "2026-09-28T07:30:41.321Z",
+          "first_top25_visibility": "2026-09-28T07:38:35.640Z",
+          "delay_minutes": 7.905316666666667
+        },
+        {
+          "id": "ATTACK-003",
+          "first_observable": "2026-09-28T13:33:12.323Z",
+          "first_top25_visibility": "2026-09-28T13:38:35.640Z",
+          "delay_minutes": 5.388616666666667
+        },
+        {
+          "id": "ATTACK-004",
+          "first_observable": "2026-09-28T19:28:35.730Z",
+          "first_top25_visibility": "2026-09-28T19:38:35.640Z",
+          "delay_minutes": 9.9985
+        },
+        {
+          "id": "ATTACK-005",
+          "first_observable": "2026-09-29T01:03:56.774Z",
+          "first_top25_visibility": "2026-09-29T01:38:35.640Z",
+          "delay_minutes": 34.64776666666667
+        },
+        {
+          "id": "ATTACK-006",
+          "first_observable": "2026-09-29T06:41:05.754Z",
+          "first_top25_visibility": "2026-09-29T07:08:35.640Z",
+          "delay_minutes": 27.4981
+        },
+        {
+          "id": "ATTACK-007",
+          "first_observable": "2026-09-29T12:37:18.322Z",
+          "first_top25_visibility": "2026-09-29T13:08:35.640Z",
+          "delay_minutes": 31.288633333333333
+        },
+        {
+          "id": "ATTACK-008",
+          "first_observable": "2026-09-29T18:28:44.990Z",
+          "first_top25_visibility": null,
+          "delay_minutes": null
+        },
+        {
+          "id": "ATTACK-009",
+          "first_observable": "2026-09-30T00:35:49.589Z",
+          "first_top25_visibility": "2026-09-30T01:08:35.640Z",
+          "delay_minutes": 32.767516666666666
+        },
+        {
+          "id": "ATTACK-010",
+          "first_observable": "2026-09-30T06:08:26.731Z",
+          "first_top25_visibility": "2026-09-30T06:38:35.640Z",
+          "delay_minutes": 30.148483333333335
+        },
+        {
+          "id": "ATTACK-011",
+          "first_observable": "2026-09-30T11:58:30.012Z",
+          "first_top25_visibility": "2026-09-30T12:38:35.640Z",
+          "delay_minutes": 40.0938
+        },
+        {
+          "id": "ATTACK-012",
+          "first_observable": "2026-09-30T17:53:07.768Z",
+          "first_top25_visibility": "2026-09-30T18:08:35.640Z",
+          "delay_minutes": 15.464533333333334
+        }
+      ],
+      "checkpoints": [
+        {
+          "timestamp": "2026-09-28T01:08:35.640Z",
+          "alerts": 9,
+          "incidents": 2,
+          "surfaced_episodes": 0,
+          "runtime_ms": 0.31
+        },
+        {
+          "timestamp": "2026-09-28T01:38:35.640Z",
+          "alerts": 18,
+          "incidents": 4,
+          "surfaced_episodes": 0,
+          "runtime_ms": 0.18
+        },
+        {
+          "timestamp": "2026-09-28T02:08:35.640Z",
+          "alerts": 50,
+          "incidents": 9,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.42
+        },
+        {
+          "timestamp": "2026-09-28T02:38:35.640Z",
+          "alerts": 51,
+          "incidents": 10,
+          "surfaced_episodes": 1,
+          "runtime_ms": 2.53
+        },
+        {
+          "timestamp": "2026-09-28T03:08:35.640Z",
+          "alerts": 68,
+          "incidents": 14,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.68
+        },
+        {
+          "timestamp": "2026-09-28T03:38:35.640Z",
+          "alerts": 68,
+          "incidents": 14,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.57
+        },
+        {
+          "timestamp": "2026-09-28T04:08:35.640Z",
+          "alerts": 73,
+          "incidents": 15,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.6
+        },
+        {
+          "timestamp": "2026-09-28T04:38:35.640Z",
+          "alerts": 77,
+          "incidents": 16,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.9
+        },
+        {
+          "timestamp": "2026-09-28T05:08:35.640Z",
+          "alerts": 82,
+          "incidents": 18,
+          "surfaced_episodes": 1,
+          "runtime_ms": 7.06
+        },
+        {
+          "timestamp": "2026-09-28T05:38:35.640Z",
+          "alerts": 93,
+          "incidents": 20,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.92
+        },
+        {
+          "timestamp": "2026-09-28T06:08:35.640Z",
+          "alerts": 105,
+          "incidents": 22,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.95
+        },
+        {
+          "timestamp": "2026-09-28T06:38:35.640Z",
+          "alerts": 109,
+          "incidents": 23,
+          "surfaced_episodes": 1,
+          "runtime_ms": 1.68
+        },
+        {
+          "timestamp": "2026-09-28T07:08:35.640Z",
+          "alerts": 117,
+          "incidents": 25,
+          "surfaced_episodes": 1,
+          "runtime_ms": 1.36
+        },
+        {
+          "timestamp": "2026-09-28T07:38:35.640Z",
+          "alerts": 128,
+          "incidents": 27,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.05
+        },
+        {
+          "timestamp": "2026-09-28T08:08:35.640Z",
+          "alerts": 159,
+          "incidents": 32,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.32
+        },
+        {
+          "timestamp": "2026-09-28T08:38:35.640Z",
+          "alerts": 207,
+          "incidents": 42,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.74
+        },
+        {
+          "timestamp": "2026-09-28T09:08:35.640Z",
+          "alerts": 233,
+          "incidents": 48,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.89
+        },
+        {
+          "timestamp": "2026-09-28T09:38:35.640Z",
+          "alerts": 294,
+          "incidents": 63,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.07
+        },
+        {
+          "timestamp": "2026-09-28T10:08:35.640Z",
+          "alerts": 360,
+          "incidents": 73,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.36
+        },
+        {
+          "timestamp": "2026-09-28T10:38:35.640Z",
+          "alerts": 385,
+          "incidents": 79,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.61
+        },
+        {
+          "timestamp": "2026-09-28T11:08:35.640Z",
+          "alerts": 416,
+          "incidents": 87,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.32
+        },
+        {
+          "timestamp": "2026-09-28T11:38:35.640Z",
+          "alerts": 448,
+          "incidents": 94,
+          "surfaced_episodes": 2,
+          "runtime_ms": 4.34
+        },
+        {
+          "timestamp": "2026-09-28T12:08:35.640Z",
+          "alerts": 464,
+          "incidents": 98,
+          "surfaced_episodes": 2,
+          "runtime_ms": 6.36
+        },
+        {
+          "timestamp": "2026-09-28T12:38:35.640Z",
+          "alerts": 512,
+          "incidents": 108,
+          "surfaced_episodes": 2,
+          "runtime_ms": 4.44
+        },
+        {
+          "timestamp": "2026-09-28T13:08:35.640Z",
+          "alerts": 561,
+          "incidents": 118,
+          "surfaced_episodes": 2,
+          "runtime_ms": 4.49
+        },
+        {
+          "timestamp": "2026-09-28T13:38:35.640Z",
+          "alerts": 604,
+          "incidents": 127,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.96
+        },
+        {
+          "timestamp": "2026-09-28T14:08:35.640Z",
+          "alerts": 643,
+          "incidents": 134,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.2
+        },
+        {
+          "timestamp": "2026-09-28T14:38:35.640Z",
+          "alerts": 679,
+          "incidents": 141,
+          "surfaced_episodes": 3,
+          "runtime_ms": 9.88
+        },
+        {
+          "timestamp": "2026-09-28T15:08:35.640Z",
+          "alerts": 715,
+          "incidents": 149,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.73
+        },
+        {
+          "timestamp": "2026-09-28T15:38:35.640Z",
+          "alerts": 760,
+          "incidents": 158,
+          "surfaced_episodes": 3,
+          "runtime_ms": 7.35
+        },
+        {
+          "timestamp": "2026-09-28T16:08:35.640Z",
+          "alerts": 814,
+          "incidents": 171,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.58
+        },
+        {
+          "timestamp": "2026-09-28T16:38:35.640Z",
+          "alerts": 846,
+          "incidents": 179,
+          "surfaced_episodes": 3,
+          "runtime_ms": 8.83
+        },
+        {
+          "timestamp": "2026-09-28T17:08:35.640Z",
+          "alerts": 876,
+          "incidents": 185,
+          "surfaced_episodes": 3,
+          "runtime_ms": 13.49
+        },
+        {
+          "timestamp": "2026-09-28T17:38:35.640Z",
+          "alerts": 913,
+          "incidents": 193,
+          "surfaced_episodes": 3,
+          "runtime_ms": 10.86
+        },
+        {
+          "timestamp": "2026-09-28T18:08:35.640Z",
+          "alerts": 933,
+          "incidents": 197,
+          "surfaced_episodes": 3,
+          "runtime_ms": 7.56
+        },
+        {
+          "timestamp": "2026-09-28T18:38:35.640Z",
+          "alerts": 941,
+          "incidents": 199,
+          "surfaced_episodes": 3,
+          "runtime_ms": 10.52
+        },
+        {
+          "timestamp": "2026-09-28T19:08:35.640Z",
+          "alerts": 941,
+          "incidents": 199,
+          "surfaced_episodes": 3,
+          "runtime_ms": 7.92
+        },
+        {
+          "timestamp": "2026-09-28T19:38:35.640Z",
+          "alerts": 951,
+          "incidents": 200,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.58
+        },
+        {
+          "timestamp": "2026-09-28T20:08:35.640Z",
+          "alerts": 951,
+          "incidents": 200,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.52
+        },
+        {
+          "timestamp": "2026-09-28T20:38:35.640Z",
+          "alerts": 955,
+          "incidents": 201,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.65
+        },
+        {
+          "timestamp": "2026-09-28T21:08:35.640Z",
+          "alerts": 955,
+          "incidents": 201,
+          "surfaced_episodes": 4,
+          "runtime_ms": 9.86
+        },
+        {
+          "timestamp": "2026-09-28T21:38:35.640Z",
+          "alerts": 959,
+          "incidents": 202,
+          "surfaced_episodes": 4,
+          "runtime_ms": 11.89
+        },
+        {
+          "timestamp": "2026-09-28T22:08:35.640Z",
+          "alerts": 959,
+          "incidents": 202,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.71
+        },
+        {
+          "timestamp": "2026-09-28T22:38:35.640Z",
+          "alerts": 963,
+          "incidents": 203,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.65
+        },
+        {
+          "timestamp": "2026-09-28T23:08:35.640Z",
+          "alerts": 965,
+          "incidents": 204,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.01
+        },
+        {
+          "timestamp": "2026-09-28T23:38:35.640Z",
+          "alerts": 968,
+          "incidents": 204,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.47
+        },
+        {
+          "timestamp": "2026-09-29T00:08:35.640Z",
+          "alerts": 976,
+          "incidents": 206,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.81
+        },
+        {
+          "timestamp": "2026-09-29T00:38:35.640Z",
+          "alerts": 980,
+          "incidents": 207,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.32
+        },
+        {
+          "timestamp": "2026-09-29T01:08:35.640Z",
+          "alerts": 990,
+          "incidents": 209,
+          "surfaced_episodes": 4,
+          "runtime_ms": 9.88
+        },
+        {
+          "timestamp": "2026-09-29T01:38:35.640Z",
+          "alerts": 1003,
+          "incidents": 210,
+          "surfaced_episodes": 5,
+          "runtime_ms": 7.8
+        },
+        {
+          "timestamp": "2026-09-29T02:08:35.640Z",
+          "alerts": 1024,
+          "incidents": 215,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.17
+        },
+        {
+          "timestamp": "2026-09-29T02:38:35.640Z",
+          "alerts": 1028,
+          "incidents": 216,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.48
+        },
+        {
+          "timestamp": "2026-09-29T03:08:35.640Z",
+          "alerts": 1028,
+          "incidents": 216,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.21
+        },
+        {
+          "timestamp": "2026-09-29T03:38:35.640Z",
+          "alerts": 1038,
+          "incidents": 218,
+          "surfaced_episodes": 5,
+          "runtime_ms": 10.21
+        },
+        {
+          "timestamp": "2026-09-29T04:08:35.640Z",
+          "alerts": 1043,
+          "incidents": 219,
+          "surfaced_episodes": 5,
+          "runtime_ms": 10.73
+        },
+        {
+          "timestamp": "2026-09-29T04:38:35.640Z",
+          "alerts": 1043,
+          "incidents": 219,
+          "surfaced_episodes": 5,
+          "runtime_ms": 14.84
+        },
+        {
+          "timestamp": "2026-09-29T05:08:35.640Z",
+          "alerts": 1047,
+          "incidents": 220,
+          "surfaced_episodes": 5,
+          "runtime_ms": 12.61
+        },
+        {
+          "timestamp": "2026-09-29T05:38:35.640Z",
+          "alerts": 1051,
+          "incidents": 221,
+          "surfaced_episodes": 5,
+          "runtime_ms": 12.63
+        },
+        {
+          "timestamp": "2026-09-29T06:08:35.640Z",
+          "alerts": 1055,
+          "incidents": 222,
+          "surfaced_episodes": 5,
+          "runtime_ms": 12.54
+        },
+        {
+          "timestamp": "2026-09-29T06:38:35.640Z",
+          "alerts": 1072,
+          "incidents": 226,
+          "surfaced_episodes": 5,
+          "runtime_ms": 10.36
+        },
+        {
+          "timestamp": "2026-09-29T07:08:35.640Z",
+          "alerts": 1092,
+          "incidents": 228,
+          "surfaced_episodes": 6,
+          "runtime_ms": 9.67
+        },
+        {
+          "timestamp": "2026-09-29T07:38:35.640Z",
+          "alerts": 1098,
+          "incidents": 229,
+          "surfaced_episodes": 6,
+          "runtime_ms": 8.04
+        },
+        {
+          "timestamp": "2026-09-29T08:08:35.640Z",
+          "alerts": 1118,
+          "incidents": 234,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.6
+        },
+        {
+          "timestamp": "2026-09-29T08:38:35.640Z",
+          "alerts": 1140,
+          "incidents": 238,
+          "surfaced_episodes": 6,
+          "runtime_ms": 12.04
+        },
+        {
+          "timestamp": "2026-09-29T09:08:35.640Z",
+          "alerts": 1167,
+          "incidents": 245,
+          "surfaced_episodes": 6,
+          "runtime_ms": 9.07
+        },
+        {
+          "timestamp": "2026-09-29T09:38:35.640Z",
+          "alerts": 1211,
+          "incidents": 255,
+          "surfaced_episodes": 6,
+          "runtime_ms": 11.7
+        },
+        {
+          "timestamp": "2026-09-29T10:08:35.640Z",
+          "alerts": 1271,
+          "incidents": 269,
+          "surfaced_episodes": 6,
+          "runtime_ms": 9.71
+        },
+        {
+          "timestamp": "2026-09-29T10:38:35.640Z",
+          "alerts": 1327,
+          "incidents": 282,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.62
+        },
+        {
+          "timestamp": "2026-09-29T11:08:35.640Z",
+          "alerts": 1356,
+          "incidents": 288,
+          "surfaced_episodes": 6,
+          "runtime_ms": 17.49
+        },
+        {
+          "timestamp": "2026-09-29T11:38:35.640Z",
+          "alerts": 1411,
+          "incidents": 300,
+          "surfaced_episodes": 6,
+          "runtime_ms": 14.63
+        },
+        {
+          "timestamp": "2026-09-29T12:08:35.640Z",
+          "alerts": 1444,
+          "incidents": 306,
+          "surfaced_episodes": 6,
+          "runtime_ms": 13.34
+        },
+        {
+          "timestamp": "2026-09-29T12:38:35.640Z",
+          "alerts": 1494,
+          "incidents": 318,
+          "surfaced_episodes": 6,
+          "runtime_ms": 11.42
+        },
+        {
+          "timestamp": "2026-09-29T13:08:35.640Z",
+          "alerts": 1555,
+          "incidents": 329,
+          "surfaced_episodes": 7,
+          "runtime_ms": 11.93
+        },
+        {
+          "timestamp": "2026-09-29T13:38:35.640Z",
+          "alerts": 1587,
+          "incidents": 336,
+          "surfaced_episodes": 7,
+          "runtime_ms": 12.51
+        },
+        {
+          "timestamp": "2026-09-29T14:08:35.640Z",
+          "alerts": 1631,
+          "incidents": 347,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.57
+        },
+        {
+          "timestamp": "2026-09-29T14:38:35.640Z",
+          "alerts": 1682,
+          "incidents": 358,
+          "surfaced_episodes": 7,
+          "runtime_ms": 13.65
+        },
+        {
+          "timestamp": "2026-09-29T15:08:35.640Z",
+          "alerts": 1731,
+          "incidents": 365,
+          "surfaced_episodes": 7,
+          "runtime_ms": 13.86
+        },
+        {
+          "timestamp": "2026-09-29T15:38:35.640Z",
+          "alerts": 1775,
+          "incidents": 375,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.31
+        },
+        {
+          "timestamp": "2026-09-29T16:08:35.640Z",
+          "alerts": 1815,
+          "incidents": 384,
+          "surfaced_episodes": 7,
+          "runtime_ms": 17.72
+        },
+        {
+          "timestamp": "2026-09-29T16:38:35.640Z",
+          "alerts": 1850,
+          "incidents": 391,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.38
+        },
+        {
+          "timestamp": "2026-09-29T17:08:35.640Z",
+          "alerts": 1893,
+          "incidents": 401,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.47
+        },
+        {
+          "timestamp": "2026-09-29T17:38:35.640Z",
+          "alerts": 1913,
+          "incidents": 406,
+          "surfaced_episodes": 7,
+          "runtime_ms": 17.23
+        },
+        {
+          "timestamp": "2026-09-29T18:08:35.640Z",
+          "alerts": 1938,
+          "incidents": 411,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.43
+        },
+        {
+          "timestamp": "2026-09-29T18:38:35.640Z",
+          "alerts": 1952,
+          "incidents": 413,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.82
+        },
+        {
+          "timestamp": "2026-09-29T19:08:35.640Z",
+          "alerts": 1966,
+          "incidents": 415,
+          "surfaced_episodes": 7,
+          "runtime_ms": 19.39
+        },
+        {
+          "timestamp": "2026-09-29T19:38:35.640Z",
+          "alerts": 1974,
+          "incidents": 417,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.92
+        },
+        {
+          "timestamp": "2026-09-29T20:08:35.640Z",
+          "alerts": 1974,
+          "incidents": 417,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.87
+        },
+        {
+          "timestamp": "2026-09-29T20:38:35.640Z",
+          "alerts": 1978,
+          "incidents": 418,
+          "surfaced_episodes": 7,
+          "runtime_ms": 18.17
+        },
+        {
+          "timestamp": "2026-09-29T21:08:35.640Z",
+          "alerts": 1978,
+          "incidents": 418,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.78
+        },
+        {
+          "timestamp": "2026-09-29T21:38:35.640Z",
+          "alerts": 1987,
+          "incidents": 420,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.99
+        },
+        {
+          "timestamp": "2026-09-29T22:08:35.640Z",
+          "alerts": 1991,
+          "incidents": 421,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.75
+        },
+        {
+          "timestamp": "2026-09-29T22:38:35.640Z",
+          "alerts": 2000,
+          "incidents": 423,
+          "surfaced_episodes": 7,
+          "runtime_ms": 18.43
+        },
+        {
+          "timestamp": "2026-09-29T23:08:35.640Z",
+          "alerts": 2000,
+          "incidents": 423,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.33
+        },
+        {
+          "timestamp": "2026-09-29T23:38:35.640Z",
+          "alerts": 2010,
+          "incidents": 425,
+          "surfaced_episodes": 7,
+          "runtime_ms": 18.62
+        },
+        {
+          "timestamp": "2026-09-30T00:08:35.640Z",
+          "alerts": 2010,
+          "incidents": 425,
+          "surfaced_episodes": 7,
+          "runtime_ms": 19.1
+        },
+        {
+          "timestamp": "2026-09-30T00:38:35.640Z",
+          "alerts": 2021,
+          "incidents": 428,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.69
+        },
+        {
+          "timestamp": "2026-09-30T01:08:35.640Z",
+          "alerts": 2035,
+          "incidents": 429,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.3
+        },
+        {
+          "timestamp": "2026-09-30T01:38:35.640Z",
+          "alerts": 2035,
+          "incidents": 429,
+          "surfaced_episodes": 8,
+          "runtime_ms": 18.04
+        },
+        {
+          "timestamp": "2026-09-30T02:08:35.640Z",
+          "alerts": 2035,
+          "incidents": 429,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.69
+        },
+        {
+          "timestamp": "2026-09-30T02:38:35.640Z",
+          "alerts": 2035,
+          "incidents": 429,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.79
+        },
+        {
+          "timestamp": "2026-09-30T03:08:35.640Z",
+          "alerts": 2039,
+          "incidents": 430,
+          "surfaced_episodes": 8,
+          "runtime_ms": 19.66
+        },
+        {
+          "timestamp": "2026-09-30T03:38:35.640Z",
+          "alerts": 2039,
+          "incidents": 430,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.51
+        },
+        {
+          "timestamp": "2026-09-30T04:08:35.640Z",
+          "alerts": 2052,
+          "incidents": 433,
+          "surfaced_episodes": 8,
+          "runtime_ms": 19.66
+        },
+        {
+          "timestamp": "2026-09-30T04:38:35.640Z",
+          "alerts": 2061,
+          "incidents": 435,
+          "surfaced_episodes": 8,
+          "runtime_ms": 19.59
+        },
+        {
+          "timestamp": "2026-09-30T05:08:35.640Z",
+          "alerts": 2066,
+          "incidents": 436,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.25
+        },
+        {
+          "timestamp": "2026-09-30T05:38:35.640Z",
+          "alerts": 2066,
+          "incidents": 436,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.5
+        },
+        {
+          "timestamp": "2026-09-30T06:08:35.640Z",
+          "alerts": 2075,
+          "incidents": 439,
+          "surfaced_episodes": 8,
+          "runtime_ms": 20.07
+        },
+        {
+          "timestamp": "2026-09-30T06:38:35.640Z",
+          "alerts": 2094,
+          "incidents": 441,
+          "surfaced_episodes": 9,
+          "runtime_ms": 17.9
+        },
+        {
+          "timestamp": "2026-09-30T07:08:35.640Z",
+          "alerts": 2096,
+          "incidents": 441,
+          "surfaced_episodes": 9,
+          "runtime_ms": 16.57
+        },
+        {
+          "timestamp": "2026-09-30T07:38:35.640Z",
+          "alerts": 2114,
+          "incidents": 445,
+          "surfaced_episodes": 9,
+          "runtime_ms": 19.17
+        },
+        {
+          "timestamp": "2026-09-30T08:08:35.640Z",
+          "alerts": 2128,
+          "incidents": 449,
+          "surfaced_episodes": 9,
+          "runtime_ms": 20.29
+        },
+        {
+          "timestamp": "2026-09-30T08:38:35.640Z",
+          "alerts": 2168,
+          "incidents": 458,
+          "surfaced_episodes": 9,
+          "runtime_ms": 18.7
+        },
+        {
+          "timestamp": "2026-09-30T09:08:35.640Z",
+          "alerts": 2222,
+          "incidents": 471,
+          "surfaced_episodes": 9,
+          "runtime_ms": 23.47
+        },
+        {
+          "timestamp": "2026-09-30T09:38:35.640Z",
+          "alerts": 2266,
+          "incidents": 480,
+          "surfaced_episodes": 9,
+          "runtime_ms": 17.65
+        },
+        {
+          "timestamp": "2026-09-30T10:08:35.640Z",
+          "alerts": 2299,
+          "incidents": 487,
+          "surfaced_episodes": 9,
+          "runtime_ms": 17.58
+        },
+        {
+          "timestamp": "2026-09-30T10:38:35.640Z",
+          "alerts": 2332,
+          "incidents": 494,
+          "surfaced_episodes": 9,
+          "runtime_ms": 21.56
+        },
+        {
+          "timestamp": "2026-09-30T11:08:35.640Z",
+          "alerts": 2376,
+          "incidents": 504,
+          "surfaced_episodes": 9,
+          "runtime_ms": 18.97
+        },
+        {
+          "timestamp": "2026-09-30T11:38:35.640Z",
+          "alerts": 2416,
+          "incidents": 513,
+          "surfaced_episodes": 9,
+          "runtime_ms": 21.52
+        },
+        {
+          "timestamp": "2026-09-30T12:08:35.640Z",
+          "alerts": 2457,
+          "incidents": 520,
+          "surfaced_episodes": 9,
+          "runtime_ms": 20.08
+        },
+        {
+          "timestamp": "2026-09-30T12:38:35.640Z",
+          "alerts": 2508,
+          "incidents": 531,
+          "surfaced_episodes": 10,
+          "runtime_ms": 19.89
+        },
+        {
+          "timestamp": "2026-09-30T13:08:35.640Z",
+          "alerts": 2567,
+          "incidents": 545,
+          "surfaced_episodes": 10,
+          "runtime_ms": 24.11
+        },
+        {
+          "timestamp": "2026-09-30T13:38:35.640Z",
+          "alerts": 2611,
+          "incidents": 554,
+          "surfaced_episodes": 10,
+          "runtime_ms": 21.48
+        },
+        {
+          "timestamp": "2026-09-30T14:08:35.640Z",
+          "alerts": 2646,
+          "incidents": 561,
+          "surfaced_episodes": 10,
+          "runtime_ms": 24.93
+        },
+        {
+          "timestamp": "2026-09-30T14:38:35.640Z",
+          "alerts": 2686,
+          "incidents": 570,
+          "surfaced_episodes": 10,
+          "runtime_ms": 21.46
+        },
+        {
+          "timestamp": "2026-09-30T15:08:35.640Z",
+          "alerts": 2718,
+          "incidents": 578,
+          "surfaced_episodes": 10,
+          "runtime_ms": 25.52
+        },
+        {
+          "timestamp": "2026-09-30T15:38:35.640Z",
+          "alerts": 2781,
+          "incidents": 592,
+          "surfaced_episodes": 10,
+          "runtime_ms": 22.87
+        },
+        {
+          "timestamp": "2026-09-30T16:08:35.640Z",
+          "alerts": 2797,
+          "incidents": 595,
+          "surfaced_episodes": 10,
+          "runtime_ms": 21.88
+        },
+        {
+          "timestamp": "2026-09-30T16:38:35.640Z",
+          "alerts": 2848,
+          "incidents": 607,
+          "surfaced_episodes": 10,
+          "runtime_ms": 29.39
+        },
+        {
+          "timestamp": "2026-09-30T17:08:35.640Z",
+          "alerts": 2896,
+          "incidents": 615,
+          "surfaced_episodes": 10,
+          "runtime_ms": 23.8
+        },
+        {
+          "timestamp": "2026-09-30T17:38:35.640Z",
+          "alerts": 2928,
+          "incidents": 621,
+          "surfaced_episodes": 10,
+          "runtime_ms": 28.3
+        },
+        {
+          "timestamp": "2026-09-30T18:08:35.640Z",
+          "alerts": 2955,
+          "incidents": 625,
+          "surfaced_episodes": 11,
+          "runtime_ms": 24.56
+        },
+        {
+          "timestamp": "2026-09-30T18:38:35.640Z",
+          "alerts": 2959,
+          "incidents": 626,
+          "surfaced_episodes": 11,
+          "runtime_ms": 28.65
+        },
+        {
+          "timestamp": "2026-09-30T19:08:35.640Z",
+          "alerts": 2959,
+          "incidents": 626,
+          "surfaced_episodes": 11,
+          "runtime_ms": 24.72
+        },
+        {
+          "timestamp": "2026-09-30T19:38:35.640Z",
+          "alerts": 2968,
+          "incidents": 628,
+          "surfaced_episodes": 11,
+          "runtime_ms": 35.79
+        },
+        {
+          "timestamp": "2026-09-30T20:08:35.640Z",
+          "alerts": 2968,
+          "incidents": 628,
+          "surfaced_episodes": 11,
+          "runtime_ms": 26.68
+        },
+        {
+          "timestamp": "2026-09-30T20:38:35.640Z",
+          "alerts": 2972,
+          "incidents": 629,
+          "surfaced_episodes": 11,
+          "runtime_ms": 26.82
+        },
+        {
+          "timestamp": "2026-09-30T21:08:35.640Z",
+          "alerts": 2976,
+          "incidents": 630,
+          "surfaced_episodes": 11,
+          "runtime_ms": 24.15
+        },
+        {
+          "timestamp": "2026-09-30T21:38:35.640Z",
+          "alerts": 2980,
+          "incidents": 631,
+          "surfaced_episodes": 11,
+          "runtime_ms": 28.53
+        },
+        {
+          "timestamp": "2026-09-30T22:08:35.640Z",
+          "alerts": 2980,
+          "incidents": 631,
+          "surfaced_episodes": 11,
+          "runtime_ms": 26.22
+        },
+        {
+          "timestamp": "2026-09-30T22:38:35.640Z",
+          "alerts": 2980,
+          "incidents": 631,
+          "surfaced_episodes": 11,
+          "runtime_ms": 28.44
+        },
+        {
+          "timestamp": "2026-09-30T23:08:35.640Z",
+          "alerts": 2988,
+          "incidents": 632,
+          "surfaced_episodes": 11,
+          "runtime_ms": 24.97
+        },
+        {
+          "timestamp": "2026-09-30T23:38:35.640Z",
+          "alerts": 2992,
+          "incidents": 633,
+          "surfaced_episodes": 11,
+          "runtime_ms": 30.39
+        },
+        {
+          "timestamp": "2026-10-01T00:08:35.640Z",
+          "alerts": 3000,
+          "incidents": 635,
+          "surfaced_episodes": 11,
+          "runtime_ms": 25
+        }
+      ]
+    },
+    {
+      "seed": 904,
+      "input_sha256": "5fca3cc7c84351e0bf89c2e0fb13250083034efee597a81efc06456d0da38117",
+      "observable": 12,
+      "surfaced": 10,
+      "median_delay_minutes": 25.702066666666667,
+      "episodes": [
+        {
+          "id": "ATTACK-001",
+          "first_observable": "2026-09-28T01:47:52.033Z",
+          "first_top25_visibility": "2026-09-28T02:00:01.510Z",
+          "delay_minutes": 12.15795
+        },
+        {
+          "id": "ATTACK-002",
+          "first_observable": "2026-09-28T07:31:33.665Z",
+          "first_top25_visibility": "2026-09-28T08:00:01.510Z",
+          "delay_minutes": 28.464083333333335
+        },
+        {
+          "id": "ATTACK-003",
+          "first_observable": "2026-09-28T13:25:22.842Z",
+          "first_top25_visibility": "2026-09-28T14:00:01.510Z",
+          "delay_minutes": 34.644466666666666
+        },
+        {
+          "id": "ATTACK-004",
+          "first_observable": "2026-09-28T19:13:41.436Z",
+          "first_top25_visibility": "2026-09-28T19:30:01.510Z",
+          "delay_minutes": 16.334566666666667
+        },
+        {
+          "id": "ATTACK-005",
+          "first_observable": "2026-09-29T01:11:19.539Z",
+          "first_top25_visibility": "2026-09-29T01:30:01.510Z",
+          "delay_minutes": 18.699516666666668
+        },
+        {
+          "id": "ATTACK-006",
+          "first_observable": "2026-09-29T07:06:07.087Z",
+          "first_top25_visibility": "2026-09-29T07:30:01.510Z",
+          "delay_minutes": 23.90705
+        },
+        {
+          "id": "ATTACK-007",
+          "first_observable": "2026-09-29T12:46:38.872Z",
+          "first_top25_visibility": "2026-09-29T13:00:01.510Z",
+          "delay_minutes": 13.3773
+        },
+        {
+          "id": "ATTACK-008",
+          "first_observable": "2026-09-29T18:38:45.144Z",
+          "first_top25_visibility": null,
+          "delay_minutes": null
+        },
+        {
+          "id": "ATTACK-009",
+          "first_observable": "2026-09-30T00:32:31.685Z",
+          "first_top25_visibility": "2026-09-30T01:00:01.510Z",
+          "delay_minutes": 27.497083333333332
+        },
+        {
+          "id": "ATTACK-010",
+          "first_observable": "2026-09-30T06:19:54.544Z",
+          "first_top25_visibility": "2026-09-30T07:00:01.510Z",
+          "delay_minutes": 40.1161
+        },
+        {
+          "id": "ATTACK-011",
+          "first_observable": "2026-09-30T11:57:36.678Z",
+          "first_top25_visibility": "2026-09-30T12:30:01.510Z",
+          "delay_minutes": 32.413866666666664
+        },
+        {
+          "id": "ATTACK-012",
+          "first_observable": "2026-09-30T18:12:20.068Z",
+          "first_top25_visibility": null,
+          "delay_minutes": null
+        }
+      ],
+      "checkpoints": [
+        {
+          "timestamp": "2026-09-28T01:00:01.510Z",
+          "alerts": 9,
+          "incidents": 2,
+          "surfaced_episodes": 0,
+          "runtime_ms": 0.23
+        },
+        {
+          "timestamp": "2026-09-28T01:30:01.510Z",
+          "alerts": 9,
+          "incidents": 2,
+          "surfaced_episodes": 0,
+          "runtime_ms": 0.1
+        },
+        {
+          "timestamp": "2026-09-28T02:00:01.510Z",
+          "alerts": 34,
+          "incidents": 6,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.38
+        },
+        {
+          "timestamp": "2026-09-28T02:30:01.510Z",
+          "alerts": 53,
+          "incidents": 9,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.54
+        },
+        {
+          "timestamp": "2026-09-28T03:00:01.510Z",
+          "alerts": 57,
+          "incidents": 10,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.47
+        },
+        {
+          "timestamp": "2026-09-28T03:30:01.510Z",
+          "alerts": 65,
+          "incidents": 12,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.6
+        },
+        {
+          "timestamp": "2026-09-28T04:00:01.510Z",
+          "alerts": 65,
+          "incidents": 12,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.54
+        },
+        {
+          "timestamp": "2026-09-28T04:30:01.510Z",
+          "alerts": 65,
+          "incidents": 12,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.51
+        },
+        {
+          "timestamp": "2026-09-28T05:00:01.510Z",
+          "alerts": 65,
+          "incidents": 12,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.51
+        },
+        {
+          "timestamp": "2026-09-28T05:30:01.510Z",
+          "alerts": 69,
+          "incidents": 13,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.58
+        },
+        {
+          "timestamp": "2026-09-28T06:00:01.510Z",
+          "alerts": 78,
+          "incidents": 15,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.59
+        },
+        {
+          "timestamp": "2026-09-28T06:30:01.510Z",
+          "alerts": 78,
+          "incidents": 15,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.6
+        },
+        {
+          "timestamp": "2026-09-28T07:00:01.510Z",
+          "alerts": 90,
+          "incidents": 18,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.69
+        },
+        {
+          "timestamp": "2026-09-28T07:30:01.510Z",
+          "alerts": 95,
+          "incidents": 19,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.72
+        },
+        {
+          "timestamp": "2026-09-28T08:00:01.510Z",
+          "alerts": 113,
+          "incidents": 21,
+          "surfaced_episodes": 2,
+          "runtime_ms": 0.9
+        },
+        {
+          "timestamp": "2026-09-28T08:30:01.510Z",
+          "alerts": 151,
+          "incidents": 28,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.21
+        },
+        {
+          "timestamp": "2026-09-28T09:00:01.510Z",
+          "alerts": 163,
+          "incidents": 31,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.25
+        },
+        {
+          "timestamp": "2026-09-28T09:30:01.510Z",
+          "alerts": 196,
+          "incidents": 38,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.57
+        },
+        {
+          "timestamp": "2026-09-28T10:00:01.510Z",
+          "alerts": 262,
+          "incidents": 53,
+          "surfaced_episodes": 2,
+          "runtime_ms": 2.46
+        },
+        {
+          "timestamp": "2026-09-28T10:30:01.510Z",
+          "alerts": 279,
+          "incidents": 57,
+          "surfaced_episodes": 2,
+          "runtime_ms": 2.24
+        },
+        {
+          "timestamp": "2026-09-28T11:00:01.510Z",
+          "alerts": 309,
+          "incidents": 63,
+          "surfaced_episodes": 2,
+          "runtime_ms": 2.66
+        },
+        {
+          "timestamp": "2026-09-28T11:30:01.510Z",
+          "alerts": 343,
+          "incidents": 72,
+          "surfaced_episodes": 2,
+          "runtime_ms": 2.74
+        },
+        {
+          "timestamp": "2026-09-28T12:00:01.510Z",
+          "alerts": 388,
+          "incidents": 82,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.2
+        },
+        {
+          "timestamp": "2026-09-28T12:30:01.510Z",
+          "alerts": 443,
+          "incidents": 95,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.5
+        },
+        {
+          "timestamp": "2026-09-28T13:00:01.510Z",
+          "alerts": 483,
+          "incidents": 104,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.7
+        },
+        {
+          "timestamp": "2026-09-28T13:30:01.510Z",
+          "alerts": 542,
+          "incidents": 116,
+          "surfaced_episodes": 2,
+          "runtime_ms": 7.89
+        },
+        {
+          "timestamp": "2026-09-28T14:00:01.510Z",
+          "alerts": 582,
+          "incidents": 122,
+          "surfaced_episodes": 3,
+          "runtime_ms": 4.37
+        },
+        {
+          "timestamp": "2026-09-28T14:30:01.510Z",
+          "alerts": 627,
+          "incidents": 132,
+          "surfaced_episodes": 3,
+          "runtime_ms": 4.79
+        },
+        {
+          "timestamp": "2026-09-28T15:00:01.510Z",
+          "alerts": 667,
+          "incidents": 142,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.06
+        },
+        {
+          "timestamp": "2026-09-28T15:30:01.510Z",
+          "alerts": 722,
+          "incidents": 153,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.73
+        },
+        {
+          "timestamp": "2026-09-28T16:00:01.510Z",
+          "alerts": 772,
+          "incidents": 165,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.83
+        },
+        {
+          "timestamp": "2026-09-28T16:30:01.510Z",
+          "alerts": 793,
+          "incidents": 169,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.01
+        },
+        {
+          "timestamp": "2026-09-28T17:00:01.510Z",
+          "alerts": 834,
+          "incidents": 179,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.33
+        },
+        {
+          "timestamp": "2026-09-28T17:30:01.510Z",
+          "alerts": 856,
+          "incidents": 185,
+          "surfaced_episodes": 3,
+          "runtime_ms": 9.79
+        },
+        {
+          "timestamp": "2026-09-28T18:00:01.510Z",
+          "alerts": 893,
+          "incidents": 193,
+          "surfaced_episodes": 3,
+          "runtime_ms": 7.12
+        },
+        {
+          "timestamp": "2026-09-28T18:30:01.510Z",
+          "alerts": 895,
+          "incidents": 193,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.73
+        },
+        {
+          "timestamp": "2026-09-28T19:00:01.510Z",
+          "alerts": 895,
+          "incidents": 193,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.85
+        },
+        {
+          "timestamp": "2026-09-28T19:30:01.510Z",
+          "alerts": 909,
+          "incidents": 195,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.05
+        },
+        {
+          "timestamp": "2026-09-28T20:00:01.510Z",
+          "alerts": 909,
+          "incidents": 195,
+          "surfaced_episodes": 4,
+          "runtime_ms": 6.7
+        },
+        {
+          "timestamp": "2026-09-28T20:30:01.510Z",
+          "alerts": 909,
+          "incidents": 195,
+          "surfaced_episodes": 4,
+          "runtime_ms": 6.73
+        },
+        {
+          "timestamp": "2026-09-28T21:00:01.510Z",
+          "alerts": 915,
+          "incidents": 196,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.5
+        },
+        {
+          "timestamp": "2026-09-28T21:30:01.510Z",
+          "alerts": 923,
+          "incidents": 198,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.06
+        },
+        {
+          "timestamp": "2026-09-28T22:00:01.510Z",
+          "alerts": 927,
+          "incidents": 199,
+          "surfaced_episodes": 4,
+          "runtime_ms": 6.83
+        },
+        {
+          "timestamp": "2026-09-28T22:30:01.510Z",
+          "alerts": 936,
+          "incidents": 201,
+          "surfaced_episodes": 4,
+          "runtime_ms": 6.87
+        },
+        {
+          "timestamp": "2026-09-28T23:00:01.510Z",
+          "alerts": 936,
+          "incidents": 201,
+          "surfaced_episodes": 4,
+          "runtime_ms": 6.81
+        },
+        {
+          "timestamp": "2026-09-28T23:30:01.510Z",
+          "alerts": 944,
+          "incidents": 203,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.37
+        },
+        {
+          "timestamp": "2026-09-29T00:00:01.510Z",
+          "alerts": 953,
+          "incidents": 205,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.12
+        },
+        {
+          "timestamp": "2026-09-29T00:30:01.510Z",
+          "alerts": 957,
+          "incidents": 206,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.71
+        },
+        {
+          "timestamp": "2026-09-29T01:00:01.510Z",
+          "alerts": 961,
+          "incidents": 207,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.33
+        },
+        {
+          "timestamp": "2026-09-29T01:30:01.510Z",
+          "alerts": 980,
+          "incidents": 209,
+          "surfaced_episodes": 5,
+          "runtime_ms": 7.45
+        },
+        {
+          "timestamp": "2026-09-29T02:00:01.510Z",
+          "alerts": 980,
+          "incidents": 209,
+          "surfaced_episodes": 5,
+          "runtime_ms": 7.85
+        },
+        {
+          "timestamp": "2026-09-29T02:30:01.510Z",
+          "alerts": 984,
+          "incidents": 210,
+          "surfaced_episodes": 5,
+          "runtime_ms": 7.32
+        },
+        {
+          "timestamp": "2026-09-29T03:00:01.510Z",
+          "alerts": 989,
+          "incidents": 211,
+          "surfaced_episodes": 5,
+          "runtime_ms": 7.27
+        },
+        {
+          "timestamp": "2026-09-29T03:30:01.510Z",
+          "alerts": 989,
+          "incidents": 211,
+          "surfaced_episodes": 5,
+          "runtime_ms": 9.45
+        },
+        {
+          "timestamp": "2026-09-29T04:00:01.510Z",
+          "alerts": 997,
+          "incidents": 213,
+          "surfaced_episodes": 5,
+          "runtime_ms": 7.72
+        },
+        {
+          "timestamp": "2026-09-29T04:30:01.510Z",
+          "alerts": 1011,
+          "incidents": 216,
+          "surfaced_episodes": 5,
+          "runtime_ms": 7.98
+        },
+        {
+          "timestamp": "2026-09-29T05:00:01.510Z",
+          "alerts": 1020,
+          "incidents": 218,
+          "surfaced_episodes": 5,
+          "runtime_ms": 7.62
+        },
+        {
+          "timestamp": "2026-09-29T05:30:01.510Z",
+          "alerts": 1020,
+          "incidents": 218,
+          "surfaced_episodes": 5,
+          "runtime_ms": 7.67
+        },
+        {
+          "timestamp": "2026-09-29T06:00:01.510Z",
+          "alerts": 1024,
+          "incidents": 219,
+          "surfaced_episodes": 5,
+          "runtime_ms": 7.59
+        },
+        {
+          "timestamp": "2026-09-29T06:30:01.510Z",
+          "alerts": 1033,
+          "incidents": 221,
+          "surfaced_episodes": 5,
+          "runtime_ms": 10.07
+        },
+        {
+          "timestamp": "2026-09-29T07:00:01.510Z",
+          "alerts": 1037,
+          "incidents": 222,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.16
+        },
+        {
+          "timestamp": "2026-09-29T07:30:01.510Z",
+          "alerts": 1052,
+          "incidents": 223,
+          "surfaced_episodes": 6,
+          "runtime_ms": 9.6
+        },
+        {
+          "timestamp": "2026-09-29T08:00:01.510Z",
+          "alerts": 1060,
+          "incidents": 225,
+          "surfaced_episodes": 6,
+          "runtime_ms": 8.43
+        },
+        {
+          "timestamp": "2026-09-29T08:30:01.510Z",
+          "alerts": 1138,
+          "incidents": 242,
+          "surfaced_episodes": 6,
+          "runtime_ms": 8.51
+        },
+        {
+          "timestamp": "2026-09-29T09:00:01.510Z",
+          "alerts": 1197,
+          "incidents": 254,
+          "surfaced_episodes": 6,
+          "runtime_ms": 9.68
+        },
+        {
+          "timestamp": "2026-09-29T09:30:01.510Z",
+          "alerts": 1219,
+          "incidents": 259,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.74
+        },
+        {
+          "timestamp": "2026-09-29T10:00:01.510Z",
+          "alerts": 1271,
+          "incidents": 269,
+          "surfaced_episodes": 6,
+          "runtime_ms": 9.81
+        },
+        {
+          "timestamp": "2026-09-29T10:30:01.510Z",
+          "alerts": 1298,
+          "incidents": 275,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.54
+        },
+        {
+          "timestamp": "2026-09-29T11:00:01.510Z",
+          "alerts": 1341,
+          "incidents": 285,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.32
+        },
+        {
+          "timestamp": "2026-09-29T11:30:01.510Z",
+          "alerts": 1374,
+          "incidents": 289,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.47
+        },
+        {
+          "timestamp": "2026-09-29T12:00:01.510Z",
+          "alerts": 1416,
+          "incidents": 297,
+          "surfaced_episodes": 6,
+          "runtime_ms": 12.8
+        },
+        {
+          "timestamp": "2026-09-29T12:30:01.510Z",
+          "alerts": 1463,
+          "incidents": 307,
+          "surfaced_episodes": 6,
+          "runtime_ms": 11.72
+        },
+        {
+          "timestamp": "2026-09-29T13:00:01.510Z",
+          "alerts": 1506,
+          "incidents": 315,
+          "surfaced_episodes": 7,
+          "runtime_ms": 11.33
+        },
+        {
+          "timestamp": "2026-09-29T13:30:01.510Z",
+          "alerts": 1565,
+          "incidents": 328,
+          "surfaced_episodes": 7,
+          "runtime_ms": 11.99
+        },
+        {
+          "timestamp": "2026-09-29T14:00:01.510Z",
+          "alerts": 1604,
+          "incidents": 336,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.48
+        },
+        {
+          "timestamp": "2026-09-29T14:30:01.510Z",
+          "alerts": 1632,
+          "incidents": 342,
+          "surfaced_episodes": 7,
+          "runtime_ms": 13.32
+        },
+        {
+          "timestamp": "2026-09-29T15:00:01.510Z",
+          "alerts": 1662,
+          "incidents": 347,
+          "surfaced_episodes": 7,
+          "runtime_ms": 13.69
+        },
+        {
+          "timestamp": "2026-09-29T15:30:01.510Z",
+          "alerts": 1681,
+          "incidents": 352,
+          "surfaced_episodes": 7,
+          "runtime_ms": 13.95
+        },
+        {
+          "timestamp": "2026-09-29T16:00:01.510Z",
+          "alerts": 1725,
+          "incidents": 362,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.34
+        },
+        {
+          "timestamp": "2026-09-29T16:30:01.510Z",
+          "alerts": 1768,
+          "incidents": 372,
+          "surfaced_episodes": 7,
+          "runtime_ms": 13.91
+        },
+        {
+          "timestamp": "2026-09-29T17:00:01.510Z",
+          "alerts": 1815,
+          "incidents": 383,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.47
+        },
+        {
+          "timestamp": "2026-09-29T17:30:01.510Z",
+          "alerts": 1860,
+          "incidents": 393,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.58
+        },
+        {
+          "timestamp": "2026-09-29T18:00:01.510Z",
+          "alerts": 1897,
+          "incidents": 400,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.08
+        },
+        {
+          "timestamp": "2026-09-29T18:30:01.510Z",
+          "alerts": 1901,
+          "incidents": 401,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.33
+        },
+        {
+          "timestamp": "2026-09-29T19:00:01.510Z",
+          "alerts": 1918,
+          "incidents": 404,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.12
+        },
+        {
+          "timestamp": "2026-09-29T19:30:01.510Z",
+          "alerts": 1923,
+          "incidents": 405,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.36
+        },
+        {
+          "timestamp": "2026-09-29T20:00:01.510Z",
+          "alerts": 1927,
+          "incidents": 406,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.43
+        },
+        {
+          "timestamp": "2026-09-29T20:30:01.510Z",
+          "alerts": 1932,
+          "incidents": 407,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.23
+        },
+        {
+          "timestamp": "2026-09-29T21:00:01.510Z",
+          "alerts": 1932,
+          "incidents": 407,
+          "surfaced_episodes": 7,
+          "runtime_ms": 17.21
+        },
+        {
+          "timestamp": "2026-09-29T21:30:01.510Z",
+          "alerts": 1941,
+          "incidents": 409,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.47
+        },
+        {
+          "timestamp": "2026-09-29T22:00:01.510Z",
+          "alerts": 1945,
+          "incidents": 410,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.15
+        },
+        {
+          "timestamp": "2026-09-29T22:30:01.510Z",
+          "alerts": 1950,
+          "incidents": 411,
+          "surfaced_episodes": 7,
+          "runtime_ms": 18.01
+        },
+        {
+          "timestamp": "2026-09-29T23:00:01.510Z",
+          "alerts": 1959,
+          "incidents": 413,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.68
+        },
+        {
+          "timestamp": "2026-09-29T23:30:01.510Z",
+          "alerts": 1959,
+          "incidents": 413,
+          "surfaced_episodes": 7,
+          "runtime_ms": 17.05
+        },
+        {
+          "timestamp": "2026-09-30T00:00:01.510Z",
+          "alerts": 1959,
+          "incidents": 413,
+          "surfaced_episodes": 7,
+          "runtime_ms": 20.57
+        },
+        {
+          "timestamp": "2026-09-30T00:30:01.510Z",
+          "alerts": 1963,
+          "incidents": 414,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.92
+        },
+        {
+          "timestamp": "2026-09-30T01:00:01.510Z",
+          "alerts": 1989,
+          "incidents": 417,
+          "surfaced_episodes": 8,
+          "runtime_ms": 15.91
+        },
+        {
+          "timestamp": "2026-09-30T01:30:01.510Z",
+          "alerts": 2003,
+          "incidents": 420,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.22
+        },
+        {
+          "timestamp": "2026-09-30T02:00:01.510Z",
+          "alerts": 2005,
+          "incidents": 421,
+          "surfaced_episodes": 8,
+          "runtime_ms": 17.13
+        },
+        {
+          "timestamp": "2026-09-30T02:30:01.510Z",
+          "alerts": 2012,
+          "incidents": 422,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.16
+        },
+        {
+          "timestamp": "2026-09-30T03:00:01.510Z",
+          "alerts": 2017,
+          "incidents": 423,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.4
+        },
+        {
+          "timestamp": "2026-09-30T03:30:01.510Z",
+          "alerts": 2025,
+          "incidents": 425,
+          "surfaced_episodes": 8,
+          "runtime_ms": 18.54
+        },
+        {
+          "timestamp": "2026-09-30T04:00:01.510Z",
+          "alerts": 2025,
+          "incidents": 425,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.45
+        },
+        {
+          "timestamp": "2026-09-30T04:30:01.510Z",
+          "alerts": 2025,
+          "incidents": 425,
+          "surfaced_episodes": 8,
+          "runtime_ms": 17.14
+        },
+        {
+          "timestamp": "2026-09-30T05:00:01.510Z",
+          "alerts": 2025,
+          "incidents": 425,
+          "surfaced_episodes": 8,
+          "runtime_ms": 18.96
+        },
+        {
+          "timestamp": "2026-09-30T05:30:01.510Z",
+          "alerts": 2025,
+          "incidents": 425,
+          "surfaced_episodes": 8,
+          "runtime_ms": 15.97
+        },
+        {
+          "timestamp": "2026-09-30T06:00:01.510Z",
+          "alerts": 2033,
+          "incidents": 427,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.35
+        },
+        {
+          "timestamp": "2026-09-30T06:30:01.510Z",
+          "alerts": 2054,
+          "incidents": 431,
+          "surfaced_episodes": 8,
+          "runtime_ms": 19.17
+        },
+        {
+          "timestamp": "2026-09-30T07:00:01.510Z",
+          "alerts": 2071,
+          "incidents": 434,
+          "surfaced_episodes": 9,
+          "runtime_ms": 16.58
+        },
+        {
+          "timestamp": "2026-09-30T07:30:01.510Z",
+          "alerts": 2075,
+          "incidents": 434,
+          "surfaced_episodes": 9,
+          "runtime_ms": 16.67
+        },
+        {
+          "timestamp": "2026-09-30T08:00:01.510Z",
+          "alerts": 2080,
+          "incidents": 435,
+          "surfaced_episodes": 9,
+          "runtime_ms": 20.82
+        },
+        {
+          "timestamp": "2026-09-30T08:30:01.510Z",
+          "alerts": 2120,
+          "incidents": 444,
+          "surfaced_episodes": 9,
+          "runtime_ms": 19.85
+        },
+        {
+          "timestamp": "2026-09-30T09:00:01.510Z",
+          "alerts": 2155,
+          "incidents": 451,
+          "surfaced_episodes": 9,
+          "runtime_ms": 19.51
+        },
+        {
+          "timestamp": "2026-09-30T09:30:01.510Z",
+          "alerts": 2193,
+          "incidents": 460,
+          "surfaced_episodes": 9,
+          "runtime_ms": 20.92
+        },
+        {
+          "timestamp": "2026-09-30T10:00:01.510Z",
+          "alerts": 2207,
+          "incidents": 462,
+          "surfaced_episodes": 9,
+          "runtime_ms": 20.24
+        },
+        {
+          "timestamp": "2026-09-30T10:30:01.510Z",
+          "alerts": 2266,
+          "incidents": 475,
+          "surfaced_episodes": 9,
+          "runtime_ms": 17.96
+        },
+        {
+          "timestamp": "2026-09-30T11:00:01.510Z",
+          "alerts": 2293,
+          "incidents": 480,
+          "surfaced_episodes": 9,
+          "runtime_ms": 21.65
+        },
+        {
+          "timestamp": "2026-09-30T11:30:01.510Z",
+          "alerts": 2339,
+          "incidents": 492,
+          "surfaced_episodes": 9,
+          "runtime_ms": 19.44
+        },
+        {
+          "timestamp": "2026-09-30T12:00:01.510Z",
+          "alerts": 2409,
+          "incidents": 505,
+          "surfaced_episodes": 9,
+          "runtime_ms": 22.74
+        },
+        {
+          "timestamp": "2026-09-30T12:30:01.510Z",
+          "alerts": 2450,
+          "incidents": 510,
+          "surfaced_episodes": 10,
+          "runtime_ms": 19.86
+        },
+        {
+          "timestamp": "2026-09-30T13:00:01.510Z",
+          "alerts": 2488,
+          "incidents": 520,
+          "surfaced_episodes": 10,
+          "runtime_ms": 19.96
+        },
+        {
+          "timestamp": "2026-09-30T13:30:01.510Z",
+          "alerts": 2529,
+          "incidents": 528,
+          "surfaced_episodes": 10,
+          "runtime_ms": 23.32
+        },
+        {
+          "timestamp": "2026-09-30T14:00:01.510Z",
+          "alerts": 2598,
+          "incidents": 544,
+          "surfaced_episodes": 10,
+          "runtime_ms": 23.42
+        },
+        {
+          "timestamp": "2026-09-30T14:30:01.510Z",
+          "alerts": 2646,
+          "incidents": 556,
+          "surfaced_episodes": 10,
+          "runtime_ms": 25.39
+        },
+        {
+          "timestamp": "2026-09-30T15:00:01.510Z",
+          "alerts": 2701,
+          "incidents": 568,
+          "surfaced_episodes": 10,
+          "runtime_ms": 22.05
+        },
+        {
+          "timestamp": "2026-09-30T15:30:01.510Z",
+          "alerts": 2753,
+          "incidents": 580,
+          "surfaced_episodes": 10,
+          "runtime_ms": 24.26
+        },
+        {
+          "timestamp": "2026-09-30T16:00:01.510Z",
+          "alerts": 2783,
+          "incidents": 587,
+          "surfaced_episodes": 10,
+          "runtime_ms": 26.27
+        },
+        {
+          "timestamp": "2026-09-30T16:30:01.510Z",
+          "alerts": 2823,
+          "incidents": 594,
+          "surfaced_episodes": 10,
+          "runtime_ms": 26.01
+        },
+        {
+          "timestamp": "2026-09-30T17:00:01.510Z",
+          "alerts": 2849,
+          "incidents": 600,
+          "surfaced_episodes": 10,
+          "runtime_ms": 26.49
+        },
+        {
+          "timestamp": "2026-09-30T17:30:01.510Z",
+          "alerts": 2909,
+          "incidents": 613,
+          "surfaced_episodes": 10,
+          "runtime_ms": 24.7
+        },
+        {
+          "timestamp": "2026-09-30T18:00:01.510Z",
+          "alerts": 2938,
+          "incidents": 620,
+          "surfaced_episodes": 10,
+          "runtime_ms": 26.38
+        },
+        {
+          "timestamp": "2026-09-30T18:30:01.510Z",
+          "alerts": 2947,
+          "incidents": 621,
+          "surfaced_episodes": 10,
+          "runtime_ms": 24.13
+        },
+        {
+          "timestamp": "2026-09-30T19:00:01.510Z",
+          "alerts": 2963,
+          "incidents": 624,
+          "surfaced_episodes": 10,
+          "runtime_ms": 27.36
+        },
+        {
+          "timestamp": "2026-09-30T19:30:01.510Z",
+          "alerts": 2967,
+          "incidents": 625,
+          "surfaced_episodes": 10,
+          "runtime_ms": 23.77
+        },
+        {
+          "timestamp": "2026-09-30T20:00:01.510Z",
+          "alerts": 2971,
+          "incidents": 626,
+          "surfaced_episodes": 10,
+          "runtime_ms": 27.17
+        },
+        {
+          "timestamp": "2026-09-30T20:30:01.510Z",
+          "alerts": 2971,
+          "incidents": 626,
+          "surfaced_episodes": 10,
+          "runtime_ms": 25.19
+        },
+        {
+          "timestamp": "2026-09-30T21:00:01.510Z",
+          "alerts": 2975,
+          "incidents": 627,
+          "surfaced_episodes": 10,
+          "runtime_ms": 27.6
+        },
+        {
+          "timestamp": "2026-09-30T21:30:01.510Z",
+          "alerts": 2975,
+          "incidents": 627,
+          "surfaced_episodes": 10,
+          "runtime_ms": 25.39
+        },
+        {
+          "timestamp": "2026-09-30T22:00:01.510Z",
+          "alerts": 2983,
+          "incidents": 629,
+          "surfaced_episodes": 10,
+          "runtime_ms": 31.68
+        },
+        {
+          "timestamp": "2026-09-30T22:30:01.510Z",
+          "alerts": 2992,
+          "incidents": 631,
+          "surfaced_episodes": 10,
+          "runtime_ms": 27.46
+        },
+        {
+          "timestamp": "2026-09-30T23:00:01.510Z",
+          "alerts": 2992,
+          "incidents": 631,
+          "surfaced_episodes": 10,
+          "runtime_ms": 33.91
+        },
+        {
+          "timestamp": "2026-09-30T23:30:01.510Z",
+          "alerts": 2996,
+          "incidents": 632,
+          "surfaced_episodes": 10,
+          "runtime_ms": 24.9
+        },
+        {
+          "timestamp": "2026-10-01T00:00:01.510Z",
+          "alerts": 3000,
+          "incidents": 633,
+          "surfaced_episodes": 10,
+          "runtime_ms": 27.96
+        }
+      ]
+    },
+    {
+      "seed": 905,
+      "input_sha256": "e4e61b94055f9caf812ceba73e7f7691d68bd394acbe1eb2364b8aa0f493d00b",
+      "observable": 12,
+      "surfaced": 10,
+      "median_delay_minutes": 21.73316666666667,
+      "episodes": [
+        {
+          "id": "ATTACK-001",
+          "first_observable": "2026-09-28T01:47:58.173Z",
+          "first_top25_visibility": "2026-09-28T01:56:29.377Z",
+          "delay_minutes": 8.520066666666667
+        },
+        {
+          "id": "ATTACK-002",
+          "first_observable": "2026-09-28T07:36:06.895Z",
+          "first_top25_visibility": "2026-09-28T07:56:29.377Z",
+          "delay_minutes": 20.3747
+        },
+        {
+          "id": "ATTACK-003",
+          "first_observable": "2026-09-28T13:11:50.977Z",
+          "first_top25_visibility": "2026-09-28T13:26:29.377Z",
+          "delay_minutes": 14.64
+        },
+        {
+          "id": "ATTACK-004",
+          "first_observable": "2026-09-28T19:28:07.589Z",
+          "first_top25_visibility": "2026-09-28T19:56:29.377Z",
+          "delay_minutes": 28.363133333333334
+        },
+        {
+          "id": "ATTACK-005",
+          "first_observable": "2026-09-29T01:03:23.879Z",
+          "first_top25_visibility": "2026-09-29T01:26:29.377Z",
+          "delay_minutes": 23.091633333333334
+        },
+        {
+          "id": "ATTACK-006",
+          "first_observable": "2026-09-29T06:50:56.207Z",
+          "first_top25_visibility": "2026-09-29T07:26:29.377Z",
+          "delay_minutes": 35.55283333333333
+        },
+        {
+          "id": "ATTACK-007",
+          "first_observable": "2026-09-29T12:39:36.648Z",
+          "first_top25_visibility": "2026-09-29T12:56:29.377Z",
+          "delay_minutes": 16.878816666666665
+        },
+        {
+          "id": "ATTACK-008",
+          "first_observable": "2026-09-29T18:46:31.079Z",
+          "first_top25_visibility": null,
+          "delay_minutes": null
+        },
+        {
+          "id": "ATTACK-009",
+          "first_observable": "2026-09-30T00:20:51.776Z",
+          "first_top25_visibility": "2026-09-30T00:56:29.377Z",
+          "delay_minutes": 35.62668333333333
+        },
+        {
+          "id": "ATTACK-010",
+          "first_observable": "2026-09-30T06:24:18.000Z",
+          "first_top25_visibility": "2026-09-30T06:56:29.377Z",
+          "delay_minutes": 32.189616666666666
+        },
+        {
+          "id": "ATTACK-011",
+          "first_observable": "2026-09-30T12:08:17.345Z",
+          "first_top25_visibility": "2026-09-30T12:26:29.377Z",
+          "delay_minutes": 18.200533333333333
+        },
+        {
+          "id": "ATTACK-012",
+          "first_observable": "2026-09-30T18:15:13.007Z",
+          "first_top25_visibility": null,
+          "delay_minutes": null
+        }
+      ],
+      "checkpoints": [
+        {
+          "timestamp": "2026-09-28T01:26:29.377Z",
+          "alerts": 10,
+          "incidents": 2,
+          "surfaced_episodes": 0,
+          "runtime_ms": 0.18
+        },
+        {
+          "timestamp": "2026-09-28T01:56:29.377Z",
+          "alerts": 18,
+          "incidents": 3,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.16
+        },
+        {
+          "timestamp": "2026-09-28T02:26:29.377Z",
+          "alerts": 30,
+          "incidents": 4,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.28
+        },
+        {
+          "timestamp": "2026-09-28T02:56:29.377Z",
+          "alerts": 30,
+          "incidents": 4,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.24
+        },
+        {
+          "timestamp": "2026-09-28T03:26:29.377Z",
+          "alerts": 38,
+          "incidents": 6,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.31
+        },
+        {
+          "timestamp": "2026-09-28T03:56:29.377Z",
+          "alerts": 46,
+          "incidents": 8,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.36
+        },
+        {
+          "timestamp": "2026-09-28T04:26:29.377Z",
+          "alerts": 51,
+          "incidents": 9,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.43
+        },
+        {
+          "timestamp": "2026-09-28T04:56:29.377Z",
+          "alerts": 59,
+          "incidents": 11,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.45
+        },
+        {
+          "timestamp": "2026-09-28T05:26:29.377Z",
+          "alerts": 65,
+          "incidents": 12,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.48
+        },
+        {
+          "timestamp": "2026-09-28T05:56:29.377Z",
+          "alerts": 66,
+          "incidents": 13,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.48
+        },
+        {
+          "timestamp": "2026-09-28T06:26:29.377Z",
+          "alerts": 80,
+          "incidents": 15,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.59
+        },
+        {
+          "timestamp": "2026-09-28T06:56:29.377Z",
+          "alerts": 84,
+          "incidents": 16,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.6
+        },
+        {
+          "timestamp": "2026-09-28T07:26:29.377Z",
+          "alerts": 89,
+          "incidents": 17,
+          "surfaced_episodes": 1,
+          "runtime_ms": 0.68
+        },
+        {
+          "timestamp": "2026-09-28T07:56:29.377Z",
+          "alerts": 113,
+          "incidents": 20,
+          "surfaced_episodes": 2,
+          "runtime_ms": 0.98
+        },
+        {
+          "timestamp": "2026-09-28T08:26:29.377Z",
+          "alerts": 140,
+          "incidents": 27,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.09
+        },
+        {
+          "timestamp": "2026-09-28T08:56:29.377Z",
+          "alerts": 169,
+          "incidents": 32,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.33
+        },
+        {
+          "timestamp": "2026-09-28T09:26:29.377Z",
+          "alerts": 214,
+          "incidents": 42,
+          "surfaced_episodes": 2,
+          "runtime_ms": 1.67
+        },
+        {
+          "timestamp": "2026-09-28T09:56:29.377Z",
+          "alerts": 243,
+          "incidents": 49,
+          "surfaced_episodes": 2,
+          "runtime_ms": 2.05
+        },
+        {
+          "timestamp": "2026-09-28T10:26:29.377Z",
+          "alerts": 284,
+          "incidents": 57,
+          "surfaced_episodes": 2,
+          "runtime_ms": 2.21
+        },
+        {
+          "timestamp": "2026-09-28T10:56:29.377Z",
+          "alerts": 322,
+          "incidents": 66,
+          "surfaced_episodes": 2,
+          "runtime_ms": 6.52
+        },
+        {
+          "timestamp": "2026-09-28T11:26:29.377Z",
+          "alerts": 374,
+          "incidents": 78,
+          "surfaced_episodes": 2,
+          "runtime_ms": 2.74
+        },
+        {
+          "timestamp": "2026-09-28T11:56:29.377Z",
+          "alerts": 411,
+          "incidents": 84,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.04
+        },
+        {
+          "timestamp": "2026-09-28T12:26:29.377Z",
+          "alerts": 460,
+          "incidents": 94,
+          "surfaced_episodes": 2,
+          "runtime_ms": 3.4
+        },
+        {
+          "timestamp": "2026-09-28T12:56:29.377Z",
+          "alerts": 504,
+          "incidents": 103,
+          "surfaced_episodes": 2,
+          "runtime_ms": 4.03
+        },
+        {
+          "timestamp": "2026-09-28T13:26:29.377Z",
+          "alerts": 540,
+          "incidents": 109,
+          "surfaced_episodes": 3,
+          "runtime_ms": 4.35
+        },
+        {
+          "timestamp": "2026-09-28T13:56:29.377Z",
+          "alerts": 577,
+          "incidents": 116,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.61
+        },
+        {
+          "timestamp": "2026-09-28T14:26:29.377Z",
+          "alerts": 615,
+          "incidents": 125,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.55
+        },
+        {
+          "timestamp": "2026-09-28T14:56:29.377Z",
+          "alerts": 668,
+          "incidents": 134,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.48
+        },
+        {
+          "timestamp": "2026-09-28T15:26:29.377Z",
+          "alerts": 696,
+          "incidents": 140,
+          "surfaced_episodes": 3,
+          "runtime_ms": 5.4
+        },
+        {
+          "timestamp": "2026-09-28T15:56:29.377Z",
+          "alerts": 730,
+          "incidents": 148,
+          "surfaced_episodes": 3,
+          "runtime_ms": 7.43
+        },
+        {
+          "timestamp": "2026-09-28T16:26:29.377Z",
+          "alerts": 766,
+          "incidents": 157,
+          "surfaced_episodes": 3,
+          "runtime_ms": 8.25
+        },
+        {
+          "timestamp": "2026-09-28T16:56:29.377Z",
+          "alerts": 833,
+          "incidents": 171,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.61
+        },
+        {
+          "timestamp": "2026-09-28T17:26:29.377Z",
+          "alerts": 858,
+          "incidents": 177,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.82
+        },
+        {
+          "timestamp": "2026-09-28T17:56:29.377Z",
+          "alerts": 915,
+          "incidents": 190,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.87
+        },
+        {
+          "timestamp": "2026-09-28T18:26:29.377Z",
+          "alerts": 923,
+          "incidents": 192,
+          "surfaced_episodes": 3,
+          "runtime_ms": 7.34
+        },
+        {
+          "timestamp": "2026-09-28T18:56:29.377Z",
+          "alerts": 923,
+          "incidents": 192,
+          "surfaced_episodes": 3,
+          "runtime_ms": 6.94
+        },
+        {
+          "timestamp": "2026-09-28T19:26:29.377Z",
+          "alerts": 927,
+          "incidents": 193,
+          "surfaced_episodes": 3,
+          "runtime_ms": 7.1
+        },
+        {
+          "timestamp": "2026-09-28T19:56:29.377Z",
+          "alerts": 944,
+          "incidents": 196,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.55
+        },
+        {
+          "timestamp": "2026-09-28T20:26:29.377Z",
+          "alerts": 958,
+          "incidents": 199,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.7
+        },
+        {
+          "timestamp": "2026-09-28T20:56:29.377Z",
+          "alerts": 967,
+          "incidents": 201,
+          "surfaced_episodes": 4,
+          "runtime_ms": 8.26
+        },
+        {
+          "timestamp": "2026-09-28T21:26:29.377Z",
+          "alerts": 987,
+          "incidents": 206,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.4
+        },
+        {
+          "timestamp": "2026-09-28T21:56:29.377Z",
+          "alerts": 991,
+          "incidents": 207,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.87
+        },
+        {
+          "timestamp": "2026-09-28T22:26:29.377Z",
+          "alerts": 991,
+          "incidents": 207,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.48
+        },
+        {
+          "timestamp": "2026-09-28T22:56:29.377Z",
+          "alerts": 995,
+          "incidents": 208,
+          "surfaced_episodes": 4,
+          "runtime_ms": 9.03
+        },
+        {
+          "timestamp": "2026-09-28T23:26:29.377Z",
+          "alerts": 1013,
+          "incidents": 212,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.43
+        },
+        {
+          "timestamp": "2026-09-28T23:56:29.377Z",
+          "alerts": 1013,
+          "incidents": 212,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.63
+        },
+        {
+          "timestamp": "2026-09-29T00:26:29.377Z",
+          "alerts": 1021,
+          "incidents": 214,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.5
+        },
+        {
+          "timestamp": "2026-09-29T00:56:29.377Z",
+          "alerts": 1025,
+          "incidents": 215,
+          "surfaced_episodes": 4,
+          "runtime_ms": 7.58
+        },
+        {
+          "timestamp": "2026-09-29T01:26:29.377Z",
+          "alerts": 1047,
+          "incidents": 218,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.04
+        },
+        {
+          "timestamp": "2026-09-29T01:56:29.377Z",
+          "alerts": 1051,
+          "incidents": 219,
+          "surfaced_episodes": 5,
+          "runtime_ms": 9.58
+        },
+        {
+          "timestamp": "2026-09-29T02:26:29.377Z",
+          "alerts": 1055,
+          "incidents": 220,
+          "surfaced_episodes": 5,
+          "runtime_ms": 9.1
+        },
+        {
+          "timestamp": "2026-09-29T02:56:29.377Z",
+          "alerts": 1059,
+          "incidents": 221,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.83
+        },
+        {
+          "timestamp": "2026-09-29T03:26:29.377Z",
+          "alerts": 1077,
+          "incidents": 224,
+          "surfaced_episodes": 5,
+          "runtime_ms": 9.93
+        },
+        {
+          "timestamp": "2026-09-29T03:56:29.377Z",
+          "alerts": 1082,
+          "incidents": 225,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.33
+        },
+        {
+          "timestamp": "2026-09-29T04:26:29.377Z",
+          "alerts": 1084,
+          "incidents": 226,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.37
+        },
+        {
+          "timestamp": "2026-09-29T04:56:29.377Z",
+          "alerts": 1095,
+          "incidents": 228,
+          "surfaced_episodes": 5,
+          "runtime_ms": 10
+        },
+        {
+          "timestamp": "2026-09-29T05:26:29.377Z",
+          "alerts": 1095,
+          "incidents": 228,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.42
+        },
+        {
+          "timestamp": "2026-09-29T05:56:29.377Z",
+          "alerts": 1099,
+          "incidents": 229,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.31
+        },
+        {
+          "timestamp": "2026-09-29T06:26:29.377Z",
+          "alerts": 1103,
+          "incidents": 230,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.4
+        },
+        {
+          "timestamp": "2026-09-29T06:56:29.377Z",
+          "alerts": 1109,
+          "incidents": 231,
+          "surfaced_episodes": 5,
+          "runtime_ms": 8.51
+        },
+        {
+          "timestamp": "2026-09-29T07:26:29.377Z",
+          "alerts": 1123,
+          "incidents": 232,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.14
+        },
+        {
+          "timestamp": "2026-09-29T07:56:29.377Z",
+          "alerts": 1127,
+          "incidents": 233,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.73
+        },
+        {
+          "timestamp": "2026-09-29T08:26:29.377Z",
+          "alerts": 1162,
+          "incidents": 241,
+          "surfaced_episodes": 6,
+          "runtime_ms": 9.11
+        },
+        {
+          "timestamp": "2026-09-29T08:56:29.377Z",
+          "alerts": 1197,
+          "incidents": 249,
+          "surfaced_episodes": 6,
+          "runtime_ms": 9.1
+        },
+        {
+          "timestamp": "2026-09-29T09:26:29.377Z",
+          "alerts": 1231,
+          "incidents": 257,
+          "surfaced_episodes": 6,
+          "runtime_ms": 9.43
+        },
+        {
+          "timestamp": "2026-09-29T09:56:29.377Z",
+          "alerts": 1252,
+          "incidents": 262,
+          "surfaced_episodes": 6,
+          "runtime_ms": 9.33
+        },
+        {
+          "timestamp": "2026-09-29T10:26:29.377Z",
+          "alerts": 1297,
+          "incidents": 271,
+          "surfaced_episodes": 6,
+          "runtime_ms": 11.44
+        },
+        {
+          "timestamp": "2026-09-29T10:56:29.377Z",
+          "alerts": 1341,
+          "incidents": 281,
+          "surfaced_episodes": 6,
+          "runtime_ms": 14.24
+        },
+        {
+          "timestamp": "2026-09-29T11:26:29.377Z",
+          "alerts": 1377,
+          "incidents": 289,
+          "surfaced_episodes": 6,
+          "runtime_ms": 10.49
+        },
+        {
+          "timestamp": "2026-09-29T11:56:29.377Z",
+          "alerts": 1427,
+          "incidents": 300,
+          "surfaced_episodes": 6,
+          "runtime_ms": 12.14
+        },
+        {
+          "timestamp": "2026-09-29T12:26:29.377Z",
+          "alerts": 1464,
+          "incidents": 307,
+          "surfaced_episodes": 6,
+          "runtime_ms": 12.83
+        },
+        {
+          "timestamp": "2026-09-29T12:56:29.377Z",
+          "alerts": 1512,
+          "incidents": 316,
+          "surfaced_episodes": 7,
+          "runtime_ms": 11.55
+        },
+        {
+          "timestamp": "2026-09-29T13:26:29.377Z",
+          "alerts": 1554,
+          "incidents": 324,
+          "surfaced_episodes": 7,
+          "runtime_ms": 12.27
+        },
+        {
+          "timestamp": "2026-09-29T13:56:29.377Z",
+          "alerts": 1583,
+          "incidents": 330,
+          "surfaced_episodes": 7,
+          "runtime_ms": 12.63
+        },
+        {
+          "timestamp": "2026-09-29T14:26:29.377Z",
+          "alerts": 1605,
+          "incidents": 335,
+          "surfaced_episodes": 7,
+          "runtime_ms": 13.92
+        },
+        {
+          "timestamp": "2026-09-29T14:56:29.377Z",
+          "alerts": 1615,
+          "incidents": 337,
+          "surfaced_episodes": 7,
+          "runtime_ms": 12.25
+        },
+        {
+          "timestamp": "2026-09-29T15:26:29.377Z",
+          "alerts": 1646,
+          "incidents": 344,
+          "surfaced_episodes": 7,
+          "runtime_ms": 12.79
+        },
+        {
+          "timestamp": "2026-09-29T15:56:29.377Z",
+          "alerts": 1709,
+          "incidents": 358,
+          "surfaced_episodes": 7,
+          "runtime_ms": 13.68
+        },
+        {
+          "timestamp": "2026-09-29T16:26:29.377Z",
+          "alerts": 1750,
+          "incidents": 366,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.41
+        },
+        {
+          "timestamp": "2026-09-29T16:56:29.377Z",
+          "alerts": 1770,
+          "incidents": 370,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.14
+        },
+        {
+          "timestamp": "2026-09-29T17:26:29.377Z",
+          "alerts": 1797,
+          "incidents": 376,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.72
+        },
+        {
+          "timestamp": "2026-09-29T17:56:29.377Z",
+          "alerts": 1845,
+          "incidents": 386,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.19
+        },
+        {
+          "timestamp": "2026-09-29T18:26:29.377Z",
+          "alerts": 1849,
+          "incidents": 387,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.21
+        },
+        {
+          "timestamp": "2026-09-29T18:56:29.377Z",
+          "alerts": 1858,
+          "incidents": 388,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.66
+        },
+        {
+          "timestamp": "2026-09-29T19:26:29.377Z",
+          "alerts": 1866,
+          "incidents": 390,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.23
+        },
+        {
+          "timestamp": "2026-09-29T19:56:29.377Z",
+          "alerts": 1874,
+          "incidents": 392,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.35
+        },
+        {
+          "timestamp": "2026-09-29T20:26:29.377Z",
+          "alerts": 1879,
+          "incidents": 393,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.31
+        },
+        {
+          "timestamp": "2026-09-29T20:56:29.377Z",
+          "alerts": 1883,
+          "incidents": 394,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.73
+        },
+        {
+          "timestamp": "2026-09-29T21:26:29.377Z",
+          "alerts": 1896,
+          "incidents": 397,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.71
+        },
+        {
+          "timestamp": "2026-09-29T21:56:29.377Z",
+          "alerts": 1900,
+          "incidents": 398,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.34
+        },
+        {
+          "timestamp": "2026-09-29T22:26:29.377Z",
+          "alerts": 1904,
+          "incidents": 399,
+          "surfaced_episodes": 7,
+          "runtime_ms": 14.86
+        },
+        {
+          "timestamp": "2026-09-29T22:56:29.377Z",
+          "alerts": 1904,
+          "incidents": 399,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.07
+        },
+        {
+          "timestamp": "2026-09-29T23:26:29.377Z",
+          "alerts": 1912,
+          "incidents": 401,
+          "surfaced_episodes": 7,
+          "runtime_ms": 16.51
+        },
+        {
+          "timestamp": "2026-09-29T23:56:29.377Z",
+          "alerts": 1934,
+          "incidents": 406,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.68
+        },
+        {
+          "timestamp": "2026-09-30T00:26:29.377Z",
+          "alerts": 1945,
+          "incidents": 408,
+          "surfaced_episodes": 7,
+          "runtime_ms": 15.55
+        },
+        {
+          "timestamp": "2026-09-30T00:56:29.377Z",
+          "alerts": 1954,
+          "incidents": 408,
+          "surfaced_episodes": 8,
+          "runtime_ms": 20.65
+        },
+        {
+          "timestamp": "2026-09-30T01:26:29.377Z",
+          "alerts": 1958,
+          "incidents": 409,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.36
+        },
+        {
+          "timestamp": "2026-09-30T01:56:29.377Z",
+          "alerts": 1966,
+          "incidents": 411,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.36
+        },
+        {
+          "timestamp": "2026-09-30T02:26:29.377Z",
+          "alerts": 1976,
+          "incidents": 414,
+          "surfaced_episodes": 8,
+          "runtime_ms": 17.5
+        },
+        {
+          "timestamp": "2026-09-30T02:56:29.377Z",
+          "alerts": 1984,
+          "incidents": 415,
+          "surfaced_episodes": 8,
+          "runtime_ms": 15.9
+        },
+        {
+          "timestamp": "2026-09-30T03:26:29.377Z",
+          "alerts": 1997,
+          "incidents": 418,
+          "surfaced_episodes": 8,
+          "runtime_ms": 15.49
+        },
+        {
+          "timestamp": "2026-09-30T03:56:29.377Z",
+          "alerts": 2001,
+          "incidents": 419,
+          "surfaced_episodes": 8,
+          "runtime_ms": 17.96
+        },
+        {
+          "timestamp": "2026-09-30T04:26:29.377Z",
+          "alerts": 2011,
+          "incidents": 421,
+          "surfaced_episodes": 8,
+          "runtime_ms": 15.72
+        },
+        {
+          "timestamp": "2026-09-30T04:56:29.377Z",
+          "alerts": 2011,
+          "incidents": 421,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.07
+        },
+        {
+          "timestamp": "2026-09-30T05:26:29.377Z",
+          "alerts": 2016,
+          "incidents": 422,
+          "surfaced_episodes": 8,
+          "runtime_ms": 18.19
+        },
+        {
+          "timestamp": "2026-09-30T05:56:29.377Z",
+          "alerts": 2021,
+          "incidents": 423,
+          "surfaced_episodes": 8,
+          "runtime_ms": 16.68
+        },
+        {
+          "timestamp": "2026-09-30T06:26:29.377Z",
+          "alerts": 2034,
+          "incidents": 426,
+          "surfaced_episodes": 8,
+          "runtime_ms": 17.19
+        },
+        {
+          "timestamp": "2026-09-30T06:56:29.377Z",
+          "alerts": 2050,
+          "incidents": 427,
+          "surfaced_episodes": 9,
+          "runtime_ms": 18.53
+        },
+        {
+          "timestamp": "2026-09-30T07:26:29.377Z",
+          "alerts": 2050,
+          "incidents": 427,
+          "surfaced_episodes": 9,
+          "runtime_ms": 16.46
+        },
+        {
+          "timestamp": "2026-09-30T07:56:29.377Z",
+          "alerts": 2050,
+          "incidents": 427,
+          "surfaced_episodes": 9,
+          "runtime_ms": 16.25
+        },
+        {
+          "timestamp": "2026-09-30T08:26:29.377Z",
+          "alerts": 2087,
+          "incidents": 436,
+          "surfaced_episodes": 9,
+          "runtime_ms": 18.71
+        },
+        {
+          "timestamp": "2026-09-30T08:56:29.377Z",
+          "alerts": 2140,
+          "incidents": 447,
+          "surfaced_episodes": 9,
+          "runtime_ms": 18.74
+        },
+        {
+          "timestamp": "2026-09-30T09:26:29.377Z",
+          "alerts": 2185,
+          "incidents": 457,
+          "surfaced_episodes": 9,
+          "runtime_ms": 19.1
+        },
+        {
+          "timestamp": "2026-09-30T09:56:29.377Z",
+          "alerts": 2207,
+          "incidents": 461,
+          "surfaced_episodes": 9,
+          "runtime_ms": 19.55
+        },
+        {
+          "timestamp": "2026-09-30T10:26:29.377Z",
+          "alerts": 2228,
+          "incidents": 465,
+          "surfaced_episodes": 9,
+          "runtime_ms": 17.25
+        },
+        {
+          "timestamp": "2026-09-30T10:56:29.377Z",
+          "alerts": 2279,
+          "incidents": 475,
+          "surfaced_episodes": 9,
+          "runtime_ms": 17.76
+        },
+        {
+          "timestamp": "2026-09-30T11:26:29.377Z",
+          "alerts": 2327,
+          "incidents": 483,
+          "surfaced_episodes": 9,
+          "runtime_ms": 19.77
+        },
+        {
+          "timestamp": "2026-09-30T11:56:29.377Z",
+          "alerts": 2365,
+          "incidents": 492,
+          "surfaced_episodes": 9,
+          "runtime_ms": 21.21
+        },
+        {
+          "timestamp": "2026-09-30T12:26:29.377Z",
+          "alerts": 2416,
+          "incidents": 501,
+          "surfaced_episodes": 10,
+          "runtime_ms": 19.29
+        },
+        {
+          "timestamp": "2026-09-30T12:56:29.377Z",
+          "alerts": 2471,
+          "incidents": 513,
+          "surfaced_episodes": 10,
+          "runtime_ms": 21.03
+        },
+        {
+          "timestamp": "2026-09-30T13:26:29.377Z",
+          "alerts": 2519,
+          "incidents": 524,
+          "surfaced_episodes": 10,
+          "runtime_ms": 20.11
+        },
+        {
+          "timestamp": "2026-09-30T13:56:29.377Z",
+          "alerts": 2560,
+          "incidents": 533,
+          "surfaced_episodes": 10,
+          "runtime_ms": 22.94
+        },
+        {
+          "timestamp": "2026-09-30T14:26:29.377Z",
+          "alerts": 2616,
+          "incidents": 544,
+          "surfaced_episodes": 10,
+          "runtime_ms": 21.27
+        },
+        {
+          "timestamp": "2026-09-30T14:56:29.377Z",
+          "alerts": 2652,
+          "incidents": 552,
+          "surfaced_episodes": 10,
+          "runtime_ms": 24.13
+        },
+        {
+          "timestamp": "2026-09-30T15:26:29.377Z",
+          "alerts": 2688,
+          "incidents": 561,
+          "surfaced_episodes": 10,
+          "runtime_ms": 23.49
+        },
+        {
+          "timestamp": "2026-09-30T15:56:29.377Z",
+          "alerts": 2728,
+          "incidents": 569,
+          "surfaced_episodes": 10,
+          "runtime_ms": 21.71
+        },
+        {
+          "timestamp": "2026-09-30T16:26:29.377Z",
+          "alerts": 2760,
+          "incidents": 576,
+          "surfaced_episodes": 10,
+          "runtime_ms": 24.46
+        },
+        {
+          "timestamp": "2026-09-30T16:56:29.377Z",
+          "alerts": 2809,
+          "incidents": 585,
+          "surfaced_episodes": 10,
+          "runtime_ms": 22.32
+        },
+        {
+          "timestamp": "2026-09-30T17:26:29.377Z",
+          "alerts": 2857,
+          "incidents": 595,
+          "surfaced_episodes": 10,
+          "runtime_ms": 26.24
+        },
+        {
+          "timestamp": "2026-09-30T17:56:29.377Z",
+          "alerts": 2916,
+          "incidents": 607,
+          "surfaced_episodes": 10,
+          "runtime_ms": 23.73
+        },
+        {
+          "timestamp": "2026-09-30T18:26:29.377Z",
+          "alerts": 2947,
+          "incidents": 612,
+          "surfaced_episodes": 10,
+          "runtime_ms": 27.36
+        },
+        {
+          "timestamp": "2026-09-30T18:56:29.377Z",
+          "alerts": 2951,
+          "incidents": 613,
+          "surfaced_episodes": 10,
+          "runtime_ms": 38.17
+        },
+        {
+          "timestamp": "2026-09-30T19:26:29.377Z",
+          "alerts": 2955,
+          "incidents": 614,
+          "surfaced_episodes": 10,
+          "runtime_ms": 27.47
+        },
+        {
+          "timestamp": "2026-09-30T19:56:29.377Z",
+          "alerts": 2959,
+          "incidents": 615,
+          "surfaced_episodes": 10,
+          "runtime_ms": 24.64
+        },
+        {
+          "timestamp": "2026-09-30T20:26:29.377Z",
+          "alerts": 2973,
+          "incidents": 618,
+          "surfaced_episodes": 10,
+          "runtime_ms": 26.75
+        },
+        {
+          "timestamp": "2026-09-30T20:56:29.377Z",
+          "alerts": 2973,
+          "incidents": 618,
+          "surfaced_episodes": 10,
+          "runtime_ms": 25.34
+        },
+        {
+          "timestamp": "2026-09-30T21:26:29.377Z",
+          "alerts": 2978,
+          "incidents": 619,
+          "surfaced_episodes": 10,
+          "runtime_ms": 27.85
+        },
+        {
+          "timestamp": "2026-09-30T21:56:29.377Z",
+          "alerts": 2978,
+          "incidents": 619,
+          "surfaced_episodes": 10,
+          "runtime_ms": 25.07
+        },
+        {
+          "timestamp": "2026-09-30T22:26:29.377Z",
+          "alerts": 2982,
+          "incidents": 620,
+          "surfaced_episodes": 10,
+          "runtime_ms": 27.1
+        },
+        {
+          "timestamp": "2026-09-30T22:56:29.377Z",
+          "alerts": 2987,
+          "incidents": 621,
+          "surfaced_episodes": 10,
+          "runtime_ms": 25.15
+        },
+        {
+          "timestamp": "2026-09-30T23:26:29.377Z",
+          "alerts": 2991,
+          "incidents": 622,
+          "surfaced_episodes": 10,
+          "runtime_ms": 29.61
+        },
+        {
+          "timestamp": "2026-09-30T23:56:29.377Z",
+          "alerts": 3000,
+          "incidents": 624,
+          "surfaced_episodes": 10,
+          "runtime_ms": 24.48
+        }
+      ]
+    }
+  ],
+  "definition": "First snapshot when an episode alert occurs in a top-25 prefix-only incident; snapshots are 30 event-time minutes apart.",
+  "limitations": [
+    "Event-time visibility delay is not analyst time-to-detect.",
+    "Snapshot granularity contributes up to 30 minutes of delay.",
+    "Each prefix recomputes IDF; ranks and incident membership may change as new evidence arrives.",
+    "Unobservable or never-surfaced episodes retain null delay, rather than a fabricated finite value."
+  ]
+}

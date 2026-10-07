@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+.pytest_cache/
+runtime/
+.sites-runtime/
+.wrangler/
+*.sqlite*
+artifacts/
+playwright-report/
+
+test-results/

@@ -1,0 +1,4 @@
+alert_id,timestamp,source,alert_type,severity,host,user,asset_criticality,description
+CSV-001,2026-10-01T10:00:00Z,edr,powershell,medium,WS-007,analyst,2,Encoded command observed
+CSV-002,2026-10-01T10:03:00Z,edr,credential_dump,high,WS-007,analyst,2,LSASS memory access
+CSV-003,2026-10-01T11:00:00Z,idp,login_failure,low,WS-008,employee,2,Authentication failed

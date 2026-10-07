@@ -1,0 +1,5520 @@
+{
+  "version": "2.0",
+  "provenance": {
+    "source_fingerprint_sha256": "6d095bf34c1c1b47a709f7ec37f6d2bc2ec027f3b8d6218451823bf85d2e694a",
+    "source_files": {
+      "core/brief.ts": "3262f7682077d6183b3a57ee042cc422735c70c1c0c7adac63d74b3a3c982228",
+      "core/comparison.ts": "d3d5d17f7298da75933b8da8047b4aba45ca5dc9588f7b89becbf7b71c43ecca",
+      "core/contracts.ts": "728a10317d9160efa8d1a2c92769992d96585d8be532dac7ecdadb54f0aa6d7b",
+      "core/engine.ts": "4a95f267f8d4edcb46912c4ff164c5f735807d6054444891d57fae9fe29af528",
+      "core/evaluation.ts": "257e7ebd9bceb63f30223ae71273257e39a59e439a6dc9bc8cc00445d70a5643",
+      "core/ingestion/assessment.ts": "f86e6f69dfabdab528ede6eb1266e04a391591fb5244ec3f6c3a9a1c02c9d4ad",
+      "core/ingestion/normalize.ts": "bc5101f99932dada27405260a77f3ca909c3e5222c1a1fd86623011a9148f4cb",
+      "core/ingestion/report-contract.ts": "31ae954161c4b045622b27ad34edfbf004e6e2355f69b97a34998ac7ac1cd79a",
+      "core/mapping.ts": "eb8d5c35b5e22d5d96945501a21fee2ccf26fd6517b6de9fa73f4c57ff4e5bb8",
+      "core/simulation/detectors.ts": "99423a73ea56cb0a167a0fc8a597e39af54cbf270cd4aebce1c690b4ebb7cfef",
+      "core/simulation/model.ts": "1bda0f7219a32193f3b8f31c77f378f21325c2f775f120f2c109eb08aa922526",
+      "core/simulation/scenarios.ts": "4021c78b4367106e53ae296c4e2dbdc8eebe92d99a8888d875ba7f09743e8a8d",
+      "core/simulation/validation.ts": "a5422bc1d41f356ce501248e86e8a222f7411e7992753412d00e58445793e671",
+      "core/simulator.ts": "5b6ff853ed19650cc50fbe495e1e73142888e161f9a0a5a8cbe4a90cf9b884cb"
+    },
+    "lockfile_sha256": "170b0ea70d9e9f7838f15dffd12be42feb19598da6dc7edb8a9e1a859f9af208",
+    "runtime": {
+      "node": "v24.19.0",
+      "platform": "linux",
+      "arch": "x64"
+    },
+    "generated_at": "2026-10-07T02:40:36.061Z"
+  },
+  "cases": 105,
+  "passed": 105,
+  "results": [
+    {
+      "seed": 101,
+      "count": 1000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1130,
+          "unalerted_events": 205,
+          "duplicate_alerts": 75,
+          "benign_lookalikes": 356,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              95,
+              284,
+              279,
+              82,
+              111
+            ],
+            "ATTACK": [
+              19,
+              27,
+              58,
+              22,
+              23
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 3000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3456,
+          "unalerted_events": 670,
+          "duplicate_alerts": 214,
+          "benign_lookalikes": 1100,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              290,
+              960,
+              943,
+              306,
+              352
+            ],
+            "ATTACK": [
+              19,
+              27,
+              58,
+              22,
+              23
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 10000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11516,
+          "unalerted_events": 2282,
+          "duplicate_alerts": 766,
+          "benign_lookalikes": 3800,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              1003,
+              3380,
+              3190,
+              1093,
+              1185
+            ],
+            "ATTACK": [
+              19,
+              27,
+              58,
+              22,
+              23
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 1000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1126,
+          "unalerted_events": 201,
+          "duplicate_alerts": 75,
+          "benign_lookalikes": 340,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              82,
+              279,
+              284,
+              85,
+              112
+            ],
+            "ATTACK": [
+              23,
+              20,
+              60,
+              19,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 3000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3466,
+          "unalerted_events": 669,
+          "duplicate_alerts": 203,
+          "benign_lookalikes": 1097,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              283,
+              996,
+              897,
+              309,
+              357
+            ],
+            "ATTACK": [
+              23,
+              20,
+              60,
+              19,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 10000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11593,
+          "unalerted_events": 2294,
+          "duplicate_alerts": 701,
+          "benign_lookalikes": 3742,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              969,
+              3422,
+              3150,
+              1092,
+              1209
+            ],
+            "ATTACK": [
+              23,
+              20,
+              60,
+              19,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 1000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1112,
+          "unalerted_events": 197,
+          "duplicate_alerts": 85,
+          "benign_lookalikes": 327,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              79,
+              301,
+              269,
+              69,
+              120
+            ],
+            "ATTACK": [
+              11,
+              20,
+              70,
+              25,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 3000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3425,
+          "unalerted_events": 660,
+          "duplicate_alerts": 235,
+          "benign_lookalikes": 1161,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              285,
+              1027,
+              869,
+              274,
+              383
+            ],
+            "ATTACK": [
+              11,
+              20,
+              70,
+              25,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 10000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11498,
+          "unalerted_events": 2274,
+          "duplicate_alerts": 776,
+          "benign_lookalikes": 3836,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              974,
+              3537,
+              3064,
+              1070,
+              1193
+            ],
+            "ATTACK": [
+              11,
+              20,
+              70,
+              25,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 1000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1128,
+          "unalerted_events": 204,
+          "duplicate_alerts": 76,
+          "benign_lookalikes": 306,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              79,
+              298,
+              264,
+              91,
+              108
+            ],
+            "ATTACK": [
+              12,
+              24,
+              70,
+              23,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 3000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3431,
+          "unalerted_events": 665,
+          "duplicate_alerts": 234,
+          "benign_lookalikes": 1074,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              279,
+              978,
+              898,
+              317,
+              368
+            ],
+            "ATTACK": [
+              12,
+              24,
+              70,
+              23,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 10000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11545,
+          "unalerted_events": 2288,
+          "duplicate_alerts": 743,
+          "benign_lookalikes": 3855,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              972,
+              3475,
+              3164,
+              1039,
+              1190
+            ],
+            "ATTACK": [
+              12,
+              24,
+              70,
+              23,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 1000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1115,
+          "unalerted_events": 204,
+          "duplicate_alerts": 89,
+          "benign_lookalikes": 326,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              97,
+              283,
+              273,
+              91,
+              96
+            ],
+            "ATTACK": [
+              14,
+              23,
+              79,
+              20,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 3000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3432,
+          "unalerted_events": 667,
+          "duplicate_alerts": 235,
+          "benign_lookalikes": 1141,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              296,
+              990,
+              908,
+              322,
+              324
+            ],
+            "ATTACK": [
+              14,
+              23,
+              79,
+              20,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 10000,
+      "config": {},
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11508,
+          "unalerted_events": 2282,
+          "duplicate_alerts": 774,
+          "benign_lookalikes": 4035,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              946,
+              3378,
+              3184,
+              1063,
+              1269
+            ],
+            "ATTACK": [
+              14,
+              23,
+              79,
+              20,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 1000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1130,
+          "unalerted_events": 205,
+          "duplicate_alerts": 75,
+          "benign_lookalikes": 356,
+          "missing_entity_alerts": 140,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              95,
+              284,
+              279,
+              82,
+              111
+            ],
+            "ATTACK": [
+              19,
+              27,
+              58,
+              22,
+              23
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 3000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3456,
+          "unalerted_events": 670,
+          "duplicate_alerts": 214,
+          "benign_lookalikes": 1100,
+          "missing_entity_alerts": 369,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              290,
+              960,
+              943,
+              306,
+              352
+            ],
+            "ATTACK": [
+              19,
+              27,
+              58,
+              22,
+              23
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 10000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11516,
+          "unalerted_events": 2282,
+          "duplicate_alerts": 766,
+          "benign_lookalikes": 3800,
+          "missing_entity_alerts": 1249,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              1003,
+              3380,
+              3190,
+              1093,
+              1185
+            ],
+            "ATTACK": [
+              19,
+              27,
+              58,
+              22,
+              23
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 1000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1126,
+          "unalerted_events": 201,
+          "duplicate_alerts": 75,
+          "benign_lookalikes": 340,
+          "missing_entity_alerts": 114,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              82,
+              279,
+              284,
+              85,
+              112
+            ],
+            "ATTACK": [
+              23,
+              20,
+              60,
+              19,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 3000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3466,
+          "unalerted_events": 669,
+          "duplicate_alerts": 203,
+          "benign_lookalikes": 1097,
+          "missing_entity_alerts": 379,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              283,
+              996,
+              897,
+              309,
+              357
+            ],
+            "ATTACK": [
+              23,
+              20,
+              60,
+              19,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 10000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11593,
+          "unalerted_events": 2294,
+          "duplicate_alerts": 701,
+          "benign_lookalikes": 3742,
+          "missing_entity_alerts": 1311,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              969,
+              3422,
+              3150,
+              1092,
+              1209
+            ],
+            "ATTACK": [
+              23,
+              20,
+              60,
+              19,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 1000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1112,
+          "unalerted_events": 197,
+          "duplicate_alerts": 85,
+          "benign_lookalikes": 327,
+          "missing_entity_alerts": 119,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              79,
+              301,
+              269,
+              69,
+              120
+            ],
+            "ATTACK": [
+              11,
+              20,
+              70,
+              25,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 3000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3425,
+          "unalerted_events": 660,
+          "duplicate_alerts": 235,
+          "benign_lookalikes": 1161,
+          "missing_entity_alerts": 376,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              285,
+              1027,
+              869,
+              274,
+              383
+            ],
+            "ATTACK": [
+              11,
+              20,
+              70,
+              25,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 10000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11498,
+          "unalerted_events": 2274,
+          "duplicate_alerts": 776,
+          "benign_lookalikes": 3836,
+          "missing_entity_alerts": 1241,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              974,
+              3537,
+              3064,
+              1070,
+              1193
+            ],
+            "ATTACK": [
+              11,
+              20,
+              70,
+              25,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 1000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1128,
+          "unalerted_events": 204,
+          "duplicate_alerts": 76,
+          "benign_lookalikes": 306,
+          "missing_entity_alerts": 132,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              79,
+              298,
+              264,
+              91,
+              108
+            ],
+            "ATTACK": [
+              12,
+              24,
+              70,
+              23,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 3000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3431,
+          "unalerted_events": 665,
+          "duplicate_alerts": 234,
+          "benign_lookalikes": 1074,
+          "missing_entity_alerts": 367,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              279,
+              978,
+              898,
+              317,
+              368
+            ],
+            "ATTACK": [
+              12,
+              24,
+              70,
+              23,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 10000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11545,
+          "unalerted_events": 2288,
+          "duplicate_alerts": 743,
+          "benign_lookalikes": 3855,
+          "missing_entity_alerts": 1212,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              972,
+              3475,
+              3164,
+              1039,
+              1190
+            ],
+            "ATTACK": [
+              12,
+              24,
+              70,
+              23,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 1000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1115,
+          "unalerted_events": 204,
+          "duplicate_alerts": 89,
+          "benign_lookalikes": 326,
+          "missing_entity_alerts": 115,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              97,
+              283,
+              273,
+              91,
+              96
+            ],
+            "ATTACK": [
+              14,
+              23,
+              79,
+              20,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 3000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3432,
+          "unalerted_events": 667,
+          "duplicate_alerts": 235,
+          "benign_lookalikes": 1141,
+          "missing_entity_alerts": 380,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              296,
+              990,
+              908,
+              322,
+              324
+            ],
+            "ATTACK": [
+              14,
+              23,
+              79,
+              20,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 10000,
+      "config": {
+        "missing": 0.5
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11508,
+          "unalerted_events": 2282,
+          "duplicate_alerts": 774,
+          "benign_lookalikes": 4035,
+          "missing_entity_alerts": 1224,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              946,
+              3378,
+              3184,
+              1063,
+              1269
+            ],
+            "ATTACK": [
+              14,
+              23,
+              79,
+              20,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 1000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-003: no alerts observed; retained in recall denominator",
+          "ATTACK-004: no alerts observed; retained in recall denominator",
+          "ATTACK-011: no alerts observed; retained in recall denominator",
+          "ATTACK-012: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1285,
+          "unalerted_events": 366,
+          "duplicate_alerts": 81,
+          "benign_lookalikes": 313,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 4,
+          "severity_histograms": {
+            "BENIGN": [
+              105,
+              333,
+              336,
+              92,
+              119
+            ],
+            "ATTACK": [
+              1,
+              2,
+              9,
+              0,
+              3
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 3000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-003: no alerts observed; retained in recall denominator",
+          "ATTACK-004: no alerts observed; retained in recall denominator",
+          "ATTACK-011: no alerts observed; retained in recall denominator",
+          "ATTACK-012: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3607,
+          "unalerted_events": 830,
+          "duplicate_alerts": 223,
+          "benign_lookalikes": 905,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 4,
+          "severity_histograms": {
+            "BENIGN": [
+              304,
+              999,
+              997,
+              323,
+              362
+            ],
+            "ATTACK": [
+              1,
+              2,
+              9,
+              0,
+              3
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 10000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-003: no alerts observed; retained in recall denominator",
+          "ATTACK-004: no alerts observed; retained in recall denominator",
+          "ATTACK-011: no alerts observed; retained in recall denominator",
+          "ATTACK-012: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11673,
+          "unalerted_events": 2443,
+          "duplicate_alerts": 770,
+          "benign_lookalikes": 3008,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 4,
+          "severity_histograms": {
+            "BENIGN": [
+              1015,
+              3431,
+              3239,
+              1104,
+              1196
+            ],
+            "ATTACK": [
+              1,
+              2,
+              9,
+              0,
+              3
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 1000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-002: no alerts observed; retained in recall denominator",
+          "ATTACK-011: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1277,
+          "unalerted_events": 354,
+          "duplicate_alerts": 77,
+          "benign_lookalikes": 183,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 2,
+          "severity_histograms": {
+            "BENIGN": [
+              93,
+              321,
+              318,
+              106,
+              134
+            ],
+            "ATTACK": [
+              0,
+              4,
+              14,
+              2,
+              8
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 3000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-002: no alerts observed; retained in recall denominator",
+          "ATTACK-011: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3613,
+          "unalerted_events": 821,
+          "duplicate_alerts": 208,
+          "benign_lookalikes": 498,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 2,
+          "severity_histograms": {
+            "BENIGN": [
+              291,
+              1040,
+              930,
+              330,
+              381
+            ],
+            "ATTACK": [
+              0,
+              4,
+              14,
+              2,
+              8
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 10000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-002: no alerts observed; retained in recall denominator",
+          "ATTACK-011: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11742,
+          "unalerted_events": 2447,
+          "duplicate_alerts": 705,
+          "benign_lookalikes": 1555,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 2,
+          "severity_histograms": {
+            "BENIGN": [
+              976,
+              3466,
+              3187,
+              1115,
+              1228
+            ],
+            "ATTACK": [
+              0,
+              4,
+              14,
+              2,
+              8
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 1000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-007: no alerts observed; retained in recall denominator",
+          "ATTACK-008: no alerts observed; retained in recall denominator",
+          "ATTACK-012: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1277,
+          "unalerted_events": 361,
+          "duplicate_alerts": 84,
+          "benign_lookalikes": 277,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 3,
+          "severity_histograms": {
+            "BENIGN": [
+              94,
+              350,
+              308,
+              89,
+              142
+            ],
+            "ATTACK": [
+              1,
+              0,
+              11,
+              2,
+              3
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 3000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-007: no alerts observed; retained in recall denominator",
+          "ATTACK-008: no alerts observed; retained in recall denominator",
+          "ATTACK-012: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3591,
+          "unalerted_events": 824,
+          "duplicate_alerts": 233,
+          "benign_lookalikes": 859,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 3,
+          "severity_histograms": {
+            "BENIGN": [
+              300,
+              1078,
+              915,
+              294,
+              396
+            ],
+            "ATTACK": [
+              1,
+              0,
+              11,
+              2,
+              3
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 10000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-007: no alerts observed; retained in recall denominator",
+          "ATTACK-008: no alerts observed; retained in recall denominator",
+          "ATTACK-012: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11662,
+          "unalerted_events": 2438,
+          "duplicate_alerts": 776,
+          "benign_lookalikes": 2787,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 3,
+          "severity_histograms": {
+            "BENIGN": [
+              989,
+              3587,
+              3107,
+              1096,
+              1204
+            ],
+            "ATTACK": [
+              1,
+              0,
+              11,
+              2,
+              3
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 1000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-008: no alerts observed; retained in recall denominator",
+          "ATTACK-009: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1282,
+          "unalerted_events": 359,
+          "duplicate_alerts": 77,
+          "benign_lookalikes": 260,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 2,
+          "severity_histograms": {
+            "BENIGN": [
+              86,
+              343,
+              322,
+              97,
+              128
+            ],
+            "ATTACK": [
+              1,
+              4,
+              8,
+              4,
+              7
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 3000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-008: no alerts observed; retained in recall denominator",
+          "ATTACK-009: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3588,
+          "unalerted_events": 820,
+          "duplicate_alerts": 232,
+          "benign_lookalikes": 796,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 2,
+          "severity_histograms": {
+            "BENIGN": [
+              289,
+              1024,
+              954,
+              327,
+              382
+            ],
+            "ATTACK": [
+              1,
+              4,
+              8,
+              4,
+              7
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 10000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-008: no alerts observed; retained in recall denominator",
+          "ATTACK-009: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11700,
+          "unalerted_events": 2443,
+          "duplicate_alerts": 743,
+          "benign_lookalikes": 2847,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 2,
+          "severity_histograms": {
+            "BENIGN": [
+              980,
+              3513,
+              3230,
+              1046,
+              1207
+            ],
+            "ATTACK": [
+              1,
+              4,
+              8,
+              4,
+              7
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 1000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-001: no alerts observed; retained in recall denominator",
+          "ATTACK-005: no alerts observed; retained in recall denominator",
+          "ATTACK-009: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1278,
+          "unalerted_events": 360,
+          "duplicate_alerts": 82,
+          "benign_lookalikes": 308,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 3,
+          "severity_histograms": {
+            "BENIGN": [
+              112,
+              326,
+              321,
+              104,
+              118
+            ],
+            "ATTACK": [
+              1,
+              2,
+              9,
+              4,
+              3
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 3000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-001: no alerts observed; retained in recall denominator",
+          "ATTACK-005: no alerts observed; retained in recall denominator",
+          "ATTACK-009: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3596,
+          "unalerted_events": 824,
+          "duplicate_alerts": 228,
+          "benign_lookalikes": 974,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 3,
+          "severity_histograms": {
+            "BENIGN": [
+              308,
+              1033,
+              956,
+              337,
+              347
+            ],
+            "ATTACK": [
+              1,
+              2,
+              9,
+              4,
+              3
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 10000,
+      "config": {
+        "sensor_coverage": 0.1
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [
+          "ATTACK-001: no alerts observed; retained in recall denominator",
+          "ATTACK-005: no alerts observed; retained in recall denominator",
+          "ATTACK-009: no alerts observed; retained in recall denominator"
+        ],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11668,
+          "unalerted_events": 2438,
+          "duplicate_alerts": 770,
+          "benign_lookalikes": 3362,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 3,
+          "severity_histograms": {
+            "BENIGN": [
+              960,
+              3420,
+              3238,
+              1076,
+              1287
+            ],
+            "ATTACK": [
+              1,
+              2,
+              9,
+              4,
+              3
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 1000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1137,
+          "unalerted_events": 206,
+          "duplicate_alerts": 69,
+          "benign_lookalikes": 323,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              80,
+              285,
+              260,
+              93,
+              124
+            ],
+            "ATTACK": [
+              17,
+              19,
+              66,
+              25,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 3000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3462,
+          "unalerted_events": 671,
+          "duplicate_alerts": 209,
+          "benign_lookalikes": 1066,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              277,
+              961,
+              919,
+              319,
+              366
+            ],
+            "ATTACK": [
+              17,
+              19,
+              66,
+              25,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 10000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11523,
+          "unalerted_events": 2283,
+          "duplicate_alerts": 760,
+          "benign_lookalikes": 3768,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              988,
+              3384,
+              3167,
+              1105,
+              1198
+            ],
+            "ATTACK": [
+              17,
+              19,
+              66,
+              25,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 1000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1128,
+          "unalerted_events": 198,
+          "duplicate_alerts": 70,
+          "benign_lookalikes": 324,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              80,
+              277,
+              279,
+              93,
+              113
+            ],
+            "ATTACK": [
+              17,
+              18,
+              57,
+              30,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 3000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3468,
+          "unalerted_events": 666,
+          "duplicate_alerts": 198,
+          "benign_lookalikes": 1081,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              281,
+              995,
+              891,
+              316,
+              359
+            ],
+            "ATTACK": [
+              17,
+              18,
+              57,
+              30,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 10000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11596,
+          "unalerted_events": 2292,
+          "duplicate_alerts": 696,
+          "benign_lookalikes": 3726,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              967,
+              3422,
+              3144,
+              1099,
+              1210
+            ],
+            "ATTACK": [
+              17,
+              18,
+              57,
+              30,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 1000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1116,
+          "unalerted_events": 198,
+          "duplicate_alerts": 82,
+          "benign_lookalikes": 347,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              80,
+              297,
+              275,
+              67,
+              125
+            ],
+            "ATTACK": [
+              14,
+              16,
+              66,
+              27,
+              33
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 3000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3430,
+          "unalerted_events": 661,
+          "duplicate_alerts": 231,
+          "benign_lookalikes": 1184,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              286,
+              1022,
+              877,
+              272,
+              387
+            ],
+            "ATTACK": [
+              14,
+              16,
+              66,
+              27,
+              33
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 10000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11502,
+          "unalerted_events": 2275,
+          "duplicate_alerts": 773,
+          "benign_lookalikes": 3859,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              975,
+              3533,
+              3073,
+              1067,
+              1196
+            ],
+            "ATTACK": [
+              14,
+              16,
+              66,
+              27,
+              33
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 1000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1120,
+          "unalerted_events": 199,
+          "duplicate_alerts": 79,
+          "benign_lookalikes": 328,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              81,
+              289,
+              270,
+              86,
+              109
+            ],
+            "ATTACK": [
+              24,
+              28,
+              65,
+              18,
+              30
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 3000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3422,
+          "unalerted_events": 659,
+          "duplicate_alerts": 237,
+          "benign_lookalikes": 1096,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              282,
+              970,
+              902,
+              312,
+              369
+            ],
+            "ATTACK": [
+              24,
+              28,
+              65,
+              18,
+              30
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 10000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11536,
+          "unalerted_events": 2282,
+          "duplicate_alerts": 746,
+          "benign_lookalikes": 3875,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              974,
+              3466,
+              3170,
+              1035,
+              1190
+            ],
+            "ATTACK": [
+              24,
+              28,
+              65,
+              18,
+              30
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 1000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1115,
+          "unalerted_events": 204,
+          "duplicate_alerts": 89,
+          "benign_lookalikes": 317,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              100,
+              278,
+              275,
+              88,
+              99
+            ],
+            "ATTACK": [
+              15,
+              24,
+              75,
+              22,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 3000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3432,
+          "unalerted_events": 667,
+          "duplicate_alerts": 235,
+          "benign_lookalikes": 1132,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              299,
+              985,
+              910,
+              319,
+              327
+            ],
+            "ATTACK": [
+              15,
+              24,
+              75,
+              22,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 10000,
+      "config": {
+        "attack_overlap": true
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11508,
+          "unalerted_events": 2282,
+          "duplicate_alerts": 774,
+          "benign_lookalikes": 4026,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              949,
+              3373,
+              3186,
+              1060,
+              1272
+            ],
+            "ATTACK": [
+              15,
+              24,
+              75,
+              22,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 1000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1130,
+          "unalerted_events": 205,
+          "duplicate_alerts": 75,
+          "benign_lookalikes": 356,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              95,
+              284,
+              279,
+              82,
+              111
+            ],
+            "ATTACK": [
+              19,
+              27,
+              58,
+              22,
+              23
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 3000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3456,
+          "unalerted_events": 670,
+          "duplicate_alerts": 214,
+          "benign_lookalikes": 1100,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              290,
+              960,
+              943,
+              306,
+              352
+            ],
+            "ATTACK": [
+              19,
+              27,
+              58,
+              22,
+              23
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 10000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11516,
+          "unalerted_events": 2282,
+          "duplicate_alerts": 766,
+          "benign_lookalikes": 3800,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              1003,
+              3380,
+              3190,
+              1093,
+              1185
+            ],
+            "ATTACK": [
+              19,
+              27,
+              58,
+              22,
+              23
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 1000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1126,
+          "unalerted_events": 201,
+          "duplicate_alerts": 75,
+          "benign_lookalikes": 340,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              82,
+              279,
+              284,
+              85,
+              112
+            ],
+            "ATTACK": [
+              23,
+              20,
+              60,
+              19,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 3000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3466,
+          "unalerted_events": 669,
+          "duplicate_alerts": 203,
+          "benign_lookalikes": 1097,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              283,
+              996,
+              897,
+              309,
+              357
+            ],
+            "ATTACK": [
+              23,
+              20,
+              60,
+              19,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 10000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11593,
+          "unalerted_events": 2294,
+          "duplicate_alerts": 701,
+          "benign_lookalikes": 3742,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              969,
+              3422,
+              3150,
+              1092,
+              1209
+            ],
+            "ATTACK": [
+              23,
+              20,
+              60,
+              19,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 1000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1112,
+          "unalerted_events": 197,
+          "duplicate_alerts": 85,
+          "benign_lookalikes": 327,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              79,
+              301,
+              269,
+              69,
+              120
+            ],
+            "ATTACK": [
+              11,
+              20,
+              70,
+              25,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 3000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3425,
+          "unalerted_events": 660,
+          "duplicate_alerts": 235,
+          "benign_lookalikes": 1161,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              285,
+              1027,
+              869,
+              274,
+              383
+            ],
+            "ATTACK": [
+              11,
+              20,
+              70,
+              25,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 10000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11498,
+          "unalerted_events": 2274,
+          "duplicate_alerts": 776,
+          "benign_lookalikes": 3836,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              974,
+              3537,
+              3064,
+              1070,
+              1193
+            ],
+            "ATTACK": [
+              11,
+              20,
+              70,
+              25,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 1000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1128,
+          "unalerted_events": 204,
+          "duplicate_alerts": 76,
+          "benign_lookalikes": 306,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              79,
+              298,
+              264,
+              91,
+              108
+            ],
+            "ATTACK": [
+              12,
+              24,
+              70,
+              23,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 3000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3431,
+          "unalerted_events": 665,
+          "duplicate_alerts": 234,
+          "benign_lookalikes": 1074,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              279,
+              978,
+              898,
+              317,
+              368
+            ],
+            "ATTACK": [
+              12,
+              24,
+              70,
+              23,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 10000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11545,
+          "unalerted_events": 2288,
+          "duplicate_alerts": 743,
+          "benign_lookalikes": 3855,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              972,
+              3475,
+              3164,
+              1039,
+              1190
+            ],
+            "ATTACK": [
+              12,
+              24,
+              70,
+              23,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 1000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1115,
+          "unalerted_events": 204,
+          "duplicate_alerts": 89,
+          "benign_lookalikes": 326,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              97,
+              283,
+              273,
+              91,
+              96
+            ],
+            "ATTACK": [
+              14,
+              23,
+              79,
+              20,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 3000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3432,
+          "unalerted_events": 667,
+          "duplicate_alerts": 235,
+          "benign_lookalikes": 1141,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              296,
+              990,
+              908,
+              322,
+              324
+            ],
+            "ATTACK": [
+              14,
+              23,
+              79,
+              20,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 10000,
+      "config": {
+        "timing": "stretched"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11508,
+          "unalerted_events": 2282,
+          "duplicate_alerts": 774,
+          "benign_lookalikes": 4035,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              946,
+              3378,
+              3184,
+              1063,
+              1269
+            ],
+            "ATTACK": [
+              14,
+              23,
+              79,
+              20,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 1000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1130,
+          "unalerted_events": 205,
+          "duplicate_alerts": 75,
+          "benign_lookalikes": 356,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              95,
+              284,
+              279,
+              82,
+              111
+            ],
+            "ATTACK": [
+              19,
+              27,
+              58,
+              22,
+              23
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 3000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3456,
+          "unalerted_events": 670,
+          "duplicate_alerts": 214,
+          "benign_lookalikes": 1100,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              290,
+              960,
+              943,
+              306,
+              352
+            ],
+            "ATTACK": [
+              19,
+              27,
+              58,
+              22,
+              23
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 10000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11516,
+          "unalerted_events": 2282,
+          "duplicate_alerts": 766,
+          "benign_lookalikes": 3800,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              1003,
+              3380,
+              3190,
+              1093,
+              1185
+            ],
+            "ATTACK": [
+              19,
+              27,
+              58,
+              22,
+              23
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 1000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1126,
+          "unalerted_events": 201,
+          "duplicate_alerts": 75,
+          "benign_lookalikes": 340,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              82,
+              279,
+              284,
+              85,
+              112
+            ],
+            "ATTACK": [
+              23,
+              20,
+              60,
+              19,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 3000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3466,
+          "unalerted_events": 669,
+          "duplicate_alerts": 203,
+          "benign_lookalikes": 1097,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              283,
+              996,
+              897,
+              309,
+              357
+            ],
+            "ATTACK": [
+              23,
+              20,
+              60,
+              19,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 10000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11593,
+          "unalerted_events": 2294,
+          "duplicate_alerts": 701,
+          "benign_lookalikes": 3742,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              969,
+              3422,
+              3150,
+              1092,
+              1209
+            ],
+            "ATTACK": [
+              23,
+              20,
+              60,
+              19,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 1000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1112,
+          "unalerted_events": 197,
+          "duplicate_alerts": 85,
+          "benign_lookalikes": 327,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              79,
+              301,
+              269,
+              69,
+              120
+            ],
+            "ATTACK": [
+              11,
+              20,
+              70,
+              25,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 3000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3425,
+          "unalerted_events": 660,
+          "duplicate_alerts": 235,
+          "benign_lookalikes": 1161,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              285,
+              1027,
+              869,
+              274,
+              383
+            ],
+            "ATTACK": [
+              11,
+              20,
+              70,
+              25,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 10000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11498,
+          "unalerted_events": 2274,
+          "duplicate_alerts": 776,
+          "benign_lookalikes": 3836,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              974,
+              3537,
+              3064,
+              1070,
+              1193
+            ],
+            "ATTACK": [
+              11,
+              20,
+              70,
+              25,
+              36
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 1000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1128,
+          "unalerted_events": 204,
+          "duplicate_alerts": 76,
+          "benign_lookalikes": 306,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              79,
+              298,
+              264,
+              91,
+              108
+            ],
+            "ATTACK": [
+              12,
+              24,
+              70,
+              23,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 3000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3431,
+          "unalerted_events": 665,
+          "duplicate_alerts": 234,
+          "benign_lookalikes": 1074,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              279,
+              978,
+              898,
+              317,
+              368
+            ],
+            "ATTACK": [
+              12,
+              24,
+              70,
+              23,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 10000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11545,
+          "unalerted_events": 2288,
+          "duplicate_alerts": 743,
+          "benign_lookalikes": 3855,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              972,
+              3475,
+              3164,
+              1039,
+              1190
+            ],
+            "ATTACK": [
+              12,
+              24,
+              70,
+              23,
+              31
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 1000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 1115,
+          "unalerted_events": 204,
+          "duplicate_alerts": 89,
+          "benign_lookalikes": 326,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              97,
+              283,
+              273,
+              91,
+              96
+            ],
+            "ATTACK": [
+              14,
+              23,
+              79,
+              20,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 3000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 3432,
+          "unalerted_events": 667,
+          "duplicate_alerts": 235,
+          "benign_lookalikes": 1141,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              296,
+              990,
+              908,
+              322,
+              324
+            ],
+            "ATTACK": [
+              14,
+              23,
+              79,
+              20,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 10000,
+      "config": {
+        "hub_density": "high"
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 11508,
+          "unalerted_events": 2282,
+          "duplicate_alerts": 774,
+          "benign_lookalikes": 4035,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              946,
+              3378,
+              3184,
+              1063,
+              1269
+            ],
+            "ATTACK": [
+              14,
+              23,
+              79,
+              20,
+              24
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 1000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 918,
+          "unalerted_events": 162,
+          "duplicate_alerts": 244,
+          "benign_lookalikes": 349,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              91,
+              269,
+              267,
+              74,
+              113
+            ],
+            "ATTACK": [
+              24,
+              34,
+              71,
+              27,
+              30
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 3000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 2853,
+          "unalerted_events": 549,
+          "duplicate_alerts": 696,
+          "benign_lookalikes": 1063,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              287,
+              941,
+              941,
+              300,
+              345
+            ],
+            "ATTACK": [
+              24,
+              34,
+              71,
+              27,
+              30
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 101,
+      "count": 10000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 9530,
+          "unalerted_events": 1885,
+          "duplicate_alerts": 2355,
+          "benign_lookalikes": 3765,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              1019,
+              3297,
+              3157,
+              1134,
+              1207
+            ],
+            "ATTACK": [
+              24,
+              34,
+              71,
+              27,
+              30
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 1000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 917,
+          "unalerted_events": 159,
+          "duplicate_alerts": 242,
+          "benign_lookalikes": 342,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              75,
+              278,
+              260,
+              87,
+              111
+            ],
+            "ATTACK": [
+              28,
+              24,
+              72,
+              25,
+              40
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 3000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 2861,
+          "unalerted_events": 548,
+          "duplicate_alerts": 687,
+          "benign_lookalikes": 1076,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              282,
+              973,
+              892,
+              311,
+              353
+            ],
+            "ATTACK": [
+              28,
+              24,
+              72,
+              25,
+              40
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 102,
+      "count": 10000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 9557,
+          "unalerted_events": 1887,
+          "duplicate_alerts": 2330,
+          "benign_lookalikes": 3788,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              990,
+              3384,
+              3126,
+              1102,
+              1209
+            ],
+            "ATTACK": [
+              28,
+              24,
+              72,
+              25,
+              40
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 1000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 908,
+          "unalerted_events": 156,
+          "duplicate_alerts": 248,
+          "benign_lookalikes": 309,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              76,
+              301,
+              259,
+              58,
+              106
+            ],
+            "ATTACK": [
+              17,
+              23,
+              85,
+              31,
+              44
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 3000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 2810,
+          "unalerted_events": 537,
+          "duplicate_alerts": 727,
+          "benign_lookalikes": 1090,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              294,
+              1005,
+              846,
+              256,
+              399
+            ],
+            "ATTACK": [
+              17,
+              23,
+              85,
+              31,
+              44
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 103,
+      "count": 10000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 9493,
+          "unalerted_events": 1873,
+          "duplicate_alerts": 2380,
+          "benign_lookalikes": 3824,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              992,
+              3561,
+              3001,
+              1046,
+              1200
+            ],
+            "ATTACK": [
+              17,
+              23,
+              85,
+              31,
+              44
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 1000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 952,
+          "unalerted_events": 169,
+          "duplicate_alerts": 217,
+          "benign_lookalikes": 294,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              78,
+              289,
+              251,
+              89,
+              101
+            ],
+            "ATTACK": [
+              13,
+              30,
+              82,
+              27,
+              40
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 3000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 2882,
+          "unalerted_events": 555,
+          "duplicate_alerts": 673,
+          "benign_lookalikes": 1064,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              298,
+              966,
+              907,
+              313,
+              324
+            ],
+            "ATTACK": [
+              13,
+              30,
+              82,
+              27,
+              40
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 701,
+      "count": 10000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 9561,
+          "unalerted_events": 1891,
+          "duplicate_alerts": 2330,
+          "benign_lookalikes": 3814,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              973,
+              3440,
+              3173,
+              1064,
+              1158
+            ],
+            "ATTACK": [
+              13,
+              30,
+              82,
+              27,
+              40
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 1000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 926,
+          "unalerted_events": 166,
+          "duplicate_alerts": 240,
+          "benign_lookalikes": 322,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              91,
+              275,
+              265,
+              89,
+              91
+            ],
+            "ATTACK": [
+              18,
+              29,
+              91,
+              23,
+              28
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 3000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 2840,
+          "unalerted_events": 549,
+          "duplicate_alerts": 709,
+          "benign_lookalikes": 1149,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              295,
+              957,
+              914,
+              312,
+              333
+            ],
+            "ATTACK": [
+              18,
+              29,
+              91,
+              23,
+              28
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    },
+    {
+      "seed": 702,
+      "count": 10000,
+      "config": {
+        "duplicate_rate": 0.3
+      },
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "warnings": [],
+        "checks": [
+          "schema",
+          "exact count",
+          "unique event IDs",
+          "label cardinality",
+          "detector provenance",
+          "inventory criticality",
+          "scenario ordering",
+          "causal state transitions",
+          "episode membership"
+        ],
+        "diagnostics": {
+          "raw_events": 9555,
+          "unalerted_events": 1892,
+          "duplicate_alerts": 2337,
+          "benign_lookalikes": 3918,
+          "missing_entity_alerts": 0,
+          "unobservable_episodes": 0,
+          "severity_histograms": {
+            "BENIGN": [
+              929,
+              3395,
+              3192,
+              1049,
+              1246
+            ],
+            "ATTACK": [
+              18,
+              29,
+              91,
+              23,
+              28
+            ]
+          }
+        },
+        "caveats": [
+          "Structural validation is not proof of production representativeness.",
+          "Fixed alert-count sampling conditions benign activity volume.",
+          "Simulator produces telemetry only; it never runs exploits or contacts targets."
+        ]
+      }
+    }
+  ]
+}

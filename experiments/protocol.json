@@ -1,0 +1,15 @@
+{
+  "version": "2.0",
+  "purpose": "Fixed-config comparison and diagnostic ablations; no per-test-seed parameter tuning",
+  "development_seeds": [101,102,103,104,105],
+  "held_out_seeds": [701,702,703,704,705,706,707,708,709,710,711,712,713,714,715,716,717,718,719,720],
+  "counts": [1000,3000,10000],
+  "episodes": 12,
+  "stress_seeds": [801,802,803,804,805],
+  "stress_conditions": [{"missing":0.1},{"missing":0.5},{"hub_density":"high"},{"timing":"stretched"},{"severity_quality":"misleading"},{"sensor_coverage":0.25},{"attack_overlap":true},{"duplicate_rate":0.3}],
+  "ablations": ["severity-ranking","no-idf","no-deduplication","unbounded-components"],
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 1701,
+  "unit": "one opened review item; source-alert volume reported separately",
+  "excluded_claims": ["analyst minutes saved","production detection efficacy","vendor superiority","causal breach reduction"]
+}

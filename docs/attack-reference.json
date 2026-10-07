@@ -1,0 +1,144 @@
+{
+  "release": "17.1",
+  "source_url": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/enterprise-attack/enterprise-attack-17.1.json",
+  "bundle_sha256": "0d1c347a4d584cf7e11ef46556c33b7689341443bf86299188d46c307274323b",
+  "techniques": [
+    {
+      "external_id": "T1053.005",
+      "stix_id": "attack-pattern--005a06c6-14bf-4118-afa0-ebcd8aebb0c9",
+      "name": "Scheduled Task",
+      "url": "https://attack.mitre.org/techniques/T1053/005",
+      "modified": "2025-04-15T19:58:01.010Z",
+      "revoked": false,
+      "deprecated": false,
+      "tactics": [
+        "execution",
+        "persistence",
+        "privilege-escalation"
+      ]
+    },
+    {
+      "external_id": "T1071.004",
+      "stix_id": "attack-pattern--1996eef1-ced3-4d7f-bf94-33298cabbf72",
+      "name": "DNS",
+      "url": "https://attack.mitre.org/techniques/T1071/004",
+      "modified": "2025-04-15T19:58:10.065Z",
+      "revoked": false,
+      "deprecated": false,
+      "tactics": [
+        "command-and-control"
+      ]
+    },
+    {
+      "external_id": "T1087.002",
+      "stix_id": "attack-pattern--21875073-b0ee-49e3-9077-1e2a885359af",
+      "name": "Domain Account",
+      "url": "https://attack.mitre.org/techniques/T1087/002",
+      "modified": "2025-04-15T22:21:07.252Z",
+      "revoked": false,
+      "deprecated": false,
+      "tactics": [
+        "discovery"
+      ]
+    },
+    {
+      "external_id": "T1566.001",
+      "stix_id": "attack-pattern--2e34237d-8574-43f6-aace-ae2915de8597",
+      "name": "Spearphishing Attachment",
+      "url": "https://attack.mitre.org/techniques/T1566/001",
+      "modified": "2025-04-15T23:10:26.686Z",
+      "revoked": false,
+      "deprecated": false,
+      "tactics": [
+        "initial-access"
+      ]
+    },
+    {
+      "external_id": "T1021.002",
+      "stix_id": "attack-pattern--4f9ca633-15c5-463c-9724-bdcd54fde541",
+      "name": "SMB/Windows Admin Shares",
+      "url": "https://attack.mitre.org/techniques/T1021/002",
+      "modified": "2025-04-15T19:58:29.701Z",
+      "revoked": false,
+      "deprecated": false,
+      "tactics": [
+        "lateral-movement"
+      ]
+    },
+    {
+      "external_id": "T1003.001",
+      "stix_id": "attack-pattern--65f2d882-3f41-4d48-8a06-29af77ec9f90",
+      "name": "LSASS Memory",
+      "url": "https://attack.mitre.org/techniques/T1003/001",
+      "modified": "2025-04-15T22:45:12.834Z",
+      "revoked": false,
+      "deprecated": false,
+      "tactics": [
+        "credential-access"
+      ]
+    },
+    {
+      "external_id": "T1110.003",
+      "stix_id": "attack-pattern--692074ae-bb62-4a5e-a735-02cb6bde458c",
+      "name": "Password Spraying",
+      "url": "https://attack.mitre.org/techniques/T1110/003",
+      "modified": "2025-04-15T19:58:38.420Z",
+      "revoked": false,
+      "deprecated": false,
+      "tactics": [
+        "credential-access"
+      ]
+    },
+    {
+      "external_id": "T1041",
+      "stix_id": "attack-pattern--92d7da27-2d91-488e-a00c-059dc162766d",
+      "name": "Exfiltration Over C2 Channel",
+      "url": "https://attack.mitre.org/techniques/T1041",
+      "modified": "2025-04-15T19:58:51.597Z",
+      "revoked": false,
+      "deprecated": false,
+      "tactics": [
+        "exfiltration"
+      ]
+    },
+    {
+      "external_id": "T1059.001",
+      "stix_id": "attack-pattern--970a3432-3237-47ad-bcca-7d8cbb217736",
+      "name": "PowerShell",
+      "url": "https://attack.mitre.org/techniques/T1059/001",
+      "modified": "2025-04-15T19:58:52.378Z",
+      "revoked": false,
+      "deprecated": false,
+      "tactics": [
+        "execution"
+      ]
+    },
+    {
+      "external_id": "T1078",
+      "stix_id": "attack-pattern--b17a1a56-e99c-403c-8948-561df0cffe81",
+      "name": "Valid Accounts",
+      "url": "https://attack.mitre.org/techniques/T1078",
+      "modified": "2025-04-15T19:58:58.373Z",
+      "revoked": false,
+      "deprecated": false,
+      "tactics": [
+        "defense-evasion",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ]
+    },
+    {
+      "external_id": "T1486",
+      "stix_id": "attack-pattern--b80d107d-fa0d-4b60-9684-b0433e8bdba0",
+      "name": "Data Encrypted for Impact",
+      "url": "https://attack.mitre.org/techniques/T1486",
+      "modified": "2025-04-15T19:59:00.731Z",
+      "revoked": false,
+      "deprecated": false,
+      "tactics": [
+        "impact"
+      ]
+    }
+  ]
+}

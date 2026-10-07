@@ -1,0 +1,4 @@
+Aster Financial - illustrative SOC assessment
+A PowerShell process used encoded commands (T1059.001) on WS-007. Endpoint telemetry recorded access to LSASS memory (T1003.001). These observations require analyst validation; maintenance tools can produce similar detections.
+An external address 203.0.113.27 was mentioned in the investigation. The address is an indicator mention, not proof of compromise.
+No event-level timestamps are available in this narrative. Export the associated alerts for correlation and prioritization.
