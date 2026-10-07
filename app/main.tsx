@@ -99,7 +99,7 @@ function App() {
       const b = await api("bootstrap");
       setRuns(b.runs);
       setRunId(b.runs[0]?.id ?? "");
-      setView(b.runs.length ? "queue" : "briefing");
+      setView("briefing");
     } catch (e) {
       setError((e as Error).message);
     }
@@ -292,20 +292,21 @@ function App() {
           href="#"
           onClick={(e) => {
             e.preventDefault();
-            setView("queue");
+            setView("briefing");
           }}
         >
           <div className="brand-mark">
-            <ShieldCheck size={24} />
+            <img src="/favicon.svg" alt="" />
           </div>
-          <span>
-            utopia<span className="brand-sub">SECURITY OPERATIONS</span>
+          <span className="brand-name">
+            Utopia Signal
+            <span className="brand-sub">TEAM 239 · SOC WORKBENCH</span>
           </span>
         </a>
         <div className="workspace">
-          <span className="workspace-icon">A</span>
+          <span className="workspace-icon">239</span>
           <div>
-            Aster Financial<small>Private browser workspace</small>
+            Aster Financial<small>Fictional simulation environment</small>
           </div>
           <ChevronsUpDown size={14} />
         </div>
@@ -351,7 +352,7 @@ function App() {
           <div className="profile">
             <div className="avatar">IU</div>
             <div>
-              Imagine Utopia<small>Team 239</small>
+              Utopia Signal<small>Team 239</small>
             </div>
             <Badge tier="research" />
           </div>
@@ -368,7 +369,7 @@ function App() {
             >
               <Menu size={22} />
             </button>
-            <span>Workspace</span>
+            <span>Team 239</span>
             <ChevronRight size={14} />
             <strong>
               {nav.find((n) => n.id === view)?.label ?? "Methodology"}
@@ -386,62 +387,70 @@ function App() {
             <div>
               <div className="eyebrow">
                 {view === "briefing"
-                  ? "SOC TRIAGE · TRACEABLE EVIDENCE"
+                  ? "TEAM 239 · PROJECT BRIEFING"
                   : view === "queue"
-                  ? "TRIAGE WORKSPACE"
-                  : view === "evaluation"
-                    ? "MEASURED, NOT CLAIMED"
-                    : view === "simulation"
-                      ? "CONTROLLED TEST ENVIRONMENT"
-                      : "SECURITY OPERATIONS"}
+                    ? "TRIAGE WORKSPACE"
+                    : view === "evaluation"
+                      ? "MEASURED, NOT CLAIMED"
+                      : view === "simulation"
+                        ? "CONTROLLED TEST ENVIRONMENT"
+                        : "SECURITY OPERATIONS"}
               </div>
               <h1>
                 {view === "briefing"
-                  ? "Security signal triage, made reviewable"
+                  ? "Utopia Signal"
                   : view === "truth"
                     ? "Simulation source of truth"
                     : data?.document && view === "queue"
-                  ? "Document assessment"
-                  : view === "import"
-                    ? "Import workbench"
-                    : view === "benchmarks"
-                      ? "Benchmark lab"
-                      : view === "queue"
-                        ? "Incident queue"
-                        : view === "alerts"
-                          ? "Raw alert stream"
-                          : view === "evaluation"
-                            ? "Coverage & workload"
-                            : view === "simulation"
-                              ? "Simulation lab"
-                              : view === "audit"
-                                ? "Audit trail"
-                                : "Transparent by design"}
+                      ? "Document assessment"
+                      : view === "import"
+                        ? "Import workbench"
+                        : view === "benchmarks"
+                          ? "Benchmark lab"
+                          : view === "queue"
+                            ? "Incident queue"
+                            : view === "alerts"
+                              ? "Raw alert stream"
+                              : view === "evaluation"
+                                ? "Coverage & workload"
+                                : view === "simulation"
+                                  ? "Simulation lab"
+                                  : view === "audit"
+                                    ? "Audit trail"
+                                    : "Transparent by design"}
               </h1>
               <p>
                 {view === "briefing"
-                  ? "A transparent alert-to-incident workflow with evidence you can inspect and a comparison you can reproduce."
+                  ? "An inspectable alert-to-incident workbench, measured against clear baselines."
                   : view === "truth"
                     ? "Inspect the generated event ledger and reveal synthetic labels after triage."
                     : view === "import"
-                  ? "SOC exports and report documents, with source provenance."
-                  : view === "benchmarks"
-                    ? "Reproducible comparisons, uncertainty, robustness, and failure cases."
-                    : view === "queue"
-                      ? "Turn alert noise into investigations worth opening."
-                      : view === "alerts"
-                        ? "Every source alert is preserved, including unmapped activity."
-                        : view === "evaluation"
-                          ? "The same alerts. The same labels. A fair comparison."
-                          : view === "simulation"
-                            ? "Repeatable attack chains inside a fictional enterprise."
-                            : view === "audit"
-                              ? "Every analyst decision, with its reason and evidence of integrity."
-                              : "Inspect the logic behind every group and risk score."}
+                      ? "SOC exports and report documents, with source provenance."
+                      : view === "benchmarks"
+                        ? "Reproducible comparisons, uncertainty, robustness, and failure cases."
+                        : view === "queue"
+                          ? "Turn alert noise into investigations worth opening."
+                          : view === "alerts"
+                            ? "Every source alert is preserved, including unmapped activity."
+                            : view === "evaluation"
+                              ? "The same alerts. The same labels. A fair comparison."
+                              : view === "simulation"
+                                ? "Repeatable attack chains inside a fictional enterprise."
+                                : view === "audit"
+                                  ? "Every analyst decision, with its reason and evidence of integrity."
+                                  : "Inspect the logic behind every group and risk score."}
               </p>
             </div>
             <div className="heading-actions">
-              {view === "briefing" && <button className="button secondary" onClick={() => setView("import")}><FileText size={16} />Review CSV / Excel</button>}
+              {view === "briefing" && (
+                <button
+                  className="button secondary"
+                  onClick={() => setView("import")}
+                >
+                  <FileText size={16} />
+                  Review CSV / Excel
+                </button>
+              )}
               {data && (
                 <a
                   className="button secondary"
@@ -479,67 +488,71 @@ function App() {
               </button>
             </div>
           </div>
-          {runId && <div className="run-bar">
-            <div className="run-badge">
-              <Database size={14} />
-              <span>
-                {selectedRun?.seed == null
-                  ? "Imported batch"
-                  : `Seed ${selectedRun?.seed ?? 239}`}
+          {runId && (
+            <div className="run-bar">
+              <div className="run-badge">
+                <Database size={14} />
+                <span>
+                  {selectedRun?.seed == null
+                    ? "Imported batch"
+                    : `Seed ${selectedRun?.seed ?? 239}`}
+                </span>
+              </div>
+              <select
+                aria-label="Select simulation run"
+                value={runId}
+                onChange={(e) => {
+                  setRunId(e.target.value);
+                  closeDetail();
+                }}
+              >
+                {runs.map((r) => (
+                  <option value={r.id} key={r.id}>
+                    {r.manifest?.kind === "document"
+                      ? r.manifest.filename
+                      : r.id}{" "}
+                    ·{" "}
+                    {r.manifest?.kind === "document"
+                      ? "document"
+                      : `${fmt(r.count)} alerts`}
+                  </option>
+                ))}
+              </select>
+              <button
+                className="button small secondary"
+                onClick={async () => {
+                  if (
+                    !confirm(
+                      "Delete this analysis and its evidence from this workspace?",
+                    )
+                  )
+                    return;
+                  try {
+                    await api(`runs/${runId}`, { method: "DELETE" });
+                    setRuns((p) => p.filter((r) => r.id !== runId));
+                    setRunId(runs.find((r) => r.id !== runId)?.id ?? "");
+                    setData(null);
+                    notify("Analysis deleted");
+                  } catch (e) {
+                    notify((e as Error).message);
+                  }
+                }}
+              >
+                Delete analysis
+              </button>
+              <span className="run-meta">
+                {data
+                  ? data.document
+                    ? `${data.document.findings.length} cited passages`
+                    : `${fmt(data.stats.alerts)} accepted · ${selectedRun?.manifest?.import_report?.rejected ?? 0} source rows rejected`
+                  : "Loading run…"}
+              </span>
+              <span className="run-meta right">
+                <CheckCheck size={14} />
+                Deterministic engine v2.0
               </span>
             </div>
-            <select
-              aria-label="Select simulation run"
-              value={runId}
-              onChange={(e) => {
-                setRunId(e.target.value);
-                closeDetail();
-              }}
-            >
-              {runs.map((r) => (
-                <option value={r.id} key={r.id}>
-                  {r.manifest?.kind === "document" ? r.manifest.filename : r.id}{" "}
-                  ·{" "}
-                  {r.manifest?.kind === "document"
-                    ? "document"
-                    : `${fmt(r.count)} alerts`}
-                </option>
-              ))}
-            </select>
-            <button
-              className="button small secondary"
-              onClick={async () => {
-                if (
-                  !confirm(
-                    "Delete this analysis and its evidence from this workspace?",
-                  )
-                )
-                  return;
-                try {
-                  await api(`runs/${runId}`, { method: "DELETE" });
-                  setRuns((p) => p.filter((r) => r.id !== runId));
-                  setRunId(runs.find((r) => r.id !== runId)?.id ?? "");
-                  setData(null);
-                  notify("Analysis deleted");
-                } catch (e) {
-                  notify((e as Error).message);
-                }
-              }}
-            >
-              Delete analysis
-            </button>
-            <span className="run-meta">
-              {data
-                ? data.document
-                  ? `${data.document.findings.length} cited passages`
-                  : `${fmt(data.stats.alerts)} accepted · ${selectedRun?.manifest?.import_report?.rejected ?? 0} source rows rejected`
-                : "Loading run…"}
-            </span>
-            <span className="run-meta right">
-              <CheckCheck size={14} />
-              Deterministic engine v2.0
-            </span>
-          </div>}
+          )}
           {error && (
             <div role="alert" className="error-banner">
               <TriangleAlert size={18} />
@@ -556,29 +569,184 @@ function App() {
             <section className="briefing-page">
               <div className="briefing-hero panel">
                 <div className="briefing-copy">
-                  <span className="eyebrow">INSPECTABLE TRIAGE · SEALED EVALUATION</span>
-                  <h2>From an alert storm to a reviewable decision.</h2>
-                  <p>Generate a short, busy SOC shift. Watch timestamped telemetry arrive, open any alert to trace its score and incident assignment, then compare the ranked queue against the sealed simulation truth.</p>
-                  <div className="briefing-actions"><button className="button primary" onClick={() => setSimOpen(true)}><Play size={16} />Start a simulation</button><button className="button secondary" onClick={() => setView("import")}><FileText size={16} />Review someone else’s CSV / Excel</button></div>
-                  <small>Random 450–900 alerts · 1–2 simulated hours · deterministic seed recorded in the run</small>
+                  <span className="eyebrow">
+                    GROQ-ASSISTED · FOUR TEAM REPORTS · HUMAN-REVIEWED
+                  </span>
+                  <h2>Make the signal easier to investigate.</h2>
+                  <p>
+                    Group related alerts, see why they rank, and check the
+                    result against a separate simulation answer key.
+                  </p>
+                  <div className="briefing-actions">
+                    <button
+                      className="button primary"
+                      onClick={() => setSimOpen(true)}
+                    >
+                      <Play size={16} />
+                      Start a simulation
+                    </button>
+                    <button
+                      className="button secondary"
+                      onClick={() => setView("import")}
+                    >
+                      <FileText size={16} />
+                      Review CSV / Excel
+                    </button>
+                  </div>
+                  <small>
+                    Random 450–900 alerts · 1–2 simulated hours · seed recorded
+                    per run
+                  </small>
                 </div>
-                <div className="briefing-metric"><span>HELD-OUT SIMULATION · 3,000 ALERTS</span><strong>80.0%</strong><p>Mean episode recall in the top 25 review items, versus 16.7% for the severity-only baseline.</p><small>20 fixed holdout seeds · synthetic data · queue items are a workload proxy, not analyst time.</small></div>
+                <div className="briefing-metric">
+                  <span>SYNTHETIC HOLDOUT · 3,000 ALERTS · 20 SEEDS</span>
+                  <strong>80%</strong>
+                  <p>Attack episodes surfaced in the first 25 review items.</p>
+                  <small>
+                    Severity-only baseline: 16.7% · review items are a workload
+                    proxy, not analyst time.
+                  </small>
+                </div>
               </div>
               <div className="briefing-three">
-                <article className="panel"><span className="brief-step">01 · SEE THE ACTIVITY</span><h3>Telemetry in event-time order</h3><p>Endpoint, identity and network alerts appear as a fast replay of a fictional one or two hour SOC window. Pause, change speed, and open any row.</p></article>
-                <article className="panel"><span className="brief-step">02 · TRACE EACH DECISION</span><h3>Why this alert, why this incident?</h3><p>Inspect source evidence, group links, ATT&CK mappings, score components, queue rank and why an item sits inside or outside the top 25.</p></article>
-                <article className="panel"><span className="brief-step">03 · CHECK THE ANSWER KEY</span><h3>Compare after the run</h3><p>Reveal the separate synthetic event ledger and attack labels after triage. The engine never sees those labels; the evaluation layer computes coverage and grouping metrics.</p></article>
+                <article className="panel">
+                  <span className="brief-step">THE PROBLEM</span>
+                  <h3>Signals lose context.</h3>
+                  <p>
+                    Analysts connect activity scattered across alerts, entities,
+                    and time.
+                  </p>
+                  <small>Source 1 · Problem relevance</small>
+                </article>
+                <article className="panel">
+                  <span className="brief-step">THE CONTRIBUTION</span>
+                  <h3>Every decision is inspectable.</h3>
+                  <p>
+                    Follow evidence through grouping, scoring, ranking, and
+                    post-run evaluation.
+                  </p>
+                  <small>Sources 2–3 · Solution and originality</small>
+                </article>
+                <article className="panel">
+                  <span className="brief-step">THE EVIDENCE</span>
+                  <h3>80% vs 16.7% at 3k.</h3>
+                  <p>
+                    Synthetic episode Recall@25 across fixed holdout seeds—not
+                    analyst time saved.
+                  </p>
+                  <small>Source 4 · Impact and evaluation</small>
+                </article>
               </div>
-              <div className="panel briefing-position"><div><span className="eyebrow">WHAT IS DIFFERENT HERE</span><h2>Inspectable decisions paired with a reproducible comparison.</h2><p>Alert correlation, risk scoring and AI summaries already exist in security products. Utopia’s project contribution is a bounded, deterministic pipeline whose evidence links are visible and whose queue is measured against simple baselines on the same seeded data. The comparisons use simplified educational baselines, not commercial Sentinel, Splunk or frontier AI systems.</p></div><div className="attack-callout"><strong>MITRE ATT&amp;CK v17.1</strong><p>Controlled mappings name observed behavior and tactics. They are not proof of attacker intent, a probability score, or an independent verdict.</p><a href="https://attack.mitre.org/" target="_blank" rel="noreferrer">Explore ATT&amp;CK ↗</a></div></div>
+              <details className="panel briefing-notes">
+                <summary>
+                  Judge notes · source trail · MITRE ATT&amp;CK v17.1
+                </summary>
+                <div className="briefing-notes-grid">
+                  <div>
+                    <span className="eyebrow">45-SECOND ANSWER</span>
+                    <p>
+                      Security teams already have alert correlation. Our
+                      contribution is making triage decisions and their
+                      evaluation inspectable: trace how signals become a ranked
+                      incident, then measure episode coverage against the same
+                      alerts and labels used by simple baselines.
+                    </p>
+                  </div>
+                  <div>
+                    <span className="eyebrow">SOURCE REPORTS</span>
+                    <p>
+                      1 · Why SOC Alert Triage Needs to Exist
+                      <br />2 · Proposed Solution Analysis
+                      <br />3 · Solution &amp; Innovation: An Honest Originality
+                      Audit
+                      <br />4 · Impact and Scalability
+                    </p>
+                    <a href="/judge-brief.md" target="_blank" rel="noreferrer">
+                      Open the full judge brief ↗
+                    </a>
+                  </div>
+                  <div>
+                    <span className="eyebrow">BOUNDARY</span>
+                    <p>
+                      ATT&amp;CK maps observed behavior; it does not prove
+                      intent. Correlation is established practice. This is a
+                      synthetic research prototype, not a commercial-product
+                      comparison.
+                    </p>
+                    <a
+                      href="https://attack.mitre.org/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      MITRE ATT&amp;CK ↗
+                    </a>
+                  </div>
+                </div>
+              </details>
             </section>
           ) : view === "simulation" ? (
             <>
-              {busy && <div className="panel simulation-progress" role="status"><span className="eyebrow">RUN PIPELINE</span><h2>{["Generating fictional telemetry", "Applying label-independent detector rules", "Grouping evidence and mapping ATT&CK", "Scoring, evaluating and saving the source ledger"][Math.min(simulationProgress, 3)]}</h2><div className="simulation-stage-grid">{["Generate events", "Detect alerts", "Triage & map", "Evaluate & store"].map((stage, index) => <div className={simulationProgress >= index ? "stage-active" : ""} key={stage}><span>{String(index + 1).padStart(2, "0")}</span><strong>{stage}</strong></div>)}</div><div className="progress-track"><span style={{ width: `${Math.min(92, 16 + simulationProgress * 22)}%` }} /></div><p>The local engine computes this run as one batch. These stages are a visual guide; the saved alerts replay in timestamp order when it completes.</p></div>}
+              {busy && (
+                <div className="panel simulation-progress" role="status">
+                  <span className="eyebrow">RUN PIPELINE</span>
+                  <h2>
+                    {
+                      [
+                        "Generating fictional telemetry",
+                        "Applying label-independent detector rules",
+                        "Grouping evidence and mapping ATT&CK",
+                        "Scoring, evaluating and saving the source ledger",
+                      ][Math.min(simulationProgress, 3)]
+                    }
+                  </h2>
+                  <div className="simulation-stage-grid">
+                    {[
+                      "Generate events",
+                      "Detect alerts",
+                      "Triage & map",
+                      "Evaluate & store",
+                    ].map((stage, index) => (
+                      <div
+                        className={
+                          simulationProgress >= index ? "stage-active" : ""
+                        }
+                        key={stage}
+                      >
+                        <span>{String(index + 1).padStart(2, "0")}</span>
+                        <strong>{stage}</strong>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="progress-track">
+                    <span
+                      style={{
+                        width: `${Math.min(92, 16 + simulationProgress * 22)}%`,
+                      }}
+                    />
+                  </div>
+                  <p>
+                    The local engine computes this run as one batch. These
+                    stages are a visual guide; the saved alerts replay in
+                    timestamp order when it completes.
+                  </p>
+                </div>
+              )}
               <SimulationQuality manifest={selectedRun?.manifest} />
-              <SimulationForm busy={busy} onSubmit={simulate} error={error} expanded />
+              <SimulationForm
+                busy={busy}
+                onSubmit={simulate}
+                error={error}
+                expanded
+              />
             </>
           ) : view === "truth" ? (
-            data ? <TruthSourceView runId={runId} /> : <div className="empty">Choose a completed simulation run to open its source ledger.</div>
+            data ? (
+              <TruthSourceView runId={runId} />
+            ) : (
+              <div className="empty">
+                Choose a completed simulation run to open its source ledger.
+              </div>
+            )
           ) : view === "import" ? (
             <ReportImport
               onAnalyze={async (alerts, report) => {
@@ -620,7 +788,18 @@ function App() {
           ) : data?.document && !["method", "simulation"].includes(view) ? (
             <DocumentView report={data.document} />
           ) : !data && !error ? (
-            runId ? <div className="loading-panel" role="status"><LoaderCircle className="spin" size={26} /><strong>Loading saved analysis</strong><span>Retrieving run records from this workspace.</span></div> : <div className="panel truth-locked"><ShieldCheck size={18} />Start a simulation or import reports to create the first run.</div>
+            runId ? (
+              <div className="loading-panel" role="status">
+                <LoaderCircle className="spin" size={26} />
+                <strong>Loading saved analysis</strong>
+                <span>Retrieving run records from this workspace.</span>
+              </div>
+            ) : (
+              <div className="panel truth-locked">
+                <ShieldCheck size={18} />
+                Start a simulation or import reports to create the first run.
+              </div>
+            )
           ) : (
             data && (
               <>
@@ -961,7 +1140,7 @@ function App() {
             )
           )}
           <footer className="footer">
-            <span>Imagine Utopia · Microsoft Innovate 2026 · Problem 25</span>
+            <span>Utopia Signal · Team 239 · Microsoft Innovate 2026</span>
             <span>
               <ShieldCheck size={13} />
               Evidence preserved · Human decisions

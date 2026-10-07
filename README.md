@@ -1,4 +1,4 @@
-# Imagine Utopia — SOC Evidence Workbench
+# Utopia Signal — Imagine Utopia · Team 239
 
 **A reviewable alert-triage demonstration for Microsoft Innovate 2026, Problem 25.**
 
@@ -6,19 +6,19 @@ Imagine Utopia turns a busy stream of security alerts into an explainable invest
 
 The project is designed to make each step inspectable: what evidence was generated or imported, why alerts were grouped, how an incident was ranked, and what the evaluation does—and does not—show.
 
-**[Open the demo](https://utopia-soc-239.sapre-aude33.chatgpt.site)** · **[Five-minute walkthrough](docs/DEMO_SCRIPT.md)** · **[All documentation](docs/README.md)**
+**[Open the demo](https://utopia-soc-239.sapre-aude33.chatgpt.site)** · **[Judge brief](public/judge-brief.md)** · **[Five-minute walkthrough](docs/DEMO_SCRIPT.md)** · **[All documentation](docs/README.md)**
 
 ## See the workbench
 
 ![SOC dashboard with the ranked investigation queue](docs/dashboard.png)
 
-| Investigate an incident | Import and review evidence | Compare methods |
-| --- | --- | --- |
+| Investigate an incident                                           | Import and review evidence                                 | Compare methods                                     |
+| ----------------------------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------- |
 | ![Incident evidence and decision details](docs/investigation.png) | ![Import review and provenance](docs/import-workbench.png) | ![Benchmark comparison lab](docs/benchmark-lab.png) |
 
 ## Run locally
 
-Requirements: Node.js 24 and npm. A model-provider key is **not** required; the live brief uses a deterministic template.
+Requirements: Node.js 24 and npm. A model-provider key is **not** required to run the app. The landing-page judge brief is a pre-generated, human-reviewed synthesis; user-uploaded reports are not sent to an AI provider, and incident briefs use deterministic templates.
 
 ```bash
 git clone https://github.com/aakash-kr-7/ImagineUtopia_3000Alerts.git
@@ -72,18 +72,20 @@ The operational engine receives alerts, not simulation truth. Evaluation runs af
 
 ## Repository guide
 
-| Area | Start here |
-| --- | --- |
-| Documentation index | [docs/README.md](docs/README.md) |
-| Walkthrough and judge Q&A | [DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md) · [JUDGE_QA.md](docs/JUDGE_QA.md) |
-| Architecture and trust boundaries | [ARCHITECTURE.md](docs/ARCHITECTURE.md) |
-| Simulation contract | [SIMULATION.md](docs/SIMULATION.md) |
-| Import formats and provenance | [INGESTION.md](docs/INGESTION.md) |
-| Metrics and benchmark design | [EVALUATION_PROTOCOL.md](docs/EVALUATION_PROTOCOL.md) |
-| Validation evidence and limitations | [VALIDATION.md](docs/VALIDATION.md) |
-| Requirements mapping and sources | [REQUIREMENTS_MATRIX.md](docs/REQUIREMENTS_MATRIX.md) · [SOURCES.md](docs/SOURCES.md) |
-| Editable pitch | [UTOPIA_PITCH.pptx](docs/UTOPIA_PITCH.pptx) · [PDF](docs/UTOPIA_PITCH.pdf) |
-| Contributor workflow | [CONTRIBUTING.md](CONTRIBUTING.md) |
+| Area                                      | Start here                                                                            |
+| ----------------------------------------- | ------------------------------------------------------------------------------------- |
+| Documentation index                       | [docs/README.md](docs/README.md)                                                      |
+| Judge-ready project analysis              | [public/judge-brief.md](public/judge-brief.md)                                        |
+| AI analysis process and source provenance | [docs/AI_SOURCE_ANALYSIS.md](docs/AI_SOURCE_ANALYSIS.md)                              |
+| Walkthrough and judge Q&A                 | [DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md) · [JUDGE_QA.md](docs/JUDGE_QA.md)               |
+| Architecture and trust boundaries         | [ARCHITECTURE.md](docs/ARCHITECTURE.md)                                               |
+| Simulation contract                       | [SIMULATION.md](docs/SIMULATION.md)                                                   |
+| Import formats and provenance             | [INGESTION.md](docs/INGESTION.md)                                                     |
+| Metrics and benchmark design              | [EVALUATION_PROTOCOL.md](docs/EVALUATION_PROTOCOL.md)                                 |
+| Validation evidence and limitations       | [VALIDATION.md](docs/VALIDATION.md)                                                   |
+| Requirements mapping and sources          | [REQUIREMENTS_MATRIX.md](docs/REQUIREMENTS_MATRIX.md) · [SOURCES.md](docs/SOURCES.md) |
+| Editable pitch                            | [UTOPIA_PITCH.pptx](docs/UTOPIA_PITCH.pptx) · [PDF](docs/UTOPIA_PITCH.pdf)            |
+| Contributor workflow                      | [CONTRIBUTING.md](CONTRIBUTING.md)                                                    |
 
 Implementation map: `core/` contains the TypeScript contracts, triage, simulation, ingestion and evaluation logic; `app/` contains the React workbench; `server/` contains the API, storage and runtimes; `backend/` is the FastAPI adapter; `experiments/` and `scripts/` hold the fixed protocol and reproducibility tools; `tests/` contains automated checks.
 

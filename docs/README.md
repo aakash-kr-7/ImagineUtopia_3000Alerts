@@ -4,33 +4,35 @@ Use this page to find the right level of detail. The root [README](../README.md)
 
 ## Build, run, and present
 
-| If you need to… | Read |
-| --- | --- |
-| Get the five-minute demo flow | [DEMO_SCRIPT.md](DEMO_SCRIPT.md) |
-| Prepare judge answers and caveats | [JUDGE_QA.md](JUDGE_QA.md) |
-| Understand how the components fit together | [ARCHITECTURE.md](ARCHITECTURE.md) |
-| See which supplied requirements map to implementation | [REQUIREMENTS_MATRIX.md](REQUIREMENTS_MATRIX.md) |
-| Present the editable deck or its PDF export | [UTOPIA_PITCH.pptx](UTOPIA_PITCH.pptx) · [UTOPIA_PITCH.pdf](UTOPIA_PITCH.pdf) |
+| If you need to…                                          | Read                                                                          |
+| -------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Get the five-minute demo flow                            | [DEMO_SCRIPT.md](DEMO_SCRIPT.md)                                              |
+| Prepare judge answers and caveats                        | [JUDGE_QA.md](JUDGE_QA.md)                                                    |
+| Read the source-grounded, judge-ready product analysis   | [judge-brief.md](../public/judge-brief.md)                                    |
+| Understand how the components fit together               | [ARCHITECTURE.md](ARCHITECTURE.md)                                            |
+| See how the four source reports were analyzed and edited | [AI_SOURCE_ANALYSIS.md](AI_SOURCE_ANALYSIS.md)                                |
+| See which supplied requirements map to implementation    | [REQUIREMENTS_MATRIX.md](REQUIREMENTS_MATRIX.md)                              |
+| Present the editable deck or its PDF export              | [UTOPIA_PITCH.pptx](UTOPIA_PITCH.pptx) · [UTOPIA_PITCH.pdf](UTOPIA_PITCH.pdf) |
 
 ## Product and engineering contracts
 
-| Topic | Document |
-| --- | --- |
-| Synthetic event generation, sealed labels, scenario assumptions | [SIMULATION.md](SIMULATION.md) |
-| Accepted file types, normalization, provenance, and known limits | [INGESTION.md](INGESTION.md) |
-| Correlation, scoring, storage, and trust boundaries | [ARCHITECTURE.md](ARCHITECTURE.md) |
+| Topic                                                             | Document                                                                  |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Synthetic event generation, sealed labels, scenario assumptions   | [SIMULATION.md](SIMULATION.md)                                            |
+| Accepted file types, normalization, provenance, and known limits  | [INGESTION.md](INGESTION.md)                                              |
+| Correlation, scoring, storage, and trust boundaries               | [ARCHITECTURE.md](ARCHITECTURE.md)                                        |
 | MITRE ATT&CK version, adapter references, and research provenance | [SOURCES.md](SOURCES.md) · [attack-reference.json](attack-reference.json) |
 
 ## Evidence and evaluation
 
-| Topic | Document or artifact |
-| --- | --- |
-| Fixed seeds, baselines, definitions, and uncertainty | [EVALUATION_PROTOCOL.md](EVALUATION_PROTOCOL.md) |
-| Validation performed and validation still missing | [VALIDATION.md](VALIDATION.md) |
-| Requirements-to-code evidence map | [REQUIREMENTS_MATRIX.md](REQUIREMENTS_MATRIX.md) |
-| Reproducible committed evaluation output | [demo-evaluation.json](demo-evaluation.json) |
-| Coverage curve | ![Coverage versus review workload](coverage-curve.png) |
-| Dashboard screenshot | ![SOC dashboard](dashboard.png) |
+| Topic                                                | Document or artifact                                   |
+| ---------------------------------------------------- | ------------------------------------------------------ |
+| Fixed seeds, baselines, definitions, and uncertainty | [EVALUATION_PROTOCOL.md](EVALUATION_PROTOCOL.md)       |
+| Validation performed and validation still missing    | [VALIDATION.md](VALIDATION.md)                         |
+| Requirements-to-code evidence map                    | [REQUIREMENTS_MATRIX.md](REQUIREMENTS_MATRIX.md)       |
+| Reproducible committed evaluation output             | [demo-evaluation.json](demo-evaluation.json)           |
+| Coverage curve                                       | ![Coverage versus review workload](coverage-curve.png) |
+| Dashboard screenshot                                 | ![SOC dashboard](dashboard.png)                        |
 
 ## Claim boundaries
 
