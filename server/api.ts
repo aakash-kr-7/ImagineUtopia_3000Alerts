@@ -18,7 +18,7 @@ import {
 import { triage, CORRELATION, CorrelationLimitError } from "../core/engine";
 import { simulate } from "../core/simulator";
 import { evaluate } from "../core/evaluation";
-import { templateBrief, factsPacket } from "../core/brief";
+import { modelBrief, templateBrief, factsPacket } from "../core/brief";
 import { ATTACK_VERSION } from "../core/mapping";
 import { chunkRows, readChunk, type Store } from "./storage";
 const json = (x: unknown, status = 200) =>
@@ -37,6 +37,18 @@ class ApiError extends Error {
   ) {
     super(message);
   }
+}
+const aiOverviewUsage = new Map<string, { expires: number; count: number }>();
+function reserveAiOverview(owner: string) {
+  const now = Date.now(),
+    current = aiOverviewUsage.get(owner);
+  if (!current || current.expires <= now) {
+    aiOverviewUsage.set(owner, { expires: now + 3600000, count: 1 });
+    return;
+  }
+  if (current.count >= 8)
+    throw new ApiError(429, "AI overview limit reached; try again in an hour");
+  current.count++;
 }
 async function body(request: Request) {
   if (Number(request.headers.get("content-length") ?? 0) > 5_000_000)
@@ -191,6 +203,7 @@ export async function handleApi(
   request: Request,
   store: Store,
   owner: string,
+  aiConfig?: { key: string; model: string },
 ): Promise<Response> {
   try {
     const url = new URL(request.url),
@@ -498,21 +511,30 @@ export async function handleApi(
         ),
         q = (url.searchParams.get("q") ?? "").toLowerCase(),
         importance = url.searchParams.get("importance") ?? "all";
-      const incidentByAlert = new Map<string, (typeof result.incidents)[number]>();
+      const incidentByAlert = new Map<
+        string,
+        (typeof result.incidents)[number]
+      >();
       for (const incident of result.incidents)
-        for (const alertId of incident.alert_ids) incidentByAlert.set(alertId, incident);
-      const rankedIds = new Set(result.incidents.slice(0, 25).flatMap((incident) => incident.alert_ids));
-      const filtered = result.alerts.filter(
-        (a) => {
-          const incident = incidentByAlert.get(a.alert_id);
-          const matchesImportance =
-            importance === "all" ||
-            (importance === "top25" && rankedIds.has(a.alert_id)) ||
-            (importance === "high" && !!incident && ["critical", "high"].includes(incident.tier)) ||
-            (importance === "review" && ((incident?.score ?? 0) >= 35 || a.severity >= 3));
-          return matchesImportance && (!q || canonical(a).toLowerCase().includes(q));
-        },
+        for (const alertId of incident.alert_ids)
+          incidentByAlert.set(alertId, incident);
+      const rankedIds = new Set(
+        result.incidents.slice(0, 25).flatMap((incident) => incident.alert_ids),
       );
+      const filtered = result.alerts.filter((a) => {
+        const incident = incidentByAlert.get(a.alert_id);
+        const matchesImportance =
+          importance === "all" ||
+          (importance === "top25" && rankedIds.has(a.alert_id)) ||
+          (importance === "high" &&
+            !!incident &&
+            ["critical", "high"].includes(incident.tier)) ||
+          (importance === "review" &&
+            ((incident?.score ?? 0) >= 35 || a.severity >= 3));
+        return (
+          matchesImportance && (!q || canonical(a).toLowerCase().includes(q))
+        );
+      });
       return json({
         items: filtered.slice(offset, offset + limit),
         total: filtered.length,
@@ -537,9 +559,7 @@ export async function handleApi(
         queue_rank: rank,
         prioritized: rank !== null && rank <= 25,
         linked_edges: group
-          ? result.edges.filter(
-              (e) => e.from === group.id || e.to === group.id,
-            )
+          ? result.edges.filter((e) => e.from === group.id || e.to === group.id)
           : [],
         rationale: incident
           ? {
@@ -553,7 +573,8 @@ export async function handleApi(
                   : "Kept as a singleton group because no duplicate alert matched.",
             }
           : {
-              priority: "This alert has no incident assignment in the current result.",
+              priority:
+                "This alert has no incident assignment in the current result.",
               components: [],
               mapping: [],
               flags: [],
@@ -677,6 +698,38 @@ export async function handleApi(
         201,
       );
     }
+    if (
+      path[3] === "incidents" &&
+      path[4] &&
+      path[5] === "overview" &&
+      method === "POST"
+    ) {
+      if (!aiConfig?.key)
+        throw new ApiError(
+          503,
+          "AI Overview is not configured for this workspace",
+        );
+      const incident = result.incidents.find((i) => i.id === path[4]);
+      if (!incident) throw new ApiError(404, "Incident group not found");
+      reserveAiOverview(owner);
+      const groups = result.groups.filter((g) =>
+          incident.group_ids.includes(g.id),
+        ),
+        alerts = groups
+          .flatMap((g) => g.alerts)
+          .sort(
+            (a, b) =>
+              a.timestamp.localeCompare(b.timestamp) ||
+              a.alert_id.localeCompare(b.alert_id),
+          );
+      return json({
+        brief: await modelBrief(incident, alerts, {
+          url: "https://api.groq.com/openai/v1",
+          key: aiConfig.key,
+          model: aiConfig.model,
+        }),
+      });
+    }
     if (path[3] === "incidents" && path[4] && method === "GET") {
       const incident = result.incidents.find((i) => i.id === path[4]);
       if (!incident) throw new ApiError(404, "Incident not found");
@@ -701,6 +754,7 @@ export async function handleApi(
         ),
         brief: templateBrief(incident, alerts),
         facts: factsPacket(incident, alerts),
+        ai_overview_enabled: Boolean(aiConfig?.key),
       });
     }
     throw new ApiError(404, "Endpoint not found");

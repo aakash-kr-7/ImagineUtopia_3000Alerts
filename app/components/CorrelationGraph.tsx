@@ -24,8 +24,9 @@ export function CorrelationGraph({ detail }: { detail: any }) {
     <>
       <div className="inline-note">
         <Network size={15} />
-        Nodes are deduplicated alert groups. Select a link to inspect the
-        accepted evidence.
+        Each circle is a set of near-duplicate alerts. A line means two sets
+        shared enough user, device, or network evidence to join this incident.
+        Select a line to see why it passed.
       </div>
       <div className="graph-container">
         <svg
@@ -107,7 +108,7 @@ export function CorrelationGraph({ detail }: { detail: any }) {
       {selected ? (
         <div className="edge-card">
           <div className="section-title">
-            <span>Accepted correlation link</span>
+            <span>Why these alert groups were linked</span>
             <span className="verified">
               <Check size={13} />
               Threshold passed
@@ -118,27 +119,33 @@ export function CorrelationGraph({ detail }: { detail: any }) {
           </div>
           <div className="edge-score">
             <strong>{selected.weight.toFixed(4)}</strong>
-            <span>summed weight / {selected.threshold} threshold</span>
+            <span>link score / minimum {selected.threshold.toFixed(2)}</span>
           </div>
           {selected.reasons.map((r, i) => (
             <div className="edge-reason" key={i}>
               <strong className="mono">{r.entity}</strong>
               <div>
                 <span>
-                  Gap <b>{Math.round(r.gap_seconds)}s</b>
+                  Time gap <b>{Math.round(r.gap_seconds)} seconds</b>
                 </span>
                 <span>
-                  IDF <b>{r.idf.toFixed(3)}</b>
+                  Rarity <b>{r.idf.toFixed(3)}</b>
                 </span>
                 <span>
-                  Contribution <b>{r.weight.toFixed(4)}</b>
+                  Link contribution <b>{r.weight.toFixed(4)}</b>
                 </span>
               </div>
             </div>
           ))}
-          <div className="inline-note mono">
-            w = base(type) × IDF(entity) × exp(−gap / τ)
-          </div>
+          <details className="graph-formula">
+            <summary>How the link score is calculated</summary>
+            <p>
+              A shared user or device adds more support than a common network
+              address. Links count less as the time gap grows. A line appears
+              only when the combined evidence reaches the minimum score.
+            </p>
+            <code>link support = entity importance × time decay</code>
+          </details>
         </div>
       ) : (
         <div className="empty">

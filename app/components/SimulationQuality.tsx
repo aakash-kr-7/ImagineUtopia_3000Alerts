@@ -6,25 +6,37 @@ export function SimulationQuality({ manifest }: { manifest: any }) {
     <div className="panel simulation-quality">
       <div className="panel-heading">
         <div>
-          <span className="eyebrow">VALIDATED EVENT-LEVEL DATASET</span>
+          <span className="eyebrow">SIMULATION CHECKS</span>
           <h2>
             <ShieldCheck size={20} />{" "}
             {v.valid ? "Structural checks passed" : "Validation failed"}
           </h2>
           <p>
-            {manifest.generator_version} · detector {manifest.detector_version}
+            Synthetic source events are kept separate from the alerts used for
+            triage.
           </p>
         </div>
-        <span className="verified">{v.checks.length} invariants</span>
+        <span
+          className="verified"
+          title="Automated structural consistency checks"
+        >
+          {v.checks.length} checks passed
+        </span>
       </div>
       <div className="quality-grid">
         {[
           ["Raw events", v.diagnostics.raw_events],
           ["Routine unalerted events", v.diagnostics.unalerted_events],
           ["Duplicate notifications", v.diagnostics.duplicate_alerts],
-          ["Benign lookalikes", v.diagnostics.benign_lookalikes],
-          ["Unobservable episodes", v.diagnostics.unobservable_episodes],
-          ["Blocked graph links", manifest.diagnostics?.blocked_edges ?? 0],
+          [
+            "Legitimate activity that looks suspicious",
+            v.diagnostics.benign_lookalikes,
+          ],
+          [
+            "Campaigns with too little visible evidence",
+            v.diagnostics.unobservable_episodes,
+          ],
+          ["Weak links excluded", manifest.diagnostics?.blocked_edges ?? 0],
         ].map(([k, n]) => (
           <div key={k as string}>
             <span>{k}</span>

@@ -65,7 +65,13 @@ const server = createServer(async (req, res) => {
       ? { body: Buffer.concat(chunks) }
       : {}),
   });
-  const response = await handleApi(request, store, "local-analyst");
+  const aiConfig = process.env.GROQ_API_KEY
+    ? {
+        key: process.env.GROQ_API_KEY,
+        model: process.env.GROQ_MODEL ?? "openai/gpt-oss-120b",
+      }
+    : undefined;
+  const response = await handleApi(request, store, "local-analyst", aiConfig);
   res.writeHead(response.status, Object.fromEntries(response.headers));
   res.end(Buffer.from(await response.arrayBuffer()));
 });

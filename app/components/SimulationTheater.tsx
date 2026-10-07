@@ -2,6 +2,7 @@ import { Activity, Pause, Play, Radio, RotateCcw } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import type { Alert } from "../../core/contracts";
 import { api, fmt, time } from "../lib/api";
+import { sourceAbbreviation, sourceLabel } from "../lib/labels";
 
 export function SimulationTheater({
   runId,
@@ -32,14 +33,18 @@ export function SimulationTheater({
       if (live) {
         setAlerts(
           [...first.items, ...rest.flatMap((page) => page.items)].sort(
-            (a, b) => a.timestamp.localeCompare(b.timestamp) || a.alert_id.localeCompare(b.alert_id),
+            (a, b) =>
+              a.timestamp.localeCompare(b.timestamp) ||
+              a.alert_id.localeCompare(b.alert_id),
           ),
         );
         setLoading(false);
       }
     }
     void load().catch(() => live && setLoading(false));
-    return () => { live = false; };
+    return () => {
+      live = false;
+    };
   }, [runId]);
 
   useEffect(() => {
@@ -58,34 +63,135 @@ export function SimulationTheater({
   const active = cursor > 0 && cursor < alerts.length;
 
   return (
-    <section className="panel theater" aria-label="Chronological SOC alert replay">
+    <section
+      className="panel theater"
+      aria-label="Chronological SOC alert replay"
+    >
       <div className="theater-heading">
         <div>
-          <span className="eyebrow">SOC FLOOR · CHRONOLOGICAL REPLAY</span>
-          <h2><Radio size={19} className={active ? "signal-live" : ""} /> {loading ? "Loading recorded telemetry" : cursor >= alerts.length ? "Replay complete" : "Alert stream in progress"}</h2>
-          <p>{loading ? "Reading the saved source records…" : "One to two hours of simulation time, compressed into a fast reviewable stream."}</p>
+          <span className="eyebrow">RECORDED ALERT REPLAY</span>
+          <h2>
+            <Radio size={19} className={active ? "signal-live" : ""} />{" "}
+            {loading
+              ? "Loading saved alerts"
+              : cursor >= alerts.length
+                ? "Replay complete"
+                : "Replaying saved alerts"}
+          </h2>
+          <p>
+            {loading
+              ? "Reading this run’s saved records…"
+              : "A one- or two-hour fictional shift, replayed quickly in timestamp order."}
+          </p>
         </div>
         <div className="theater-controls">
-          <label>Replay speed<select aria-label="Replay speed" value={speed} onChange={(e) => setSpeed(Number(e.target.value))}><option value="1">1× · 30/sec</option><option value="2">2× · 60/sec</option><option value="4">4× · 120/sec</option></select></label>
-          <button className="button secondary" disabled={loading || cursor >= alerts.length} onClick={() => setPlaying((value) => !value)}>{playing ? <Pause size={15} /> : <Play size={15} />}{playing ? "Pause" : "Resume"}</button>
-          <button className="button secondary" disabled={loading} onClick={() => { setCursor(0); setPlaying(true); }}><RotateCcw size={15} />Restart</button>
+          <label>
+            Replay speed
+            <select
+              aria-label="Replay speed"
+              value={speed}
+              onChange={(e) => setSpeed(Number(e.target.value))}
+            >
+              <option value="1">1× · about 30 alerts/sec</option>
+              <option value="2">2× · about 60 alerts/sec</option>
+              <option value="4">4× · about 120 alerts/sec</option>
+            </select>
+          </label>
+          <button
+            className="button secondary"
+            disabled={loading || cursor >= alerts.length}
+            onClick={() => setPlaying((value) => !value)}
+          >
+            {playing ? <Pause size={15} /> : <Play size={15} />}
+            {playing ? "Pause" : "Resume"}
+          </button>
+          <button
+            className="button secondary"
+            disabled={loading}
+            onClick={() => {
+              setCursor(0);
+              setPlaying(true);
+            }}
+          >
+            <RotateCcw size={15} />
+            Restart
+          </button>
         </div>
       </div>
-      <div className="theater-progress"><span style={{ width: `${alerts.length ? (cursor / alerts.length) * 100 : 0}%` }} /></div>
-      <div className="theater-metrics"><div><strong>{fmt(cursor)}</strong><span>alerts observed</span></div><div><strong>{fmt(alerts.length - cursor)}</strong><span>in replay buffer</span></div><div><strong>{active ? "STREAMING" : cursor >= alerts.length && alerts.length ? "COMPLETE" : "READY"}</strong><span>replay state</span></div><div><strong>{cursor ? time(alerts[cursor - 1].timestamp) : "—"}</strong><span>simulated UTC time</span></div></div>
+      <div className="theater-progress">
+        <span
+          style={{
+            width: `${alerts.length ? (cursor / alerts.length) * 100 : 0}%`,
+          }}
+        />
+      </div>
+      <div className="theater-metrics">
+        <div>
+          <strong>{fmt(cursor)}</strong>
+          <span>alerts replayed</span>
+        </div>
+        <div>
+          <strong>{fmt(alerts.length - cursor)}</strong>
+          <span>alerts remaining</span>
+        </div>
+        <div>
+          <strong>
+            {active
+              ? "PLAYING"
+              : cursor >= alerts.length && alerts.length
+                ? "COMPLETE"
+                : "READY"}
+          </strong>
+          <span>replay status</span>
+        </div>
+        <div>
+          <strong>{cursor ? time(alerts[cursor - 1].timestamp) : "—"}</strong>
+          <span>simulated time · UTC</span>
+        </div>
+      </div>
+      <p className="field-legend">
+        EDR = endpoint detection and response · IdP = identity provider · IDS =
+        network intrusion detection · Severity runs from 0 (lowest) to 4
+        (highest).
+      </p>
       <div className="theater-feed" aria-live="polite">
         {visible.map((alert: Alert, index) => (
-          <button className="theater-alert" key={alert.alert_id} onClick={() => onInspect(alert.alert_id)} style={{ animationDelay: `${index * 18}ms` }}>
-            <span className={`severity level${alert.severity}`}>{alert.severity}/4</span>
-            <span className={`source-tag ${alert.source}`}>{alert.source.toUpperCase()}</span>
-            <span className="theater-alert-main"><strong>{alert.alert_type.replaceAll("_", " ")}</strong><small>{alert.entities.slice(0, 2).join(" · ") || "No entity telemetry"}</small></span>
+          <button
+            className="theater-alert"
+            key={alert.alert_id}
+            onClick={() => onInspect(alert.alert_id)}
+            style={{ animationDelay: `${index * 18}ms` }}
+          >
+            <span className={`severity level${alert.severity}`}>
+              {alert.severity}/4
+            </span>
+            <span
+              className={`source-tag ${alert.source}`}
+              title={sourceLabel(alert.source)}
+            >
+              {sourceAbbreviation(alert.source)}
+            </span>
+            <span className="theater-alert-main">
+              <strong>{alert.alert_type.replaceAll("_", " ")}</strong>
+              <small>
+                {alert.entities.slice(0, 2).join(" · ") ||
+                  "No entity telemetry"}
+              </small>
+            </span>
             <span className="mono theater-time">{time(alert.timestamp)}</span>
             <Activity size={15} />
           </button>
         ))}
-        {!loading && !visible.length && <div className="theater-empty">Waiting for first source alert…</div>}
+        {!loading && !visible.length && (
+          <div className="theater-empty">Waiting for first source alert…</div>
+        )}
       </div>
-      <div className="flow-note"><Activity size={15} />Replay uses the stored alerts in event-time order. Click any row to inspect its incident assignment, ranking, score factors and correlation links.</div>
+      <div className="flow-note">
+        <Activity size={15} />
+        This is a replay of saved alerts, not live telemetry. Open any row to
+        see its incident group, rank, score factors, and the evidence used to
+        link it.
+      </div>
     </section>
   );
 }

@@ -1,94 +1,108 @@
-# Utopia Signal — Imagine Utopia · Team 239
+# Utopia Signal · Team 239
 
-**A reviewable alert-triage demonstration for Microsoft Innovate 2026, Problem 25.**
+**From alert noise to incident groups an analyst can inspect.**
 
-Imagine Utopia turns a busy stream of security alerts into an explainable investigation queue. It combines a seeded telemetry simulator, explicit import workflows, deterministic correlation and scoring, human-reviewed incident decisions, and a reproducible evaluation lab.
+Security operations teams can receive many separate alerts about the same activity. Utopia Signal demonstrates a focused workflow: connect alerts that share evidence, rank the resulting incident groups, and let an analyst inspect why each decision was made.
 
-The project is designed to make each step inspectable: what evidence was generated or imported, why alerts were grouped, how an incident was ranked, and what the evaluation does—and does not—show.
+**[Open the demo](https://utopia-soc-239.sapre-aude33.chatgpt.site)** · **[Five-minute walkthrough](docs/DEMO_SCRIPT.md)** · **[Judge brief](public/judge-brief.md)**
 
-**[Open the demo](https://utopia-soc-239.sapre-aude33.chatgpt.site)** · **[Judge brief](public/judge-brief.md)** · **[Five-minute walkthrough](docs/DEMO_SCRIPT.md)** · **[All documentation](docs/README.md)**
+## See the value first
 
-## See the workbench
+```mermaid
+flowchart LR
+  A[Many source alerts] --> B[Combine repeat signals]
+  B --> C[Link related activity]
+  C --> D[Rank incident groups]
+  D --> E[Optional AI overview<br/>with analyst consent]
+  E --> F[Analyst reviews evidence]
+  F --> G[Record a decision]
+```
 
-![SOC dashboard with the ranked investigation queue](docs/dashboard.png)
+The dashboard makes this change visible: **source alerts → distinct signals → incident groups → a review decision**. Open an alert or a group to see its members, shared users/devices/network evidence, score factors, rank, mapped behavior, and suggested checks. Grouping and risk scores are deterministic and explainable; the optional AI overview can summarize a group from a limited facts packet.
 
-| Investigate an incident                                           | Import and review evidence                                 | Compare methods                                     |
-| ----------------------------------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------- |
-| ![Incident evidence and decision details](docs/investigation.png) | ![Import review and provenance](docs/import-workbench.png) | ![Benchmark comparison lab](docs/benchmark-lab.png) |
+The AI overview is off unless a server-side Groq key is configured and the analyst explicitly consents for that group. Alert descriptions and simulation labels are excluded from the facts packet. Without a key, the rules-based overview works normally.
 
-## Run locally
+## Start the demo
 
-Requirements: Node.js 24 and npm. A model-provider key is **not** required to run the app. The landing-page judge brief is a pre-generated, human-reviewed synthesis; user-uploaded reports are not sent to an AI provider, and incident briefs use deterministic templates.
+The first screen gives two choices: **Start a demo** or **Import data**. A demo run creates a randomized 450–900 fictional alerts over a randomly selected one- or two-hour event window. It then opens the ranked incident groups with a fast replay of those saved alerts.
 
-```bash
+### Run on this computer
+
+Requirements: Node.js 24 and npm. From PowerShell:
+
+```powershell
 git clone https://github.com/aakash-kr-7/ImagineUtopia_3000Alerts.git
 cd ImagineUtopia_3000Alerts
 npm ci
 npm run dev
 ```
 
-Open [http://127.0.0.1:5173](http://127.0.0.1:5173). The first page is a project briefing. Start a simulation to generate a randomized 450–900 alert run spanning one or two simulated hours, or import a reviewer-provided file. No large run is created automatically. Local SQLite data is stored under `runtime/` and excluded from Git.
+Open [http://127.0.0.1:5173](http://127.0.0.1:5173) and keep the terminal running. Local analyses are stored in `runtime/`.
 
-To build the client and Cloudflare Worker bundle:
+### Run with Docker Desktop
 
-```bash
-npm run check
-npm run build
+```powershell
+docker compose up --build
 ```
 
-For the optional Python adapter, install `requirements.txt` and run `make demo`; FastAPI is served at [http://127.0.0.1:8000](http://127.0.0.1:8000), with OpenAPI docs at `/docs`. To run the local container, use `docker compose up --build`; it binds to localhost and persists SQLite data in a named volume.
+Open [http://localhost:8000](http://localhost:8000). Docker exposes port **8000** on your computer; port 5173 is internal to the container. Local records persist in a named Docker volume.
 
-## What you can explore
+### Optional Groq AI overview
 
-- **A visible SOC shift:** watch saved alerts replay in event-time order; pause, change speed, filter for review priority, and open individual alerts.
-- **Decision explanations:** inspect score components, incident assignment, ranking, linked evidence, ATT&CK mappings, and why an alert does or does not appear in the top review items.
-- **Simulation source ledger:** after triage, reveal raw events, alert-to-event links, synthetic labels, scenario stages, inventory, validation output, and SHA-256 hashes.
-- **File review:** import JSON/JSONL, CSV/TSV, XLSX, searchable PDF, DOCX, TXT, or LOG. Structured events enter the queue; narrative reports produce cited mentions rather than fabricated alert timelines.
-- **Research and comparison:** compare Utopia with fixed educational baselines on the same input; inspect coverage curves, episode visibility, pairwise grouping, benign contamination, and seed-level results.
-- **Human decisions and audit:** record a reasoned disposition, inspect the append-only application audit trail, and export JSON, CSV, or a printable HTML report.
+The live overview is optional. To turn it on for a local Docker demo, copy `.env.example` to `.env`, add a newly issued Groq key, and start or rebuild the container. `.env` is ignored by Git. The overview sends only the current group's alert IDs, timestamps, behavior types, source/severity values, entity identifiers, score, and technique codes to Groq after the analyst checks the consent box. Alert descriptions, uploaded file bytes, and simulation truth are not sent. The generated prose is not proof of intent; structured IDs and citations are checked, and the analyst remains responsible for interpretation.
+
+For a demo without a provider key, use the deterministic incident overview. Core simulation, grouping, review, import, and evaluation do not require AI.
+
+## Try a realistic public-data example
+
+From **Import data**, download and use [the curated AIT Wazuh CSV sample](public/examples/ait-wazuh-demo.csv). It contains security alerts from the public AIT Alert Data Set, a controlled research testbed distributed under CC BY 4.0. Host names are pseudonymized; raw log text and user/network identifiers are omitted. The CSV is an import example, **not** a held-out accuracy dataset; ATT&CK labels and source evaluation fields are excluded. See [sample provenance and attribution](docs/EXAMPLE_DATA.md).
+
+The importer also accepts supported JSON/JSONL, CSV/TSV, XLSX, searchable PDF, DOCX, TXT, and LOG formats. It previews records, severity conversion, time zones, accepted/rejected rows, and source provenance before analysis. Narrative documents become cited evidence mentions; they are not converted into invented alert timelines. See the [import guide](docs/INGESTION.md) for exact formats and limits.
 
 ## What the evidence says
 
-In the committed **synthetic holdout** experiment at 3,000 alerts, mean episode Recall@25 is **80.0%** for Utopia and **16.7%** for the severity-only baseline across 20 fixed seeds. Utopia grouping F1 is **25.6%**, and benign contamination is **3.7%** under the protocol's definition. At 10,000 alerts, mean Recall@25 is **48.8%**.
+In the project's synthetic fixed-seed holdout at 3,000 alerts, mean **episode Recall@25** is 80.0% for Utopia and 16.7% for severity-only across 20 seeds. This means a simulated campaign appeared in the first 25 ranked review groups; it is not alert-level accuracy or analyst time saved. Grouping F1 is 25.6% under the protocol's pairwise definition. At 10,000 alerts, Recall@25 falls to 48.8%.
 
-These results describe this simulator and its fixed protocol. They are not external SOC accuracy, breach prevention, calibrated probabilities, analyst time saved, or a comparison against commercial security products. MITRE ATT&CK mappings identify observed behavior; they do not establish attacker intent. The app does not perform autonomous response.
+These results describe this simulator and protocol. They do not establish real SOC accuracy, production-scale performance, breach prevention, calibrated risk probabilities, time saved, or superiority to a commercial platform. The scale drop and modest grouping F1 are part of the result. Read the [evaluation protocol](docs/EVALUATION_PROTOCOL.md) and [validation record](docs/VALIDATION.md) before reusing a metric.
 
-For the protocol, metric definitions, raw results, public-data check, and caveats, see [Evaluation protocol](docs/EVALUATION_PROTOCOL.md), [Validation record](docs/VALIDATION.md), and [Primary sources](docs/SOURCES.md).
+## What is common, and where this project adds value
 
-## How it works
+| Established security workflow                          | Utopia Signal's focused contribution                                                                                 |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| Security products already group and prioritize alerts. | Show the evidence that links each alert group into an incident.                                                      |
+| Analysts investigate alerts and record decisions.      | Let a reviewer open every alert, inspect its rank and score reasons, and record a reasoned human disposition.        |
+| Benchmarking compares methods on data.                 | Keep simulation labels outside triage and compare all methods against the same held-out runs and review-item budget. |
+| MITRE ATT&CK names observed techniques and tactics.    | Use pinned ATT&CK references as context, not as proof of malicious intent or a universal attack sequence.            |
+
+The defensible contribution is **an inspectable triage experiment with a visible coverage/workload trade-off**, not a claim to invent alert correlation.
+
+## How the parts fit together
 
 ```mermaid
-flowchart LR
-  A[Simulated or imported alerts] --> B[Validate and normalize]
-  B --> C[Deduplicate and correlate]
-  C --> D[Map observed behavior to ATT&CK]
-  D --> E[Score and rank incidents]
-  E --> F[Human review and audit]
-  E --> G[Evaluation]
-  H[Separate simulation truth] --> G
+flowchart TB
+  UI[React analyst workspace] --> API[Local Node API or hosted Worker]
+  CSV[CSV / JSON / other supported import] --> VALIDATE[Validate and normalize]
+  SIM[Seeded fictional event simulator] --> VALIDATE
+  VALIDATE --> CORE[Shared TypeScript triage engine]
+  CORE --> GROUP[Deduplicate and link related alerts]
+  GROUP --> SCORE[Explainable score and ranked incident groups]
+  SCORE --> UI
+  SCORE --> OVERVIEW[Rules-based overview]
+  SCORE -. optional, explicit consent .-> GROQ[Groq AI overview]
+  TRUTH[Separate simulation labels] --> EVAL[Post-triage evaluation]
+  SCORE --> EVAL
+  EVAL --> UI
+  UI --> HUMAN[Analyst decision and audit history]
 ```
 
-The operational engine receives alerts, not simulation truth. Evaluation runs after triage; a completed run's source ledger is a separate, explicit post-run review. Correlation and risk scores are deterministic and bounded. The optional model-brief adapter is not enabled in the live dashboard; no external AI provider is called by default.
+**What happens at each step:** the browser previews and normalizes an import; the TypeScript engine groups using typed entities and time; a capped rule-based score ranks each group; the analyst inspects and decides; evaluation reads synthetic labels only after triage. Local Node and the optional FastAPI adapter use the same engine. Docker runs the local, single-workspace appliance. A built Cloudflare Worker adapter is included for hosted deployment.
 
-## Repository guide
+## Explore the repository
 
-| Area                                      | Start here                                                                            |
-| ----------------------------------------- | ------------------------------------------------------------------------------------- |
-| Documentation index                       | [docs/README.md](docs/README.md)                                                      |
-| Judge-ready project analysis              | [public/judge-brief.md](public/judge-brief.md)                                        |
-| AI analysis process and source provenance | [docs/AI_SOURCE_ANALYSIS.md](docs/AI_SOURCE_ANALYSIS.md)                              |
-| Walkthrough and judge Q&A                 | [DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md) · [JUDGE_QA.md](docs/JUDGE_QA.md)               |
-| Architecture and trust boundaries         | [ARCHITECTURE.md](docs/ARCHITECTURE.md)                                               |
-| Simulation contract                       | [SIMULATION.md](docs/SIMULATION.md)                                                   |
-| Import formats and provenance             | [INGESTION.md](docs/INGESTION.md)                                                     |
-| Metrics and benchmark design              | [EVALUATION_PROTOCOL.md](docs/EVALUATION_PROTOCOL.md)                                 |
-| Validation evidence and limitations       | [VALIDATION.md](docs/VALIDATION.md)                                                   |
-| Requirements mapping and sources          | [REQUIREMENTS_MATRIX.md](docs/REQUIREMENTS_MATRIX.md) · [SOURCES.md](docs/SOURCES.md) |
-| Editable pitch                            | [UTOPIA_PITCH.pptx](docs/UTOPIA_PITCH.pptx) · [PDF](docs/UTOPIA_PITCH.pdf)            |
-| Contributor workflow                      | [CONTRIBUTING.md](CONTRIBUTING.md)                                                    |
+- [Product demo and judge walkthrough](docs/DEMO_SCRIPT.md) · [Judge questions](docs/JUDGE_QA.md)
+- [Architecture and trust boundaries](docs/ARCHITECTURE.md) · [Simulation assumptions](docs/SIMULATION.md)
+- [Evaluation protocol and metric definitions](docs/EVALUATION_PROTOCOL.md) · [Validation and limits](docs/VALIDATION.md)
+- [Import formats](docs/INGESTION.md) · [Public sample provenance](docs/EXAMPLE_DATA.md)
+- [Documentation index](docs/README.md) · [Editable pitch deck](docs/UTOPIA_PITCH.pptx)
 
-Implementation map: `core/` contains the TypeScript contracts, triage, simulation, ingestion and evaluation logic; `app/` contains the React workbench; `server/` contains the API, storage and runtimes; `backend/` is the FastAPI adapter; `experiments/` and `scripts/` hold the fixed protocol and reproducibility tools; `tests/` contains automated checks.
-
-## Scope and limitations
-
-This is a research prototype and demonstration, not a production SIEM/SOAR replacement. The simulator is structurally validated but is not a model of every organization's event distribution. Scanned PDFs require OCR or a searchable export; arbitrary proprietary telemetry is not claimed as universally supported. Public-data validation measures ingestion and observable workload only, not external attack accuracy. Read [the full limitations and validation record](docs/VALIDATION.md) before reusing benchmark claims.
+The product is a research prototype and demonstration. It does not execute attacks or take response actions. Simulation realism is structurally checked but is not fitted to every organization. External AIT data supports a bounded ingestion check only; it does not supply per-alert gold labels for an external accuracy claim.

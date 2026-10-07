@@ -40,6 +40,7 @@ import { MethodView } from "./components/MethodView";
 import { DocumentView, ReportImport } from "./components/ReportImport";
 import { SimulationForm } from "./components/SimulationForm";
 import { SimulationQuality } from "./components/SimulationQuality";
+import { SimulationTheater } from "./components/SimulationTheater";
 import { Stat } from "./components/Stat";
 import { TruthSourceView } from "./components/TruthSourceView";
 import { api, fmt, pct, short, time } from "./lib/api";
@@ -57,16 +58,24 @@ type View =
   | "truth"
   | "briefing";
 const nav = [
-  { id: "briefing", label: "Demo briefing", icon: Activity },
-  { id: "truth", label: "Source of truth", icon: Database },
-  { id: "import", label: "Import reports", icon: FileText },
-  { id: "benchmarks", label: "Benchmark lab", icon: FlaskConical },
-  { id: "queue", label: "Incident queue", icon: LayoutList },
-  { id: "alerts", label: "Raw alerts", icon: Activity },
-  { id: "evaluation", label: "Evaluation", icon: ChartNoAxesCombined },
-  { id: "simulation", label: "Simulation lab", icon: FlaskConical },
-  { id: "audit", label: "Audit trail", icon: ScrollText },
+  { id: "briefing", label: "Demo home", icon: Activity },
+  { id: "queue", label: "Incident groups", icon: LayoutList },
+  { id: "alerts", label: "Alert replay", icon: Activity },
+  { id: "import", label: "Import data", icon: FileText },
+  { id: "evaluation", label: "Run results", icon: ChartNoAxesCombined },
+  { id: "truth", label: "Source ledger", icon: Database },
+  { id: "benchmarks", label: "Benchmark study", icon: FlaskConical },
+  { id: "simulation", label: "Simulation design", icon: FlaskConical },
+  { id: "audit", label: "Decision history", icon: ScrollText },
 ] as const;
+const primaryNav = nav.filter((item) =>
+  ["briefing", "queue", "alerts", "import"].includes(item.id),
+);
+const reviewNav = nav.filter((item) =>
+  ["evaluation", "truth", "benchmarks", "simulation", "audit"].includes(
+    item.id,
+  ),
+);
 
 function App() {
   const [view, setView] = useState<View>("briefing"),
@@ -81,11 +90,18 @@ function App() {
     [status, setStatus] = useState("all"),
     [simOpen, setSimOpen] = useState(false),
     [detail, setDetail] = useState<any>(null),
+    [aiOverview, setAiOverview] = useState<any>(null),
+    [aiOverviewBusy, setAiOverviewBusy] = useState(false),
+    [aiOverviewConsent, setAiOverviewConsent] = useState(false),
     [tab, setTab] = useState("overview"),
     [action, setAction] = useState(""),
     [reason, setReason] = useState(""),
     [toast, setToast] = useState(""),
     [mobileNav, setMobileNav] = useState(false);
+  const [focusAlert, setFocusAlert] = useState<{
+    id: string;
+    token: number;
+  } | null>(null);
   const dialog = useRef<HTMLDialogElement>(null),
     simDialog = useRef<HTMLDialogElement>(null),
     actionDialog = useRef<HTMLDialogElement>(null),
@@ -134,6 +150,8 @@ function App() {
         signal: controller.signal,
       });
       setDetail(d);
+      setAiOverview(null);
+      setAiOverviewConsent(false);
       setTab("overview");
       dialog.current?.showModal();
     } catch (e) {
@@ -143,6 +161,21 @@ function App() {
   function closeDetail() {
     dialog.current?.close();
     setDetail(null);
+  }
+  async function generateAiOverview() {
+    if (!detail?.ai_overview_enabled || !aiOverviewConsent) return;
+    setAiOverviewBusy(true);
+    try {
+      const result = await api(
+        `runs/${runId}/incidents/${detail.incident.id}/overview`,
+        { method: "POST", body: "{}" },
+      );
+      setAiOverview(result.brief);
+    } catch (e) {
+      notify((e as Error).message);
+    } finally {
+      setAiOverviewBusy(false);
+    }
   }
   async function simulate(config: any) {
     setBusy(true);
@@ -170,7 +203,7 @@ function App() {
       setRunId(r.id);
       setSimOpen(false);
       simDialog.current?.close();
-      setView("alerts");
+      setView("queue");
       closeDetail();
       notify(`Run ready · ${fmt(r.count)} alerts in the saved replay`);
     } catch (e) {
@@ -310,9 +343,9 @@ function App() {
           </div>
           <ChevronsUpDown size={14} />
         </div>
-        <div className="nav-label">WORKSPACE</div>
+        <div className="nav-label">DEMO</div>
         <nav aria-label="Primary navigation">
-          {nav.map((n) => (
+          {primaryNav.map((n) => (
             <button
               key={n.id}
               className={"nav-item " + (view === n.id ? "active" : "")}
@@ -331,6 +364,25 @@ function App() {
               )}
             </button>
           ))}
+          <details className="nav-more">
+            <summary>Review &amp; research</summary>
+            <div>
+              {reviewNav.map((n) => (
+                <button
+                  key={n.id}
+                  className={"nav-item " + (view === n.id ? "active" : "")}
+                  onClick={() => {
+                    setView(n.id);
+                    setMobileNav(false);
+                    setQ("");
+                  }}
+                >
+                  <n.icon size={18} />
+                  <span>{n.label}</span>
+                </button>
+              ))}
+            </div>
+          </details>
         </nav>
         <div className="nav-bottom">
           <button
@@ -372,7 +424,7 @@ function App() {
             <span>Team 239</span>
             <ChevronRight size={14} />
             <strong>
-              {nav.find((n) => n.id === view)?.label ?? "Methodology"}
+              {nav.find((n) => n.id === view)?.label ?? "How it works"}
             </strong>
           </div>
           <div className="topbar-right">
@@ -387,7 +439,7 @@ function App() {
             <div>
               <div className="eyebrow">
                 {view === "briefing"
-                  ? "TEAM 239 · PROJECT BRIEFING"
+                  ? "START HERE · TEAM 239"
                   : view === "queue"
                     ? "TRIAGE WORKSPACE"
                     : view === "evaluation"
@@ -400,44 +452,44 @@ function App() {
                 {view === "briefing"
                   ? "Utopia Signal"
                   : view === "truth"
-                    ? "Simulation source of truth"
+                    ? "Simulation source ledger"
                     : data?.document && view === "queue"
                       ? "Document assessment"
                       : view === "import"
-                        ? "Import workbench"
+                        ? "Import data"
                         : view === "benchmarks"
                           ? "Benchmark lab"
                           : view === "queue"
-                            ? "Incident queue"
+                            ? "Incident groups"
                             : view === "alerts"
-                              ? "Raw alert stream"
+                              ? "Alert replay"
                               : view === "evaluation"
-                                ? "Coverage & workload"
+                                ? "Run results"
                                 : view === "simulation"
-                                  ? "Simulation lab"
+                                  ? "Simulation design"
                                   : view === "audit"
                                     ? "Audit trail"
                                     : "Transparent by design"}
               </h1>
               <p>
                 {view === "briefing"
-                  ? "An inspectable alert-to-incident workbench, measured against clear baselines."
+                  ? "Turn a busy alert stream into a short, explainable incident queue."
                   : view === "truth"
-                    ? "Inspect the generated event ledger and reveal synthetic labels after triage."
+                    ? "Check what generated each simulated alert after the incident groups are ready."
                     : view === "import"
-                      ? "SOC exports and report documents, with source provenance."
+                      ? "Preview a supported security export, then see how its alerts group into incidents."
                       : view === "benchmarks"
-                        ? "Reproducible comparisons, uncertainty, robustness, and failure cases."
+                        ? "Compare the current run with fixed, repeatable baselines."
                         : view === "queue"
-                          ? "Turn alert noise into investigations worth opening."
+                          ? "See the incident groups that bring related alerts together."
                           : view === "alerts"
-                            ? "Every source alert is preserved, including unmapped activity."
+                            ? "Replay saved alerts in timestamp order and inspect any alert’s incident."
                             : view === "evaluation"
-                              ? "The same alerts. The same labels. A fair comparison."
+                              ? "See episode coverage and review effort for this simulation."
                               : view === "simulation"
-                                ? "Repeatable attack chains inside a fictional enterprise."
+                                ? "Choose the alert volume, timing, and fictional activity for a demo run."
                                 : view === "audit"
-                                  ? "Every analyst decision, with its reason and evidence of integrity."
+                                  ? "Review analyst decisions and their recorded reasons."
                                   : "Inspect the logic behind every group and risk score."}
               </p>
             </div>
@@ -488,7 +540,7 @@ function App() {
               </button>
             </div>
           </div>
-          {runId && (
+          {runId && view !== "briefing" && (
             <div className="run-bar">
               <div className="run-badge">
                 <Database size={14} />
@@ -570,12 +622,12 @@ function App() {
               <div className="briefing-hero panel">
                 <div className="briefing-copy">
                   <span className="eyebrow">
-                    GROQ-ASSISTED · FOUR TEAM REPORTS · HUMAN-REVIEWED
+                    FROM ALERTS TO INCIDENT GROUPS
                   </span>
-                  <h2>Make the signal easier to investigate.</h2>
+                  <h2>See the investigation take shape.</h2>
                   <p>
-                    Group related alerts, see why they rank, and check the
-                    result against a separate simulation answer key.
+                    Watch individual alerts become linked incident groups,
+                    understand why each group ranks, and review the evidence.
                   </p>
                   <div className="briefing-actions">
                     <button
@@ -583,28 +635,37 @@ function App() {
                       onClick={() => setSimOpen(true)}
                     >
                       <Play size={16} />
-                      Start a simulation
+                      Start a demo
                     </button>
                     <button
                       className="button secondary"
                       onClick={() => setView("import")}
                     >
                       <FileText size={16} />
-                      Review CSV / Excel
+                      Import data
                     </button>
                   </div>
                   <small>
-                    Random 450–900 alerts · 1–2 simulated hours · seed recorded
-                    per run
+                    Random 450–900 alerts · random 1–2 hour event window
                   </small>
+                  <a
+                    className="briefing-sample-link"
+                    href="/examples/ait-wazuh-demo.csv"
+                    download
+                  >
+                    Download the public Wazuh example CSV
+                  </a>
                 </div>
                 <div className="briefing-metric">
                   <span>SYNTHETIC HOLDOUT · 3,000 ALERTS · 20 SEEDS</span>
                   <strong>80%</strong>
-                  <p>Attack episodes surfaced in the first 25 review items.</p>
+                  <p>
+                    Simulated attack episodes visible in the first 25 ranked
+                    incident groups.
+                  </p>
                   <small>
-                    Severity-only baseline: 16.7% · review items are a workload
-                    proxy, not analyst time.
+                    Severity-only baseline: 16.7% · each group counts as one
+                    review item; not analyst time.
                   </small>
                 </div>
               </div>
@@ -620,10 +681,9 @@ function App() {
                 </article>
                 <article className="panel">
                   <span className="brief-step">THE CONTRIBUTION</span>
-                  <h3>Every decision is inspectable.</h3>
+                  <h3>Groups have visible reasons.</h3>
                   <p>
-                    Follow evidence through grouping, scoring, ranking, and
-                    post-run evaluation.
+                    Trace the related alerts, shared evidence, score, and rank.
                   </p>
                   <small>Sources 2–3 · Solution and originality</small>
                 </article>
@@ -631,11 +691,39 @@ function App() {
                   <span className="brief-step">THE EVIDENCE</span>
                   <h3>80% vs 16.7% at 3k.</h3>
                   <p>
-                    Synthetic episode Recall@25 across fixed holdout seeds—not
-                    analyst time saved.
+                    Synthetic benchmark across 20 fixed runs—not real SOC
+                    accuracy or time saved.
                   </p>
                   <small>Source 4 · Impact and evaluation</small>
                 </article>
+              </div>
+              <div
+                className="demo-flow"
+                aria-label="How the demo turns alerts into useful incident groups"
+              >
+                <div>
+                  <span>1</span>
+                  <strong>Incoming alerts</strong>
+                  <small>Separate signals from security tools</small>
+                </div>
+                <ChevronRight aria-hidden="true" />
+                <div>
+                  <span>2</span>
+                  <strong>Related activity</strong>
+                  <small>Connect shared users, devices, and time</small>
+                </div>
+                <ChevronRight aria-hidden="true" />
+                <div className="demo-flow-highlight">
+                  <span>3</span>
+                  <strong>Incident groups</strong>
+                  <small>Rank the investigations worth opening</small>
+                </div>
+                <ChevronRight aria-hidden="true" />
+                <div>
+                  <span>4</span>
+                  <strong>Analyst review</strong>
+                  <small>See the evidence and record a decision</small>
+                </div>
               </div>
               <details className="panel briefing-notes">
                 <summary>
@@ -805,37 +893,46 @@ function App() {
               <>
                 {view === "queue" && (
                   <>
+                    {selectedRun?.seed != null && (
+                      <SimulationTheater
+                        runId={runId}
+                        onInspect={(alertId) => {
+                          setFocusAlert({ id: alertId, token: Date.now() });
+                          setView("alerts");
+                        }}
+                      />
+                    )}
                     <div className="stats-grid">
                       <Stat
                         label="Incoming alerts"
                         value={fmt(data.stats.alerts)}
-                        subtitle="Across EDR, identity & network"
+                        subtitle="Endpoint, identity, and network sensors"
                         icon={<Activity size={18} />}
                         spark="blue"
                       />
                       <Stat
-                        label="Review items"
+                        label="Incident groups"
                         value={fmt(data.stats.incidents)}
                         subtitle={`${pct(1 - data.stats.incidents / data.stats.alerts)} fewer queue rows`}
                         icon={<Layers size={18} />}
                         spark="mint"
                       />
                       <Stat
-                        label="Critical & high"
+                        label="High-priority groups"
                         value={fmt(data.stats.critical + data.stats.high)}
                         subtitle={`${data.stats.critical} critical · ${data.stats.high} high priority`}
                         icon={<TriangleAlert size={18} />}
                         spark="red"
                       />
                       <Stat
-                        label="Pipeline runtime"
+                        label="Analysis time"
                         value={
                           data.stats.runtime_ms < 1000
                             ? `${Math.round(data.stats.runtime_ms)}`
                             : (data.stats.runtime_ms / 1000).toFixed(2)
                         }
                         unit={data.stats.runtime_ms < 1000 ? "ms" : "s"}
-                        subtitle="Measured on this run"
+                        subtitle="To group and rank this batch"
                         icon={<Clock size={18} />}
                         spark="purple"
                       />
@@ -853,22 +950,26 @@ function App() {
                             <span>Source alerts</span>
                           </div>
                           <div className="flow-line">
-                            <span>DEDUPLICATE</span>
+                            <span>COMBINE REPEATS</span>
                             <ChevronRight size={17} />
                           </div>
                           <div>
                             <Layers size={24} />
                             <strong>{fmt(data.stats.groups)}</strong>
-                            <span>Distinct groups</span>
+                            <span title="Repeat notifications for the same signal are combined">
+                              Unique alert signals
+                            </span>
                           </div>
                           <div className="flow-line">
-                            <span>CORRELATE</span>
+                            <span>LINK EVIDENCE</span>
                             <ChevronRight size={17} />
                           </div>
                           <div className="flow-final">
                             <Network size={24} />
                             <strong>{fmt(data.stats.incidents)}</strong>
-                            <span>Review items</span>
+                            <span title="Analyst-sized investigations ranked by score">
+                              Incident groups to review
+                            </span>
                           </div>
                         </div>
                         <div className="flow-note">
@@ -1107,6 +1208,7 @@ function App() {
                     runId={runId}
                     notify={notify}
                     showReplay={Boolean(selectedRun?.manifest?.synthetic)}
+                    focusAlert={focusAlert}
                     onImportReports={() => setView("import")}
                     onOpenIncident={openIncident}
                     onImport={async (raw) => {
@@ -1204,32 +1306,81 @@ function App() {
                     <div className="section-title">
                       <span>
                         <FileText size={17} />
-                        Analyst brief
+                        Incident overview
                       </span>
                       <span className="verified">
                         <Check size={13} />
                         Facts checked
                       </span>
                     </div>
-                    <p>{detail.brief.summary}</p>
+                    <p>{(aiOverview ?? detail.brief).summary}</p>
                     <div className="citation-row">
-                      {detail.brief.citations.map((id: string) => (
-                        <button
-                          className="citation"
-                          key={id}
-                          onClick={() => setTab("evidence")}
-                        >
-                          {id}
-                        </button>
-                      ))}
+                      {(aiOverview ?? detail.brief).citations.map(
+                        (id: string) => (
+                          <button
+                            className="citation"
+                            key={id}
+                            onClick={() => setTab("evidence")}
+                          >
+                            {id}
+                          </button>
+                        ),
+                      )}
                     </div>
                     <div className="brief-footer">
-                      Deterministic template ·{" "}
-                      {detail.brief.verification.valid
-                        ? "Schema & citations verified"
+                      {(aiOverview ?? detail.brief).generator === "model"
+                        ? "Groq AI overview · structured facts checked"
+                        : "Rules-based overview · "}
+                      {(aiOverview ?? detail.brief).verification.valid
+                        ? "Facts and citations checked"
                         : "Verification failed"}
                       <span>Human interpretation required</span>
                     </div>
+                    <details className="ai-overview-settings">
+                      <summary>
+                        {detail.ai_overview_enabled
+                          ? "Optional AI overview"
+                          : "AI overview · not enabled"}
+                      </summary>
+                      {detail.ai_overview_enabled ? (
+                        <>
+                          <label>
+                            <input
+                              type="checkbox"
+                              checked={aiOverviewConsent}
+                              onChange={(event) =>
+                                setAiOverviewConsent(event.target.checked)
+                              }
+                            />
+                            Send this group’s alert IDs, timestamps, behavior
+                            types, severity, entity identifiers, score, and
+                            technique codes to Groq. Descriptions and simulation
+                            labels are excluded.
+                          </label>
+                          <button
+                            className="button secondary"
+                            disabled={!aiOverviewConsent || aiOverviewBusy}
+                            onClick={() => void generateAiOverview()}
+                          >
+                            {aiOverviewBusy
+                              ? "Writing overview…"
+                              : "Generate AI overview"}
+                          </button>
+                          {aiOverview?.generator === "template_fallback" && (
+                            <p className="inline-note">
+                              AI was unavailable; the rules-based overview is
+                              shown.
+                            </p>
+                          )}
+                        </>
+                      ) : (
+                        <p className="muted">
+                          Set GROQ_API_KEY on the local server to enable this
+                          optional feature. The rules-based overview works
+                          without an AI provider.
+                        </p>
+                      )}
+                    </details>
                   </div>
                   <div className="detail-section">
                     <div className="section-title">

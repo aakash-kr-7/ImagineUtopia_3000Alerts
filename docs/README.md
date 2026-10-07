@@ -20,6 +20,7 @@ Use this page to find the right level of detail. The root [README](../README.md)
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | Synthetic event generation, sealed labels, scenario assumptions   | [SIMULATION.md](SIMULATION.md)                                            |
 | Accepted file types, normalization, provenance, and known limits  | [INGESTION.md](INGESTION.md)                                              |
+| Downloadable public alert sample and attribution                  | [EXAMPLE_DATA.md](EXAMPLE_DATA.md)                                        |
 | Correlation, scoring, storage, and trust boundaries               | [ARCHITECTURE.md](ARCHITECTURE.md)                                        |
 | MITRE ATT&CK version, adapter references, and research provenance | [SOURCES.md](SOURCES.md) · [attack-reference.json](attack-reference.json) |
 

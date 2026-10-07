@@ -88,18 +88,17 @@ export function ReportImport({
   return (
     <div className="import-workbench">
       <div className="panel import-intro">
-        <span className="eyebrow">FROM EXPORT TO EVIDENCE</span>
-        <h2>Bring your own SOC data.</h2>
+        <span className="eyebrow">IMPORT AND REVIEW</span>
+        <h2>Bring in alert data.</h2>
         <p>
-          Preview the extraction, confirm normalization, then investigate.
-          Structured events become an incident queue. Narrative reports become
-          an evidence assessment with source citations.
+          Preview the fields and severity scale before analysis. Alert files
+          open as incident groups; reports become cited evidence for review.
         </p>
         <div className="import-trust">
           <ShieldCheck size={18} />
           <span>
-            Files are parsed in your browser. Only accepted normalized records
-            or extracted findings are saved to your private workspace.
+            Files are read in your browser. Only accepted records or cited
+            findings are saved to this workspace.
           </span>
         </div>
         <label
@@ -126,7 +125,10 @@ export function ReportImport({
         </label>
         <div className="resource-links">
           <a href="/examples/sentinel-alerts.json" download>
-            Sentinel example <Download size={14} />
+            Sentinel JSON example <Download size={14} />
+          </a>
+          <a href="/examples/ait-wazuh-demo.csv" download>
+            Public Wazuh sample <Download size={14} />
           </a>
           <a href="/examples/alerts.csv" download>
             CSV template <Download size={14} />

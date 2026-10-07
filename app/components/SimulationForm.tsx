@@ -18,7 +18,9 @@ export function SimulationForm({
   error: string;
   expanded?: boolean;
 }) {
-  const [seed, setSeed] = useState(239),
+  const [seed, setSeed] = useState(() =>
+      Math.floor(Math.random() * 2_000_000_000),
+    ),
     [count, setCount] = useState(0),
     [episodes, setEpisodes] = useState(5),
     [missing, setMissing] = useState(0),
@@ -28,7 +30,7 @@ export function SimulationForm({
     [coverage, setCoverage] = useState(95),
     [duplicates, setDuplicates] = useState(8),
     [overlap, setOverlap] = useState(false),
-    [duration, setDuration] = useState(2);
+    [duration, setDuration] = useState(0);
   return (
     <div className={expanded ? "simulation-layout" : ""}>
       <form
@@ -40,6 +42,7 @@ export function SimulationForm({
             episodes,
             Math.floor(actualCount / 15),
           );
+          const actualDuration = duration || (Math.random() < 0.5 ? 1 : 2);
           onSubmit({
             seed,
             count: actualCount,
@@ -51,140 +54,155 @@ export function SimulationForm({
             sensor_coverage: coverage / 100,
             duplicate_rate: duplicates / 100,
             attack_overlap: overlap,
-            duration_hours: duration,
+            duration_hours: actualDuration,
           });
         }}
       >
+        {!expanded && (
+          <p className="simulation-quick-intro">
+            A fictional one- or two-hour SOC shift with a randomized alert
+            volume. The saved run replays in time order and opens on its
+            incident groups.
+          </p>
+        )}
         {expanded && (
           <div className="panel-heading">
             <h2>Run configuration</h2>
             <span className="muted small-text">Seeded · randomized volume</span>
           </div>
         )}
-        <div className="form-grid">
-          <label>
-            Random seed
-            <input
-              type="number"
-              min="0"
-              max="2147483647"
-              value={seed}
-              onChange={(e) => setSeed(Number(e.target.value))}
-              required
-            />
-          </label>
-          <label>
+        <details className="simulation-advanced">
+          <summary>Adjust the demo (optional)</summary>
+          <div className="form-grid">
+            <label>
+              Random seed
+              <input
+                type="number"
+                min="0"
+                max="2147483647"
+                value={seed}
+                onChange={(e) => setSeed(Number(e.target.value))}
+                required
+              />
+            </label>
+            <label>
               Alert volume
-            <select
-              value={count}
-              onChange={(e) => setCount(Number(e.target.value))}
-            >
-              <option value="0">Random · 450–900 alerts</option>
-              <option value="500">500 alerts</option>
-              <option value="750">750 alerts</option>
-              <option value="900">900 alerts</option>
-              <option value="1000">1,000 alerts</option>
-              <option value="10000">10,000 alerts</option>
-            </select>
-          </label>
-          <label>
-            Attack episodes
+              <select
+                value={count}
+                onChange={(e) => setCount(Number(e.target.value))}
+              >
+                <option value="0">Random · 450–900 alerts</option>
+                <option value="500">500 alerts</option>
+                <option value="750">750 alerts</option>
+                <option value="900">900 alerts</option>
+                <option value="1000">1,000 alerts</option>
+              </select>
+            </label>
+            <label>
+              Attack episodes
+              <input
+                type="number"
+                min="1"
+                max="30"
+                value={episodes}
+                onChange={(e) => setEpisodes(Number(e.target.value))}
+                required
+              />
+            </label>
+            <label>
+              Severity quality
+              <select
+                value={severity}
+                onChange={(e) => setSeverity(e.target.value)}
+              >
+                <option value="weak">Weak · mixed severity</option>
+                <option value="aligned">Aligned with behavior</option>
+                <option value="misleading">
+                  Misleading · inverted detector severity
+                </option>
+              </select>
+            </label>
+            <label>
+              Shared hub density
+              <select value={hub} onChange={(e) => setHub(e.target.value)}>
+                <option value="normal">Normal · distributed IPs</option>
+                <option value="high">High · one shared NAT</option>
+              </select>
+            </label>
+            <label>
+              Attack step timing
+              <select
+                value={timing}
+                onChange={(e) => setTiming(e.target.value)}
+              >
+                <option value="normal">Normal · 4-minute gaps</option>
+                <option value="stretched">
+                  Stretched · spread across the window
+                </option>
+              </select>
+            </label>
+            <label>
+              Observation duration
+              <select
+                value={duration}
+                onChange={(e) => setDuration(Number(e.target.value))}
+              >
+                <option value="0">Random · 1 or 2 hours</option>
+                <option value="1">1 hour</option>
+                <option value="2">2 hours</option>
+              </select>
+            </label>
+            <label>
+              Episode start overlap
+              <select
+                value={String(overlap)}
+                onChange={(e) => setOverlap(e.target.value === "true")}
+              >
+                <option value="false">
+                  Distributed across observation window
+                </option>
+                <option value="true">Concurrent campaigns</option>
+              </select>
+            </label>
+          </div>
+          <label className="range-label">
+            Sensor coverage <strong>{coverage}%</strong>
             <input
-              type="number"
-              min="1"
-              max="30"
-              value={episodes}
-              onChange={(e) => setEpisodes(Number(e.target.value))}
-              required
+              type="range"
+              min="10"
+              max="100"
+              step="5"
+              value={coverage}
+              onChange={(e) => setCoverage(Number(e.target.value))}
             />
           </label>
-          <label>
-            Severity quality
-            <select
-              value={severity}
-              onChange={(e) => setSeverity(e.target.value)}
-            >
-              <option value="weak">Weak · mixed severity</option>
-              <option value="aligned">Aligned with behavior</option>
-              <option value="misleading">
-                Misleading · inverted detector severity
-              </option>
-            </select>
+          <label className="range-label">
+            Duplicate notifications <strong>{duplicates}%</strong>
+            <input
+              type="range"
+              min="0"
+              max="30"
+              step="2"
+              value={duplicates}
+              onChange={(e) => setDuplicates(Number(e.target.value))}
+            />
           </label>
-          <label>
-            Shared hub density
-            <select value={hub} onChange={(e) => setHub(e.target.value)}>
-              <option value="normal">Normal · distributed IPs</option>
-              <option value="high">High · one shared NAT</option>
-            </select>
+          <label className="range-label">
+            Missing entity telemetry <strong>{missing}%</strong>
+            <input
+              type="range"
+              min="0"
+              max="50"
+              step="5"
+              value={missing}
+              onChange={(e) => setMissing(Number(e.target.value))}
+            />
           </label>
-          <label>
-            Attack step timing
-            <select value={timing} onChange={(e) => setTiming(e.target.value)}>
-              <option value="normal">Normal · 4-minute gaps</option>
-              <option value="stretched">Stretched · spread across the window</option>
-            </select>
-          </label>
-          <label>
-            Observation duration
-            <select
-              value={duration}
-              onChange={(e) => setDuration(Number(e.target.value))}
-            >
-              <option value="1">1 hour</option>
-              <option value="2">2 hours</option>
-            </select>
-          </label>
-          <label>
-            Episode start overlap
-            <select
-              value={String(overlap)}
-              onChange={(e) => setOverlap(e.target.value === "true")}
-            >
-              <option value="false">
-                Distributed across observation window
-              </option>
-              <option value="true">Concurrent campaigns</option>
-            </select>
-          </label>
-        </div>
-        <label className="range-label">
-          Sensor coverage <strong>{coverage}%</strong>
-          <input
-            type="range"
-            min="10"
-            max="100"
-            step="5"
-            value={coverage}
-            onChange={(e) => setCoverage(Number(e.target.value))}
-          />
-        </label>
-        <label className="range-label">
-          Duplicate notifications <strong>{duplicates}%</strong>
-          <input
-            type="range"
-            min="0"
-            max="30"
-            step="2"
-            value={duplicates}
-            onChange={(e) => setDuplicates(Number(e.target.value))}
-          />
-        </label>
-        <label className="range-label">
-          Missing entity telemetry <strong>{missing}%</strong>
-          <input
-            type="range"
-            min="0"
-            max="50"
-            step="5"
-            value={missing}
-            onChange={(e) => setMissing(Number(e.target.value))}
-          />
-        </label>
+        </details>
         <div className="inline-note">
           <ShieldCheck size={17} />
-          Ground truth is stored separately and used only by evaluation. This
-          run creates synthetic data.
+          Fictional data for a safe demonstration. Labels are checked only after
+          triage.
         </div>
         {error && (
           <p className="form-error" role="alert">
@@ -196,8 +214,7 @@ export function SimulationForm({
           disabled={busy}
           type="submit"
         >
-          <Play size={16} />{" "}
-          {busy ? "Building the SOC run…" : "Start alert simulation"}
+          <Play size={16} /> {busy ? "Preparing the demo…" : "Start demo"}
         </button>
       </form>
       {expanded && (

@@ -23,7 +23,7 @@ export function AuditView({ runId }: { runId: string }) {
               : "Verifying audit chain…"}
           </h2>
           <p>
-            {audit?.records.length ?? 0} decisions · SHA-256 links · versions
+            {audit?.records.length ?? 0} decisions · linked hashes and versions
             checked
           </p>
           <small className="muted">
@@ -36,7 +36,12 @@ export function AuditView({ runId }: { runId: string }) {
       <div className="panel">
         <div className="panel-heading">
           <h2>Decision history</h2>
-          <span className="muted small-text">Append-only workflow</span>
+          <span
+            className="muted small-text"
+            title="Saved decisions are not edited in place"
+          >
+            New decisions are added to history
+          </span>
         </div>
         {audit?.records.length ? (
           <div className="audit-list">
@@ -60,7 +65,9 @@ export function AuditView({ runId }: { runId: string }) {
                   </div>
                   <p>{r.reason}</p>
                   <div className="hash-line">
-                    <span>SHA-256</span>
+                    <span title="A cryptographic fingerprint used to reveal edits">
+                      Integrity fingerprint
+                    </span>
                     <code>{r.hash}</code>
                   </div>
                   <small className="muted">
